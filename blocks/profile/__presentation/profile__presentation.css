@@ -1,3 +1,5 @@
 .profile__presentation{
-  border:2px solid #e504ec;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }

@@ -20,4 +20,10 @@
 @import url(../blocks/profile/__avatar/profile__avatar-image.css);
 @import url(../blocks/profile/__presentation/profile__presentation.css);
 @import url(../blocks/profile/__name/profile__name.css);
-@import url(../blocks/profile/__activit/profile__activit.css)
+@import url(../blocks/profile/__author/profile__author.css);
+@import url(../blocks/profile/__activit/profile__activit.css);
+
+/*BOTONES CABECERA*/
+@import url(../blocks/btn/btn.css);
+@import url(../blocks/btn/__edit/btn__edit.css);
+@import url(../blocks/btn/__add/btn__add.css);

@@ -1,3 +1,6 @@
 .profile{
-  border:1px solid bisque;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top:2.266rem
 }
