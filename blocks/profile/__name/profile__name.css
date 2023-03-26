@@ -1,0 +1,8 @@
+.profile__name {
+  margin     : 0;
+  font-style : normal;
+  font-weight: 500;
+  font-size  : 2.625rem;
+  line-height: 133%;
+  /* or 133% */
+}
