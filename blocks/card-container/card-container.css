@@ -2,5 +2,6 @@
   padding-top: 2.89rem;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
-  row-gap:1.31rem
+  row-gap:1.25rem;
+  column-gap: 1.125rem;
 }
