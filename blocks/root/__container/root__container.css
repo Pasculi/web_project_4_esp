@@ -1,4 +1,5 @@
 .root__container {
     max-width: 880px;
     margin   : auto;
+    position:relative;
 }

@@ -5,8 +5,8 @@
   display: flex;
   flex-direction: column;
   top:167px;
-  left:321px;
+  left:235px;
   margin: auto;
-  display: none;
+  display: block;
 
 }
