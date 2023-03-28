@@ -36,3 +36,14 @@
 @import url(../blocks/card-container/card/__image/card__image.css);
 @import url(../blocks/card-container/card/__place/card__place.css);
 @import url(../blocks/card-container/card/__name/card__name.css);
+
+/*MODAL EDITAR PERFIL*/
+@import url(../blocks/modal/modal.css);
+@import url(../blocks/modal/__btn-close/modal__btn-close.css);
+@import url(../blocks/modal/__btn-close/modal__close-image.css);
+@import url(../blocks/modal/__btn-guardar/modal__btn-guardar.css);
+@import url(../blocks/modal/__container/modal__container.css);
+@import url(../blocks/modal/__formulario/modal__formulario.css);
+@import url(../blocks/modal/__titulo/modal__titulo.css);
+@import url(../blocks/modal/__formulario/modal__formulario-name.css);
+@import url(../blocks/modal/__formulario/modal__formulario-description.css);

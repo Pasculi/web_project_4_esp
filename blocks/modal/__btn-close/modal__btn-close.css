@@ -1,0 +1,8 @@
+.modal__btn-close{
+    width: 33px;
+    height: 33px;
+    background-color: #000;
+    border:none;
+    position: absolute;
+    right: 0px;
+}
