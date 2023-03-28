@@ -4,9 +4,9 @@
   height: 330px;
   display: flex;
   flex-direction: column;
-  /* top:167px;
-  left:540px; */
-  border: 1px solid red;
+  top:167px;
+  left:321px;
   margin: auto;
+  display: none;
 
 }
