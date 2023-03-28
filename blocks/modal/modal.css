@@ -1,7 +1,12 @@
 .modal {
+  position: absolute;
   width : 465px;
   height: 330px;
   display: flex;
   flex-direction: column;
-  position: relative;
+  /* top:167px;
+  left:540px; */
+  border: 1px solid red;
+  margin: auto;
+
 }
