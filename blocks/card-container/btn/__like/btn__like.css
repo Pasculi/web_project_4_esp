@@ -5,10 +5,14 @@
   background-color: transparent;
   fill:currentColor;
   color:black;
-  padding: 0 30px 0 15px;
+  padding: 0 15px 0 0;
+  background-image: url('../../../../images/vector__like.svg');
   cursor:pointer;
 }
+
 .btn__like:hover{
-  fill:currentColor;
-  color:rgb(185, 9, 9) !important;
+  filter: invert(75%) sepia(20%) saturate(40%) hue-rotate(314deg) brightness(84%) contrast(86%);
 }
+/* .btn__like:active{
+  background-image: url('../../../../images/vector__like-black.svg');
+} */

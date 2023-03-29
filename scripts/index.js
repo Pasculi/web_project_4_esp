@@ -45,7 +45,30 @@ function guardarPerfil(e) {
 }
 btn_guardar.addEventListener('click', guardarPerfil);
 
+/* ============================== */
+/*Cambiar like a Black*/
 
+
+
+const like = [...document.querySelectorAll('.btn__like')];
+
+const meGusta = like.map(function(e){
+  
+  e.style.backgroundImage = 'url("../../../../images/vector__like-black.svg")';
+  console.log('Cambiar corazón')
+  console.log(e);
+}
+
+)
+e.addEventListener('click', meGusta);
+
+
+/* function likeBlack(){
+  like.style.backgroundImage = 'url("../../../../images/vector__like-black.svg")';
+  console.log('Cambiar corazón')
+}
+like.addEventListener('click', likeBlack);
+ */
 
 
 
