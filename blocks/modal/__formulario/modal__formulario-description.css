@@ -5,6 +5,12 @@
   font-weight: 400;
   font-size  : 14px;
   line-height: 17px;
+  padding-top:13.28px;
   padding-bottom:13.28px;
+  border:none;
+  outline: none;
   border-bottom:1px solid #C4C4C4;
+}
+.modal__formulario-description::placeholder{
+  color : #C4C4C4;
 }

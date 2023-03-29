@@ -1,18 +1,81 @@
+/*Función para Editar y cerrar Modal*/
+/* ============================== */
+const modal = document.querySelector('.modal');
+const nameInput = document.querySelector('.profile__author');
+const jobInput = document.querySelector('.profile__activit');
+const inputNombre = document.querySelector('.modal__formulario-name');
+const inputAcerca = document.querySelector('.modal__formulario-description');
+const btn_guardar = document.querySelector('.modal__btn-guardar');
 
 
-/* function editarPerfil(){
-    const modal = document.querySelector('.modal');
-    modal.classList.add('modal-visibility')
-    console.log('editar...');
+/***************************************** */
+function editarPerfil(){
+  modal.style.display = 'flex';
+  const valorNombre = nameInput.innerText;
+  const valorAcerca = jobInput.innerText;
+
+  inputNombre.setAttribute('placeholder', valorNombre);
+  inputAcerca.setAttribute('placeholder', valorAcerca);
+
+  console.log(valorNombre);
+  console.log(valorAcerca);
+  console.log('Abierto...');
 }
-const btn__editar = document.querySelector('.btn__edit-image');
+const btn__editar = document.querySelector('.btn__edit');
 btn__editar.addEventListener('click' , editarPerfil);
- */
-function cerrarModal(){
-    const modal = document.querySelector('.modal');
-    modal.classList.add('modal-visibility');
-    modal.style.zindex = '-10';
-    console.log('cerrando...');
+
+/* ========== */
+
+function closeModal() {
+  modal.style.display = 'none';
+  console.log('Cerrado..');
 }
-const btn_close = document.querySelector('.modal__close-image');
-btn_close = addEventListener('click', cerrarModal);
+const btn__cerrar = document.querySelector('.modal__btn-close');
+btn__cerrar.addEventListener('click', closeModal);
+
+/* ============================== */
+/*Botón Guardar Perfil*/
+
+function guardarPerfil(e) {
+  e.preventDefault();
+  nameInput.innerText = `${inputNombre.value}`;
+  jobInput.innerText = `${inputAcerca.value}`;
+  closeModal();
+
+}
+btn_guardar.addEventListener('click', guardarPerfil);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* ============================== */
+
+/*Boton de Me gusta*/
+/* ============================== */
+/* const meGusta = document.querySelector('.btn__like-image');
+function darMegusta() {
+  meGusta.style.fillCurrentColor="#000"
+  meGusta.style.overflow = 'hidden';
+}
+meGusta.addEventListener('click', darMegusta); */
+/* ============================== */
+
+/*Activar boton guardar al escribir*/
+
+

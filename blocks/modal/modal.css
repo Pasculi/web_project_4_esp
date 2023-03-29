@@ -1,16 +1,14 @@
 .modal {
-  position: fixed;
-  width : 100%;
-  top: 0;
-  bottom:0;
-  left:0;
-  right:0;  
-  margin: auto;
-  border: 1px solid red;
- background-color: #111111bd;
+  display         : none;
+  position        : fixed;
+  justify-content : center;
+  width           : 100%;
+  padding-top:166px;
+  padding-left:25px;
+  top             : 0;
+  bottom          : 0;
+  left            : 0;
+  right           : 0;
+  margin          : auto;
+  background-color: rgb(0, 0, 0, 0.5);
 }
-
-.modal-visibility{
-  visibility: visible;
-
-} 

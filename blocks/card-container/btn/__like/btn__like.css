@@ -1,4 +1,14 @@
 .btn__like{
   border:none;
-  background-color: #fff;
+  width:21px ;
+  height: 19px;
+  background-color: transparent;
+  fill:currentColor;
+  color:black;
+  padding: 0 30px 0 15px;
+  cursor:pointer;
+}
+.btn__like:hover{
+  fill:currentColor;
+  color:rgb(185, 9, 9) !important;
 }

@@ -48,3 +48,6 @@
 @import url(../blocks/modal/__titulo/modal__titulo.css);
 @import url(../blocks/modal/__formulario/modal__formulario-name.css);
 @import url(../blocks/modal/__formulario/modal__formulario-description.css);
+
+/*FOOTER*/
+@import url(../blocks/footer/footer.css)
