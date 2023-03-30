@@ -35,22 +35,21 @@ btn__cerrar.addEventListener('click', closeModal);
 
 /* ============================== */
 /*Botón Guardar Perfil*/
-
+const form = document.querySelector('.modal__formulario');
 function guardarPerfil(e) {
   e.preventDefault();
   nameInput.innerText = `${inputNombre.value}`;
   jobInput.innerText = `${inputAcerca.value}`;
   closeModal();
-
 }
-btn_guardar.addEventListener('click', guardarPerfil);
+form.addEventListener('submit', guardarPerfil);
 
 /* ============================== */
 /*Cambiar like a Black*/
 
 
 
-const like = [...document.querySelectorAll('.btn__like')];
+/* const like = [...document.querySelectorAll('.btn__like')];
 
 const meGusta = like.map(function(e){
   
@@ -60,7 +59,7 @@ const meGusta = like.map(function(e){
 }
 
 )
-e.addEventListener('click', meGusta);
+e.addEventListener('click', meGusta); */
 
 
 /* function likeBlack(){
@@ -69,20 +68,6 @@ e.addEventListener('click', meGusta);
 }
 like.addEventListener('click', likeBlack);
  */
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -101,4 +86,35 @@ meGusta.addEventListener('click', darMegusta); */
 
 /*Activar boton guardar al escribir*/
 
+/*Aplicar Opacidad a Botones de Editar (edit) y Añadir (add)*/
 
+const edit = document.querySelector('.btn__edit');
+const add = document.querySelector('.btn__add');
+const close = document.querySelector('.modal__btn-close');
+/* add.style.opacity = '0.8' */
+console.log(edit)
+function addOpacidad (){
+  add.style.opacity = '0.6';
+}
+function removeAddOpacidad (){
+  add.style.opacity = '1';
+}
+function editOpacidad(){
+  edit.style.opacity = '0.6';
+}
+function removeEditOpacidad(){
+  edit.style.opacity = '1';
+}
+function closeOpacidad (){
+  close.style.opacity = '0.6';
+}
+function removeCloseOpacidad (){
+  close.style.opacity = '1';
+}
+
+edit.addEventListener('mouseover', editOpacidad);
+edit.addEventListener('mouseout', removeEditOpacidad);
+add.addEventListener('mouseover', addOpacidad);
+add.addEventListener('mouseout', removeAddOpacidad);
+close.addEventListener('mouseover', closeOpacidad);
+close.addEventListener('mouseout', removeCloseOpacidad);

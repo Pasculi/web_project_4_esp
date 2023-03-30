@@ -1,6 +1,17 @@
-.btn__edit{
-  border:1px solid #FFFFFF;
+.btn__edit {
+
+  border: 1px solid #FFFFFF;
   width: 1.5rem;
   height: 1.5rem;
-  cursor:pointer;
+  cursor: pointer;
+  background-image: url(../../../images/vector__edit.png);
+  background-repeat: no-repeat;
+  background-position: center center;
+}
+
+@media screen and (max-width: 587px) {
+  .btn__edit {
+    width: 1.1rem;
+    height: 1.1rem;
+  }
 }

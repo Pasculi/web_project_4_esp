@@ -5,3 +5,9 @@
   font-size  : 2.625rem;
   line-height: 1.33;
 }
+
+@media screen and (max-width: 587px) {
+  .profile__author{
+      font-size:22px;
+  }
+}

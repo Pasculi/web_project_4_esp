@@ -11,3 +11,9 @@
   margin-right    : 33px;
   padding         : 34px 36px 36.51px 36px;
 }
+
+@media screen and (max-width: 595px){
+  .modal__container{
+      width:100%;
+  }
+}

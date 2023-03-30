@@ -3,3 +3,9 @@
   flex-direction: column;
   justify-content: stretch;
 }
+
+@media screen and (max-width: 595px){
+  .modal__formulario{
+      width:100%;
+  }
+}

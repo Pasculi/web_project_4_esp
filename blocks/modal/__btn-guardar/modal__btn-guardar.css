@@ -11,3 +11,9 @@ margin-top: 48px;
 .modal__btn-guardar:hover{
     background-color: rgba(0, 0, 0, 0.8);
 }
+
+@media screen and (max-width:589px){
+    .modal__btn-guardar{
+      width: 100%;
+    }
+  }

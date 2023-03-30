@@ -14,3 +14,9 @@
 .modal__formulario-description::placeholder{
   color : #C4C4C4;
 }
+
+@media screen and (max-width:600px){
+  .modal__formulario-description {
+    width: 100%;
+  }
+}
