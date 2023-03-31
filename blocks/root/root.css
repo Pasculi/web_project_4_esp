@@ -4,6 +4,8 @@
 }
 
 .root {
+  max-width: 880px;
+  margin: auto;
   box-sizing: border-box;
   background-color: #000;
   color: #fff;

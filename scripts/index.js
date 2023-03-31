@@ -38,8 +38,8 @@ btn__cerrar.addEventListener('click', closeModal);
 const form = document.querySelector('.modal__formulario');
 function guardarPerfil(e) {
   e.preventDefault();
-  nameInput.innerText = `${inputNombre.value}`;
-  jobInput.innerText = `${inputAcerca.value}`;
+  nameInput.textContent = `${inputNombre.value}`;
+  jobInput.textContent = `${inputAcerca.value}`;
   closeModal();
 }
 form.addEventListener('submit', guardarPerfil);
