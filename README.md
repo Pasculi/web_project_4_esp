@@ -33,7 +33,7 @@ Se exportan las imágenes directamente desde Figma; y se optimizan [aquí](https
 
 ## Tecnologías utilizadas:
 
-[![HTML|50px](./images/html-5.jpg)][html] [![CSS|50px](./images/CSS3.png)][css] [![JS|50px](./images/javascript.jpg)][JS]
+[![HTML|50px](./images/html.png)][html]  [![CSS|50px](./images/css.png)][css] [![JS|50px](./images/js.png)][JS]
 
 ## Contacto
 
