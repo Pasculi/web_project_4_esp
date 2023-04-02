@@ -9,7 +9,7 @@
 [Resize]: https://www.iloveimg.com/es/redimensionar-imagen#resize-options,pixels
 
 
-![Logo|200px](./images/Logoperfil.png)
+![Logo|200px](./images/Logoperfil.PNG)
 
 # Proyecto 4: Alrededor de los Estados Unidos
 
