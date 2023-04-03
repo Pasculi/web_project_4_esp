@@ -6,7 +6,6 @@ color:#ffffff;
 border:none;
 outline:1px solid #C4C4C4;
 background-color: #000000;
-margin-top: 48px;
 }
 .modal__btn-guardar:hover{
     background-color: rgba(0, 0, 0, 0.8);
