@@ -1,4 +1,4 @@
-/*Función para Editar y cerrar Modal*/
+/*Declaración de variables*/
 /* ============================== */
 const modal = document.querySelector('.modal');
 const nameInput = document.querySelector('.profile__author');
@@ -7,7 +7,7 @@ const inputNombre = document.querySelector('.modal__formulario-name');
 const inputAcerca = document.querySelector('.modal__formulario-description');
 const btn_guardar = document.querySelector('.modal__btn-guardar');
 
-
+/*Función para Editar y cerrar Modal*/
 /***************************************** */
 function editarPerfil(){
   modal.style.display = 'flex';
@@ -17,18 +17,15 @@ function editarPerfil(){
   inputNombre.setAttribute('placeholder', valorNombre);
   inputAcerca.setAttribute('placeholder', valorAcerca);
 
-  console.log(valorNombre);
-  console.log(valorAcerca);
-  console.log('Abierto...');
 }
 const btn__editar = document.querySelector('.btn__edit');
 btn__editar.addEventListener('click' , editarPerfil);
+/* window.onload = editarPerfil; */
 
 /* ========== */
 
 function closeModal() {
   modal.style.display = 'none';
-  console.log('Cerrado..');
 }
 const btn__cerrar = document.querySelector('.modal__btn-close');
 btn__cerrar.addEventListener('click', closeModal);
@@ -45,46 +42,6 @@ function guardarPerfil(e) {
 form.addEventListener('submit', guardarPerfil);
 
 /* ============================== */
-/*Cambiar like a Black*/
-
-
-
-/* const like = [...document.querySelectorAll('.btn__like')];
-
-const meGusta = like.map(function(e){
-  
-  e.style.backgroundImage = 'url("../../../../images/vector__like-black.svg")';
-  console.log('Cambiar corazón')
-  console.log(e);
-}
-
-)
-e.addEventListener('click', meGusta); */
-
-
-/* function likeBlack(){
-  like.style.backgroundImage = 'url("../../../../images/vector__like-black.svg")';
-  console.log('Cambiar corazón')
-}
-like.addEventListener('click', likeBlack);
- */
-
-
-
-
-/* ============================== */
-
-/*Boton de Me gusta*/
-/* ============================== */
-/* const meGusta = document.querySelector('.btn__like-image');
-function darMegusta() {
-  meGusta.style.fillCurrentColor="#000"
-  meGusta.style.overflow = 'hidden';
-}
-meGusta.addEventListener('click', darMegusta); */
-/* ============================== */
-
-/*Activar boton guardar al escribir*/
 
 /*Aplicar Opacidad a Botones de Editar (edit) y Añadir (add)*/
 
