@@ -32,7 +32,7 @@
 /*CARD*/
 @import url(../blocks/card-container/card-container.css);
 @import url(../blocks/card-container/card/card.css);
-@import url(../blocks/card-container/btn/__eliminar/btn__eliminar.css);
+@import url(../blocks/card-container/btn/__delete/btn__delete.css);
 @import url(../blocks/card-container/btn/__like/btn__like.css);
 @import url(../blocks/card-container/card/__image/card__image.css);
 @import url(../blocks/card-container/card/__place/card__place.css);

@@ -13,7 +13,7 @@ function editarPerfil(){
   modal.style.display = 'flex';
   const valorNombre = nameInput.innerText;
   const valorAcerca = jobInput.innerText;
-
+  console.log(valorNombre);
   inputNombre.setAttribute('placeholder', valorNombre);
   inputAcerca.setAttribute('placeholder', valorAcerca);
 
@@ -49,7 +49,7 @@ const edit = document.querySelector('.btn__edit');
 const add = document.querySelector('.btn__add');
 const close = document.querySelector('.modal__btn-close');
 /* add.style.opacity = '0.8' */
-console.log(edit)
+
 function addOpacidad (){
   add.style.opacity = '0.6';
 }
