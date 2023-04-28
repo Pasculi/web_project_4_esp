@@ -1,30 +1,32 @@
 /*A */
 const initialCards = [
   {
-    name: "Valle de Yosemite",
-    link: "https://practicum-content.s3.us-west-1.amazonaws.com/new-markets/WEB_sprint_5/ES/yosemite.jpg"
+    name: "Ciudad de Arica",
+    link: "https://q-xx.bstatic.com/xdata/images/city/600x480/671802.jpg?k=f2af7c265359c6bfef67dd8137aae05a987d3df4208c8423068a807acc405ad3&o="
   },
   {
-    name: "Lago Louise",
-    link: "https://practicum-content.s3.us-west-1.amazonaws.com/new-markets/WEB_sprint_5/ES/lake-louise.jpg"
+    name: "Antofagasta",
+    link: "https://visitchile.imgix.net/destinos/320_Antofagasta1.jpg?w=960&h=448&fit=crop&q=auto&auto=format"
   },
   {
-    name: "Montañas Calvas",
-    link: "https://practicum-content.s3.us-west-1.amazonaws.com/new-markets/WEB_sprint_5/ES/bald-mountains.jpg"
+    name: "Calama",
+    link: "https://patrimonio.bienes.cl/wp-content/uploads/2020/05/ZCH3.jpg"
   },
   {
-    name: "Latemar",
-    link: "https://practicum-content.s3.us-west-1.amazonaws.com/new-markets/WEB_sprint_5/ES/latemar.jpg"
+    name: "Puerto de Valparaíso",
+    link: "https://media.istockphoto.com/id/827067390/es/foto/colorido-valparaiso.jpg?s=612x612&w=0&k=20&c=VsJWIW249JHwoSUfpIhCYjl7gELpdCLxa0trOo_nqjk="
   },
   {
-    name: "Parque Nacional de la Vanoise",
-    link: "https://practicum-content.s3.us-west-1.amazonaws.com/new-markets/WEB_sprint_5/ES/vanoise.jpg"
+    name: "Valdivia",
+    link: "https://storage.googleapis.com/chile-travel-newsite-static-content/2021/07/Encantos_Valdivia-y-Corral_mercado-fluvialjpg-1024x683.jpg"
   },
   {
-    name: "Lago di Braies",
-    link: "https://practicum-content.s3.us-west-1.amazonaws.com/new-markets/WEB_sprint_5/ES/lago.jpg"
+    name: "Santiago",
+    link: "https://storage.googleapis.com/chile-travel-newsite-static-content/2021/08/santiago-portada.jpg"
   }
 ];
+
+/*CARGA DE GALLERYA INICIAL*/
 const containerCard = document.querySelector('.card-container');
 
 const initialRender = initialCards.map((initialCard) => {
@@ -34,11 +36,17 @@ const initialRender = initialCards.map((initialCard) => {
   elementCard.querySelector('.card__name').textContent = initialCard.name;
   elementCard.querySelector('.card__image').setAttribute('src', `${initialCard.link}`);
 
-
   containerCard.append(elementCard);
-})
+});
 
+/*AÑADIR UN LUGAR A LA GALERIA INICIAL*/
 
+const addplace = document.querySelector('.btn__add');
+const modalAdd = document.querySelector('.modal__add');
+addplace.addEventListener('click', () => {
+modalAdd.style.display='flex';
+  console.log('Añadiendo')
+});
 
 
 /*Declaración de variables*/
@@ -63,7 +71,7 @@ function editarPerfil() {
 }
 const btn__editar = document.querySelector('.btn__edit');
 btn__editar.addEventListener('click', editarPerfil);
-/* window.onload = editarPerfil; */
+
 
 /* ========== */
 
@@ -118,3 +126,5 @@ add.addEventListener('mouseover', addOpacidad);
 add.addEventListener('mouseout', removeAddOpacidad);
 close.addEventListener('mouseover', closeOpacidad);
 close.addEventListener('mouseout', removeCloseOpacidad);
+
+
