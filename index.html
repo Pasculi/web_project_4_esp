@@ -39,7 +39,7 @@
       <!-- FIN SECCCION PROFILE -->
 
       <!-- INICIO SECCION CARDS -->
-      <section class="card-container">
+      <!-- <section class="card-container">
         <div class="card">
           <button class="btn__delete">
             <img src="images/vector__eliminar.png" alt="trash" />
@@ -53,9 +53,9 @@
             <h2 class="card__name">Valle de Yosemite</h2>
             <button class="btn__like"></button>
           </div>
-        </div>
+        </div> -->
         <!-- ======== -->
-        <div class="card">
+       <!--  <div class="card">
           <button class="btn__delete">
             <img src="images/vector__eliminar.png" alt="trash" />
           </button>
@@ -68,9 +68,9 @@
             <h2 class="card__name">Lago Louise</h2>
             <button class="btn__like"></button>
           </div>
-        </div>
+        </div> -->
         <!-- ======== -->
-        <div class="card">
+        <!-- <div class="card">
           <button class="btn__delete">
             <img src="images/vector__eliminar.png" alt="trash" />
           </button>
@@ -83,9 +83,9 @@
             <h2 class="card__name">Montañas Calvas</h2>
             <button class="btn__like"></button>
           </div>
-        </div>
+        </div> -->
         <!-- ======== -->
-        <div class="card">
+        <!-- <div class="card">
           <button class="btn__delete">
             <img src="images/vector__eliminar.png" alt="trash" />
           </button>
@@ -98,9 +98,9 @@
             <h2 class="card__name">Latemar</h2>
             <button class="btn__like"></button>
           </div>
-        </div>
+        </div> -->
         <!-- ======== -->
-        <div class="card">
+       <!--  <div class="card">
           <button class="btn__delete">
             <img src="images/vector__eliminar.png" alt="trash" />
           </button>
@@ -113,9 +113,9 @@
             <h2 class="card__name">Venoise National</h2>
             <button class="btn__like"></button>
           </div>
-        </div>
+        </div> -->
         <!-- ======== -->
-        <div class="card">
+       <!--  <div class="card">
           <button class="btn__delete">
             <img src="images/vector__eliminar.png" alt="trash" />
           </button>
@@ -129,7 +129,7 @@
             <button class="btn__like"></button>
           </div>
         </div>
-      </section>
+      </section> -->
       <!-- FIN SECCION CARDS -->
       <!-- INICIO MODAL EDITAR PERFIL -->
       <section class="modal">
@@ -163,6 +163,57 @@
           </div>
         </div>
       </section>
+      <!-- PLANTILLA CARDS -->
+      
+       <!-- INICIO MODAL EDITAR PERFIL -->
+      <section class="modal modal__add">
+        <div class="modal__content">
+          <button class="modal__btn-close">
+            <img
+              class="modal__close-image"
+              src="images/vector__close.png"
+              alt="Cerrar Modal"
+            />
+          </button>
+          <div class="modal__container">
+            <h2 class="modal__titulo">New Place</h2>
+            <form action="#" class="modal__formulario">
+              <input
+                class="modal__formulario-name"
+                type="text"
+                name="nombre"
+                id="nombre"
+                value="Title"
+              />
+              <input
+                class="modal__formulario-description"
+                type="text"
+                name="acerca"
+                id="acerca"
+                value="Image url"
+              />
+              <button type="submit" class="modal__btn-guardar">Guardar</button>
+            </form>
+          </div>
+        </div>
+      </section>
+      <!-- PLANTILLA CARDS -->
+      <template class="card-container">
+        <div class="card">
+          <button class="btn__delete">
+            <img class="trash" src="images/vector__eliminar.png" alt="trash" />
+          </button>
+          <img
+            class="card__image"
+            src="images/image__mountain_calvas.png"
+            alt="Montañas Calvas"
+          />
+          <div class="card__place">
+            <h2 class="card__name"></h2>
+            <button class="btn__like"></button>
+          </div>
+        </div>
+      </template>
       <!-- INICIO MODAL EDITAR PERFIL -->
       <footer class="footer">
         <p>&COPY; 2023 Alrededor de los EEUU</p>

@@ -50,5 +50,8 @@
 @import url(../blocks/modal/__formulario/modal__formulario-name.css);
 @import url(../blocks/modal/__formulario/modal__formulario-description.css);
 
+/*MODAL AÑADIR LUGAR*/
+@import url(../blocks/modal/__add/modal__add.css);
+
 /*FOOTER*/
 @import url(../blocks/footer/footer.css)
