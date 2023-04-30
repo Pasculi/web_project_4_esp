@@ -39,7 +39,7 @@ const initialRender = initialCards.map((initialCard) => {
   containerCard.append(elementCard);
 });
 
-/*AÑADIR UN LUGAR A LA GALERIA INICIAL*/
+/*ABRIR MODAL AÑADIR LUGAR*/
 
 const addplace = document.querySelector('.btn__add');
 const modalAdd = document.querySelector('.modal__add');
@@ -47,6 +47,30 @@ addplace.addEventListener('click', () => {
 modalAdd.style.display='flex';
   console.log('Añadiendo')
 });
+
+/*CERRAR MODAL AÑADIR LUGAR*/
+const placeClose = () => {
+  modalAdd.style.display='none';
+}
+const placeCerrar = document.querySelector('.modal__close-place');
+placeCerrar.addEventListener('click', placeClose);
+
+/*AÑADIR UN LUGAR AL ARRAY */
+const savePlace = document.querySelector('.save__place');
+function savePlaces (e){
+  e.preventDefault();
+  const namePlace = document.querySelector('.name__place');
+  const urlPlace = document.querySelector('.url__place');
+  const addCardPlace = ()=>{
+    initialCards.unshift(namePlace.value, urlPlace.value)
+    console.log(addCardPlace);
+}
+console.log(...initialCards);
+
+}
+savePlace.addEventListener('click', savePlaces);
+
+
 
 
 /*Declaración de variables*/
