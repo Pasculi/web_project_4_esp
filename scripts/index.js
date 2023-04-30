@@ -59,13 +59,10 @@ placeCerrar.addEventListener('click', placeClose);
 const savePlace = document.querySelector('.save__place');
 function savePlaces (e){
   e.preventDefault();
-  const namePlace = document.querySelector('.name__place');
-  const urlPlace = document.querySelector('.url__place');
-  const addCardPlace = ()=>{
-    initialCards.unshift(namePlace.value, urlPlace.value)
-    console.log(addCardPlace);
-}
-console.log(...initialCards);
+  const namePlace = document.querySelector('.name__place').value;
+  const urlPlace = document.querySelector('.url__place').value;
+ console.log(namePlace, urlPlace);
+
 
 }
 savePlace.addEventListener('click', savePlaces);
