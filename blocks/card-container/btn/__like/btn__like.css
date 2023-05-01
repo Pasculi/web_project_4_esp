@@ -6,11 +6,13 @@
   fill:currentColor;
   color:black;
   padding: 0 22px 0 0;
-  background-image: url('../../../../images/vector__like.svg');
-  background-repeat: no-repeat;
+  background: url('../../../../images/vector__like.svg') center no-repeat;
   cursor:pointer;
+  opacity: 0.5;
+  transition: 0.3s;
 }
 
-.btn__like:hover{
-  filter: invert(75%) sepia(20%) saturate(40%) hue-rotate(314deg) brightness(84%) contrast(86%);
+.btn__like-active{
+  opacity:1;
+  background: url('../../../../images/vector__like-black.svg') center no-repeat;
 }
