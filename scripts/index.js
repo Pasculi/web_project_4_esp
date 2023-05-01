@@ -29,7 +29,7 @@ const initialCards = [
 console.log(initialCards);
 
 /*CARGA DE GALLERIA INICIAL*/
-
+renderCards(initialCards);
 function renderCards(initialCards) {
   const containerCard = document.querySelector(".card-container");
   initialCards.map((initialCard) => {
@@ -50,7 +50,8 @@ function renderCards(initialCards) {
     containerCard.append(elementCard);
   });
 }
-renderCards(initialCards);
+
+
 /*ABRIR MODAL AÑADIR LUGAR*/
 
 const addplace = document.querySelector(".btn__add");
@@ -70,18 +71,19 @@ placeCerrar.addEventListener("click", placeClose);
 const savePlace = document.querySelector(".save__place");
 function savePlaces(e) {
   e.preventDefault();
-   const name = document.querySelector(".name__place").value;
+  const name = document.querySelector(".name__place").value;
   const link = document.querySelector(".url__place").value;
   console.log(name, link);
   const elementoPlace = { name: name, link: link };
   console.log(elementoPlace);
 
- const newPlaces = [elementoPlace, ...initialCards]
- 
-  renderCards(newPlaces);
-  console.log(newPlaces);
+  initialCards.push([elementoPlace])
+
+  renderCards([elementoPlace]);
+
   closeModalPlace();
 }
+
 
 function closeModalPlace() {
   modalAdd.style.display = "none";
