@@ -1,6 +1,5 @@
 /*A */
 const initialCards = [
-
   {
     name: "Santiago",
     link: "https://storage.googleapis.com/chile-travel-newsite-static-content/2021/08/santiago-portada.jpg",
@@ -24,7 +23,7 @@ const initialCards = [
   {
     name: "Ciudad de Arica",
     link: "https://q-xx.bstatic.com/xdata/images/city/600x480/671802.jpg?k=f2af7c265359c6bfef67dd8137aae05a987d3df4208c8423068a807acc405ad3&o=",
-  }
+  },
 ];
 
 console.log(initialCards);
@@ -35,6 +34,7 @@ function renderCardsInitial(initialCards) {
   initialCards.map((card) => {
     /******************************************* */
     const containerCard = document.querySelector(".card-container");
+
     const templateCard = document.querySelector(".card-container").content;
     const elementCard = templateCard.querySelector(".card").cloneNode(true);
     elementCard.querySelector(".card__name").textContent = card.name;
@@ -42,11 +42,24 @@ function renderCardsInitial(initialCards) {
       .querySelector(".card__image")
       .setAttribute("src", `${card.link}`);
     elementCard
+      .querySelector(".btn__delete")
+      .addEventListener("click", function (evt) {
+ 
+     console.log(evt.target.parentNode.parentNode.remove());
+
+      });
+      elementCard.querySelector('.card__image').addEventListener("click", function (evt) {
+        console.log('Click en imagen');
+        const modalImagen = document.querySelector('.modal__image');
+        modalImagen.style.display ="flex"
+      });
+    elementCard
       .querySelector(".btn__like")
       .addEventListener("click", function (evt) {
         console.log(evt.target);
         evt.target.classList.toggle("btn__like-active");
       });
+      
     containerCard.prepend(elementCard);
     /******************************************* */
   });
@@ -79,19 +92,24 @@ function savePlaces(e) {
   console.log(card);
   initialCards.unshift(card);
   /******************************************* */
+
   const containerCard = document.querySelector(".card-container");
   const templateCard = document.querySelector(".card-container").content;
   const elementCard = templateCard.querySelector(".card").cloneNode(true);
   elementCard.querySelector(".card__name").textContent = card.name;
+  elementCard.querySelector(".card__image").setAttribute("src", `${card.link}`);
   elementCard
-    .querySelector(".card__image")
-    .setAttribute("src", `${card.link}`);
+    .querySelector(".btn__delete")
+    .addEventListener("click", function (evt) {
+      console.log(evt.target.value);
+    });
   elementCard
     .querySelector(".btn__like")
     .addEventListener("click", function (evt) {
       console.log(evt.target);
       evt.target.classList.toggle("btn__like-active");
     });
+    
   containerCard.prepend(elementCard);
   /******************************************* */
   console.log(initialCards);
@@ -100,12 +118,11 @@ function savePlaces(e) {
   renderCardsInitial(card);
 }
 
+
 function closeModalPlace() {
   modalAdd.style.display = "none";
 }
 savePlace.addEventListener("click", savePlaces);
-
-/*AÑADIR LIKE A PICTURE*/
 
 /*Declaración de variables*/
 /* ============================== */

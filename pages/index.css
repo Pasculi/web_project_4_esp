@@ -53,5 +53,8 @@
 /*MODAL AÑADIR LUGAR*/
 @import url(../blocks/modal/__add/modal__add.css);
 
+/*MODAL IMAGEN*/
+@import url(../blocks/modal/__image/modal__image.css);
+
 /*FOOTER*/
 @import url(../blocks/footer/footer.css)
