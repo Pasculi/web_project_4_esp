@@ -1,56 +1,56 @@
 /*A */
 const initialCards = [
+
   {
-    name: "Ciudad de Arica",
-    link: "https://q-xx.bstatic.com/xdata/images/city/600x480/671802.jpg?k=f2af7c265359c6bfef67dd8137aae05a987d3df4208c8423068a807acc405ad3&o=",
-  },
-  {
-    name: "Antofagasta",
-    link: "https://visitchile.imgix.net/destinos/320_Antofagasta1.jpg?w=960&h=448&fit=crop&q=auto&auto=format",
-  },
-  {
-    name: "Calama",
-    link: "https://patrimonio.bienes.cl/wp-content/uploads/2020/05/ZCH3.jpg",
-  },
-  {
-    name: "Puerto de Valparaíso",
-    link: "https://media.istockphoto.com/id/827067390/es/foto/colorido-valparaiso.jpg?s=612x612&w=0&k=20&c=VsJWIW249JHwoSUfpIhCYjl7gELpdCLxa0trOo_nqjk=",
+    name: "Santiago",
+    link: "https://storage.googleapis.com/chile-travel-newsite-static-content/2021/08/santiago-portada.jpg",
   },
   {
     name: "Valdivia",
     link: "https://storage.googleapis.com/chile-travel-newsite-static-content/2021/07/Encantos_Valdivia-y-Corral_mercado-fluvialjpg-1024x683.jpg",
   },
   {
-    name: "Santiago",
-    link: "https://storage.googleapis.com/chile-travel-newsite-static-content/2021/08/santiago-portada.jpg",
+    name: "Puerto de Valparaíso",
+    link: "https://media.istockphoto.com/id/827067390/es/foto/colorido-valparaiso.jpg?s=612x612&w=0&k=20&c=VsJWIW249JHwoSUfpIhCYjl7gELpdCLxa0trOo_nqjk=",
   },
+  {
+    name: "Calama",
+    link: "https://patrimonio.bienes.cl/wp-content/uploads/2020/05/ZCH3.jpg",
+  },
+  {
+    name: "Antofagasta",
+    link: "https://visitchile.imgix.net/destinos/320_Antofagasta1.jpg?w=960&h=448&fit=crop&q=auto&auto=format",
+  },
+  {
+    name: "Ciudad de Arica",
+    link: "https://q-xx.bstatic.com/xdata/images/city/600x480/671802.jpg?k=f2af7c265359c6bfef67dd8137aae05a987d3df4208c8423068a807acc405ad3&o=",
+  }
 ];
 
 console.log(initialCards);
 
 /*CARGA DE GALLERIA INICIAL*/
-renderCards(initialCards);
-function renderCards(initialCards) {
-  const containerCard = document.querySelector(".card-container");
-  initialCards.map((initialCard) => {
+renderCardsInitial(initialCards);
+function renderCardsInitial(initialCards) {
+  initialCards.map((card) => {
+    /******************************************* */
+    const containerCard = document.querySelector(".card-container");
     const templateCard = document.querySelector(".card-container").content;
     const elementCard = templateCard.querySelector(".card").cloneNode(true);
-
-    elementCard.querySelector(".card__name").textContent = initialCard.name;
+    elementCard.querySelector(".card__name").textContent = card.name;
     elementCard
       .querySelector(".card__image")
-      .setAttribute("src", `${initialCard.link}`);
+      .setAttribute("src", `${card.link}`);
     elementCard
       .querySelector(".btn__like")
       .addEventListener("click", function (evt) {
         console.log(evt.target);
         evt.target.classList.toggle("btn__like-active");
       });
-
-    containerCard.append(elementCard);
+    containerCard.prepend(elementCard);
+    /******************************************* */
   });
 }
-
 
 /*ABRIR MODAL AÑADIR LUGAR*/
 
@@ -71,19 +71,34 @@ placeCerrar.addEventListener("click", placeClose);
 const savePlace = document.querySelector(".save__place");
 function savePlaces(e) {
   e.preventDefault();
+
   const name = document.querySelector(".name__place").value;
   const link = document.querySelector(".url__place").value;
   console.log(name, link);
-  const elementoPlace = { name: name, link: link };
-  console.log(elementoPlace);
-
-  initialCards.push([elementoPlace])
-
-  renderCards([elementoPlace]);
+  const card = { name: name, link: link };
+  console.log(card);
+  initialCards.unshift(card);
+  /******************************************* */
+  const containerCard = document.querySelector(".card-container");
+  const templateCard = document.querySelector(".card-container").content;
+  const elementCard = templateCard.querySelector(".card").cloneNode(true);
+  elementCard.querySelector(".card__name").textContent = card.name;
+  elementCard
+    .querySelector(".card__image")
+    .setAttribute("src", `${card.link}`);
+  elementCard
+    .querySelector(".btn__like")
+    .addEventListener("click", function (evt) {
+      console.log(evt.target);
+      evt.target.classList.toggle("btn__like-active");
+    });
+  containerCard.prepend(elementCard);
+  /******************************************* */
+  console.log(initialCards);
 
   closeModalPlace();
+  renderCardsInitial(card);
 }
-
 
 function closeModalPlace() {
   modalAdd.style.display = "none";
