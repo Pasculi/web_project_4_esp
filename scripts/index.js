@@ -48,11 +48,22 @@ function renderCardsInitial(initialCards) {
      console.log(evt.target.parentNode.parentNode.remove());
 
       });
+      /**CLICK EN IMAGEN */
       elementCard.querySelector('.card__image').addEventListener("click", function (evt) {
         console.log('Click en imagen');
+        const imagenPlace= document.querySelector('.modal__image-place');
+        const namePlace = document.querySelector('.name__place');
+        imagenPlace.setAttribute("src", evt.target.src);
+        namePlace.textContent = card.name;
+        
+        console.log(evt.target);
+        console.log(evt.target.src);
+        console.log(evt.target.alt);
+
         const modalImagen = document.querySelector('.modal__image');
         modalImagen.style.display ="flex"
       });
+      /**CLICK EN IMAGEN */
     elementCard
       .querySelector(".btn__like")
       .addEventListener("click", function (evt) {
@@ -64,6 +75,13 @@ function renderCardsInitial(initialCards) {
     /******************************************* */
   });
 }
+const imagenDisplay = document.querySelector('.modal__image');
+
+
+function closeImage() {
+  imagenDisplay.style.display ='none'
+}
+imagenDisplay.addEventListener('click', closeImage);
 
 /*ABRIR MODAL AÑADIR LUGAR*/
 
@@ -96,8 +114,9 @@ function savePlaces(e) {
   const containerCard = document.querySelector(".card-container");
   const templateCard = document.querySelector(".card-container").content;
   const elementCard = templateCard.querySelector(".card").cloneNode(true);
-  elementCard.querySelector(".card__name").textContent = card.name;
+  elementCard.querySelector(".card__name").textContent = `${card.name}`;
   elementCard.querySelector(".card__image").setAttribute("src", `${card.link}`);
+  
   elementCard
     .querySelector(".btn__delete")
     .addEventListener("click", function (evt) {
@@ -150,8 +169,9 @@ btn__editar.addEventListener("click", editarPerfil);
 
 function closeModal() {
   modal.style.display = "none";
+  display('Cerrando')
 }
-const btn__cerrar = document.querySelector(".modal__btn-close");
+const btn__cerrar = document.querySelector(".modal__btn-close-perfil");
 btn__cerrar.addEventListener("click", closeModal);
 
 /* ============================== */

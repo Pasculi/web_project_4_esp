@@ -56,5 +56,8 @@
 /*MODAL IMAGEN*/
 @import url(../blocks/modal/__image/modal__image.css);
 @import url(../blocks/modal/__container/modal__container-image.css);
+@import url(../blocks/modal/__content/modal__content_image.css);
+@import url(../blocks/modal/__image-place/modal__image-place.css);
+
 /*FOOTER*/
 @import url(../blocks/footer/footer.css)
