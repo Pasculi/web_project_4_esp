@@ -31,7 +31,7 @@ console.log(initialCards);
 /*CARGA DE GALLERIA INICIAL*/
 renderCardsInitial(initialCards);
 function renderCardsInitial(initialCards) {
-  initialCards.map((card) => {
+const initialRender =  initialCards.map((card) => {
     /******************************************* */
     const containerCard = document.querySelector(".card-container");
 
@@ -44,8 +44,8 @@ function renderCardsInitial(initialCards) {
     elementCard
       .querySelector(".btn__delete")
       .addEventListener("click", function (evt) {
- 
-     console.log(evt.target.parentNode.parentNode.remove());
+
+     evt.target.parentNode.parentNode.remove();
 
       });
       /**CLICK EN IMAGEN */
@@ -55,7 +55,7 @@ function renderCardsInitial(initialCards) {
         const namePlace = document.querySelector('.name__place');
         imagenPlace.setAttribute("src", evt.target.src);
         namePlace.textContent = card.name;
-        
+
         console.log(evt.target);
         console.log(evt.target.src);
         console.log(evt.target.alt);
@@ -70,7 +70,7 @@ function renderCardsInitial(initialCards) {
         console.log(evt.target);
         evt.target.classList.toggle("btn__like-active");
       });
-      
+
     containerCard.prepend(elementCard);
     /******************************************* */
   });
@@ -103,11 +103,12 @@ const savePlace = document.querySelector(".save__place");
 function savePlaces(e) {
   e.preventDefault();
 
-  const name = document.querySelector(".name__place").value;
+  const name = document.querySelector(".name__new-place").value;
+  console.log(name);
   const link = document.querySelector(".url__place").value;
   console.log(name, link);
   const card = { name: name, link: link };
-  console.log(card);
+  console.log(card.name);
   initialCards.unshift(card);
   /******************************************* */
 
@@ -123,7 +124,7 @@ function savePlaces(e) {
     const namePlace = document.querySelector('.name__place');
     imagenPlace.setAttribute("src", evt.target.src);
     namePlace.textContent = card.name;
-    
+
     console.log(evt.target);
     console.log(evt.target.src);
     console.log(evt.target.alt);
@@ -135,7 +136,7 @@ function savePlaces(e) {
   elementCard
     .querySelector(".btn__delete")
     .addEventListener("click", function (evt) {
-      console.log(evt.target.value);
+      evt.target.parentNode.parentNode.remove();
     });
   elementCard
     .querySelector(".btn__like")
@@ -143,7 +144,7 @@ function savePlaces(e) {
       console.log(evt.target);
       evt.target.classList.toggle("btn__like-active");
     });
-    
+
   containerCard.prepend(elementCard);
   /******************************************* */
   console.log(initialCards);
