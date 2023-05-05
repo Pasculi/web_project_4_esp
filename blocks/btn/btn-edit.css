@@ -1,4 +1,4 @@
-.btn__edit {
+.btn-edit {
 
   border: 1px solid #FFFFFF;
   width: 1.5rem;
@@ -10,7 +10,7 @@
 }
 
 @media screen and (max-width: 587px) {
-  .btn__edit {
+  .btn-edit {
     width: 1.1rem;
     height: 1.1rem;
   }
