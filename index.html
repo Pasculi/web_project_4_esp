@@ -38,7 +38,6 @@
       </section>
       <!-- FIN SECCCION PROFILE -->
 
-
       <!-- PLANTILLA CARDS -->
       <template class="card-container">
         <div class="card">
@@ -70,10 +69,10 @@
           </button>
           <div class="modal__container modal__container-image">
             <figure>
-              <img class="modal__image-place" src="" alt="" >
+              <img class="modal__image-place" src="#" alt="Algún lugar" />
               <figcaption class="name__place"></figcaption>
             </figure>
-
+          </div>
         </div>
       </section>
       <!-- FIN MODAL IMAGEN -->
@@ -112,7 +111,7 @@
       </section>
       <!-- PLANTILLA CARDS -->
 
-       <!-- INICIO FORMULARIO DE INGRESO LUGAR-->
+      <!-- INICIO FORMULARIO DE INGRESO LUGAR-->
       <section class="modal__add">
         <div class="modal__content">
           <button class="modal__btn-close modal__close-place">
@@ -129,17 +128,19 @@
                 class="modal__formulario-name name__new-place"
                 type="text"
                 name="nombre"
-                id="nombre"
+                id="name"
                 value="Title"
               />
               <input
                 class="modal__formulario-description url__place"
                 type="text"
                 name="acerca"
-                id="acerca"
+                id="about"
                 value="Image url"
               />
-              <button type="submit" class="modal__btn-guardar save__place">Guardar</button>
+              <button type="submit" class="modal__btn-guardar save__place">
+                Guardar
+              </button>
             </form>
           </div>
         </div>
