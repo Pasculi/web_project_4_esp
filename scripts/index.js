@@ -44,7 +44,7 @@ imagenDisplay.addEventListener('click', closeImage);
 
 /*ABRIR MODAL AÑADIR LUGAR*/
 
-const addplace = document.querySelector(".btn__add");
+const addplace = document.querySelector(".btn-add");
 const modalAdd = document.querySelector(".modal__add");
 addplace.addEventListener("click", (e) => {
   e.preventDefault();
@@ -104,7 +104,7 @@ function editarPerfil() {
   inputNombre.setAttribute("placeholder", valorNombre);
   inputAcerca.setAttribute("placeholder", valorAcerca);
 }
-const btn__editar = document.querySelector(".btn__edit");
+const btn__editar = document.querySelector(".btn-edit");
 btn__editar.addEventListener("click", editarPerfil);
 
 /* ========== */
@@ -130,8 +130,8 @@ form.addEventListener("submit", guardarPerfil);
 
 /*Aplicar Opacidad a Botones de Editar (edit) y Añadir (add)*/
 
-const edit = document.querySelector(".btn__edit");
-const add = document.querySelector(".btn__add");
+const edit = document.querySelector(".btn-edit");
+const add = document.querySelector(".btn-add");
 const close = document.querySelector(".modal__btn-close");
 /* add.style.opacity = '0.8' */
 
