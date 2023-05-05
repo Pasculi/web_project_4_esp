@@ -1,23 +1,23 @@
-.card-container{
+.card-container {
   padding-top: 2.89rem;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
-  row-gap:1.25rem;
+  row-gap: 1.25rem;
   column-gap: 1.125rem;
-
 }
 
 @media screen and (max-width: 886px) {
-  .card-container{
-    grid-template-columns: 1fr 1fr ;
+  .card-container {
+    grid-template-columns: 1fr 1fr;
     margin: auto;
     justify-content: center;
     align-items: center;
   }
 }
+
 @media screen and (max-width: 589px) {
-  .card-container{
-    grid-template-columns: 1fr ;
+  .card-container {
+    grid-template-columns: 1fr;
     margin: auto;
     justify-content: center;
     align-items: center;

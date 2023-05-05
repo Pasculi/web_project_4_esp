@@ -1,24 +1,27 @@
 .modal__formulario-name {
   width: 358px;
-  font-style : normal;
+  font-style: normal;
   font-weight: 400;
-  font-size  : 14px;
+  font-size: 14px;
   line-height: 17px;
-  color      : #C4C4C4;
-  border:none;
+  color: #C4C4C4;
+  border: none;
   outline: none;
-  border-bottom:1px solid #C4C4C4;
-  padding:13.24px 0;
+  border-bottom: 1px solid #C4C4C4;
+  padding: 13.24px 0;
 
 }
+
 .modal__formulario-name:focus {
   background: transparent;
 
 }
+
 .modal__formulario-name::placeholder {
   color: #C4C4C4;
 }
-@media screen and (max-width:589px){
+
+@media screen and (max-width:589px) {
   .modal__formulario-name {
     width: 100%;
   }

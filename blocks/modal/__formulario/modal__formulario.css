@@ -1,12 +1,12 @@
-.modal__formulario{
+.modal__formulario {
   display: flex;
   flex-direction: column;
   justify-content: stretch;
   row-gap: 1rem;
 }
 
-@media screen and (max-width: 595px){
-  .modal__formulario{
-      width:100%;
+@media screen and (max-width: 595px) {
+  .modal__formulario {
+    width: 100%;
   }
 }

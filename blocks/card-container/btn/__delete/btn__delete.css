@@ -1,9 +1,9 @@
 .btn__delete {
-  position        : absolute;
+  position: absolute;
   background-color: transparent;
-  top             : 18px;
-  right           : 15px;
-  border          : none;
-  cursor:pointer;
+  top: 18px;
+  right: 15px;
+  border: none;
+  cursor: pointer;
 
 }
