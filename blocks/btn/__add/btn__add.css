@@ -1,8 +1,7 @@
 .btn__add {
- 
-  width        : 9.375rem;
-  height       : 3.125rem;
-  border       : 2px solid #FFFFFF;
+  width: 9.375rem;
+  height: 3.125rem;
+  border: 2px solid #FFFFFF;
   outline: none;
   border-radius: 2px;
   cursor: pointer;
@@ -11,23 +10,21 @@
   background-position: center center;
 }
 
-
-@media screen and (max-width: 892px){
-  .btn__add{
-    margin-right:21px ;
+@media screen and (max-width: 892px) {
+  .btn__add {
+    margin-right: 21px;
   }
 }
-@media screen and (max-width: 887px){
-  .btn__add{
-    margin-right:0 ;
-  }
 
-  
+@media screen and (max-width: 887px) {
+  .btn__add {
+    margin-right: 0;
+  }
 }
 
-@media screen and (max-width: 587px){
-  .btn__add{
-    width:282px;
+@media screen and (max-width: 587px) {
+  .btn__add {
+    width: 282px;
     margin-top: 36px;
   }
 }
