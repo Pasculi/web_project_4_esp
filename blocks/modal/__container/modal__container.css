@@ -12,8 +12,12 @@
   padding         : 34px 36px 36.51px 36px;
 }
 
-@media screen and (max-width: 595px){
+@media screen and (max-width:680px){
   .modal__container{
-      width:100%;
-  }
+     
+      padding-right:0;
+      padding-left:0;
+      padding-bottom: 0;
+
+  } 
 }

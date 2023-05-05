@@ -36,8 +36,9 @@ function renderCardsInitial(initialCards) {
 const imagenDisplay = document.querySelector('.modal__image');
 
 
-function closeImage() {
-  imagenDisplay.style.display = 'none'
+function closeImage(e) {
+  e.preventDefault();
+  imagenDisplay.classList.remove('modal__image--show')
 }
 imagenDisplay.addEventListener('click', closeImage);
 
@@ -45,13 +46,15 @@ imagenDisplay.addEventListener('click', closeImage);
 
 const addplace = document.querySelector(".btn__add");
 const modalAdd = document.querySelector(".modal__add");
-addplace.addEventListener("click", () => {
-  modalAdd.style.display = "flex";
+addplace.addEventListener("click", (e) => {
+  e.preventDefault();
+  modalAdd.classList.add('modal__add--show');
 });
 
 /*CERRAR MODAL AÑADIR LUGAR*/
-const placeClose = () => {
-  modalAdd.style.display = "none";
+const placeClose = (e) => {
+  e.preventDefault();
+  modalAdd.classList.remove('modal__add--show');
 };
 const placeCerrar = document.querySelector(".modal__close-place");
 placeCerrar.addEventListener("click", placeClose);
@@ -78,7 +81,7 @@ function savePlaces(e) {
 
 
 function closeModalPlace() {
-  modalAdd.style.display = "none";
+  modalAdd.classList.remove('modal__add--show');
 }
 savePlace.addEventListener("click", savePlaces);
 
@@ -94,7 +97,7 @@ const btn_guardar = document.querySelector(".modal__btn-guardar");
 /*Función para Editar y cerrar Modal*/
 /***************************************** */
 function editarPerfil() {
-  modal.style.display = "flex";
+  modal.classList.add('modal--show')
   const valorNombre = nameInput.innerText;
   const valorAcerca = jobInput.innerText;
   console.log(valorNombre);
@@ -107,8 +110,7 @@ btn__editar.addEventListener("click", editarPerfil);
 /* ========== */
 
 function closeModal() {
-  modal.style.display = "none";
-  display('Cerrando')
+  modal.classList.remove('modal--show');
 }
 const btn__cerrar = document.querySelector(".modal__btn-close-perfil");
 btn__cerrar.addEventListener("click", closeModal);
@@ -186,7 +188,7 @@ function functionCards(card) {
     console.log(evt.target.alt);
 
     const modalImagen = document.querySelector('.modal__image');
-    modalImagen.style.display = "flex"
+    modalImagen.classList.add('modal__image--show')
   });
   /**CLICK EN IMAGEN */
   elementCard

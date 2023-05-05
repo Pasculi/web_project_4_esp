@@ -3,9 +3,3 @@
     position:relative;
 
 }
-@media screen and (max-width: 589px){
-    .modal__content{
-        width:315px;
-        margin-right: 16px;
-    }
-}
