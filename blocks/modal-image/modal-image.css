@@ -1,4 +1,4 @@
-.modal__image {
+.modal-image {
 
     display: flex;
     position: fixed;
@@ -18,7 +18,7 @@
     transition: opacity .6s;
 }
 
-.modal__image--show {
+.modal-image--show {
     opacity: 1;
     pointer-events: unset;
     transition: opacity .6s;

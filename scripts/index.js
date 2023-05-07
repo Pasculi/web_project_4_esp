@@ -33,12 +33,12 @@ function renderCardsInitial(initialCards) {
     functionCards(card);
   });
 }
-const imagenDisplay = document.querySelector('.modal__image');
+const imagenDisplay = document.querySelector('.modal-image');
 
 
 function closeImage(e) {
   e.preventDefault();
-  imagenDisplay.classList.remove('modal__image--show')
+  imagenDisplay.classList.remove('modal-image--show')
 }
 imagenDisplay.addEventListener('click', closeImage);
 
@@ -71,7 +71,7 @@ function savePlaces(e) {
   const card = { name: name, link: link };
   console.log(card.name);
   initialCards.unshift(card);
-  
+
   functionCards(card);
   console.log(initialCards);
 
@@ -187,8 +187,8 @@ function functionCards(card) {
     console.log(evt.target.src);
     console.log(evt.target.alt);
 
-    const modalImagen = document.querySelector('.modal__image');
-    modalImagen.classList.add('modal__image--show')
+    const modalImagen = document.querySelector('.modal-image');
+    modalImagen.classList.add('modal-image--show')
   });
   /**CLICK EN IMAGEN */
   elementCard
