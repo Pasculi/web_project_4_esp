@@ -45,18 +45,18 @@ imagenDisplay.addEventListener('click', closeImage);
 /*ABRIR MODAL AÑADIR LUGAR*/
 
 const addplace = document.querySelector(".btn-add");
-const modalAdd = document.querySelector(".modal__add");
+const modalAdd = document.querySelector(".modal-add");
 addplace.addEventListener("click", (e) => {
   e.preventDefault();
-  modalAdd.classList.add('modal__add--show');
+  modalAdd.classList.add('modal-add--show');
 });
 
 /*CERRAR MODAL AÑADIR LUGAR*/
 const placeClose = (e) => {
   e.preventDefault();
-  modalAdd.classList.remove('modal__add--show');
+  modalAdd.classList.remove('modal-add--show');
 };
-const placeCerrar = document.querySelector(".modal__close-place");
+const placeCerrar = document.querySelector(".modal-add__close-place");
 placeCerrar.addEventListener("click", placeClose);
 
 /*AÑADIR UN LUGAR AL ARRAY */
@@ -81,7 +81,7 @@ function savePlaces(e) {
 
 
 function closeModalPlace() {
-  modalAdd.classList.remove('modal__add--show');
+  modalAdd.classList.remove('modal-add--show');
 }
 savePlace.addEventListener("click", savePlaces);
 
@@ -133,7 +133,7 @@ form.addEventListener("submit", guardarPerfil);
 const edit = document.querySelector(".btn-edit");
 const add = document.querySelector(".btn-add");
 const close = document.querySelector(".modal__btn-close");
-const closePlace = document.querySelector(".modal__close-place");
+const closePlace = document.querySelector(".modal-add__close-place");
 const closeImagen = document.querySelector(".modal-image__close-image");
 
 /* add.style.opacity = '0.8' */
@@ -192,6 +192,9 @@ function functionCards(card) {
     .querySelector(".card__image")
     .setAttribute("src", `${card.link}`);
   elementCard
+    .querySelector(".card__image")
+    .setAttribute("alt", `${card.name}`);
+  elementCard
     .querySelector(".btn__delete")
     .addEventListener("click", function (evt) {
       evt.target.parentNode.parentNode.remove();
@@ -202,10 +205,12 @@ function functionCards(card) {
     const imagenPlace = document.querySelector('.modal-image__place');
     const namePlace = document.querySelector('.modal-image__name-place');
     imagenPlace.setAttribute("src", evt.target.src);
+    imagenPlace.setAttribute("alt", evt.target.alt);
+
     namePlace.textContent = card.name;
     console.log(evt.target);
     console.log(evt.target.src);
-    console.log(evt.target.alt);
+    console.log(evt.target);
 
     const modalImagen = document.querySelector('.modal-image');
     modalImagen.classList.add('modal-image--show')

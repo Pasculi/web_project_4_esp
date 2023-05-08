@@ -1,4 +1,4 @@
-.modal__add {
+.modal-add {
   display: flex;
   position: fixed;
   justify-content: center;
@@ -16,7 +16,7 @@
   transition: opacity .6s;
 }
 
-.modal__add--show {
+.modal-add--show {
   opacity: 1;
   pointer-events: unset;
   transition: opacity .6s;

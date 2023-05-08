@@ -51,7 +51,17 @@
 @import url(../blocks/modal/__formulario/modal__formulario-description.css);
 
 /*MODAL AÑADIR LUGAR*/
-@import url(../blocks/modal/__add/modal__add.css);
+@import url(../blocks/modal-add/modal-add.css);
+@import url(../blocks/modal-add/__content/modal-add__content.css);
+@import url(../blocks/modal-add/__close-image/modal-add__close-image.css);
+@import url(../blocks/modal-add/__close-place/modal-add__close-place.css);
+@import url(../blocks/modal-add/__container/modal-add__container.css);
+@import url(../blocks/modal-add/__titulo/modal-add__titulo.css);
+
+
+
+
+
 
 /*MODAL IMAGEN*/
 @import url(../blocks/modal-image/modal-image.css);
