@@ -1,0 +1,18 @@
+.modal-image__content {
+  display    : flex;
+  position   : relative;
+  width      : 640px;
+  height     : fit-content;
+  padding-top: 40px;
+  margin : 0;
+
+}
+
+@media screen and (max-width:680px) {
+  .modal-image__content {
+    width        : 80%;
+    padding-right: 0;
+    padding-left : 0;
+
+  }
+}

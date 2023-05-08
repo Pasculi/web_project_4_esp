@@ -133,6 +133,9 @@ form.addEventListener("submit", guardarPerfil);
 const edit = document.querySelector(".btn-edit");
 const add = document.querySelector(".btn-add");
 const close = document.querySelector(".modal__btn-close");
+const closePlace = document.querySelector(".modal__close-place");
+const closeImagen = document.querySelector(".modal-image__close-image");
+
 /* add.style.opacity = '0.8' */
 
 function addOpacidad() {
@@ -153,6 +156,19 @@ function closeOpacidad() {
 function removeCloseOpacidad() {
   close.style.opacity = "1";
 }
+function closePlaceOpacidad() {
+  closePlace.style.opacity = "0.6";
+}
+function removeClosePlaceOpacidad() {
+  closePlace.style.opacity = "1";
+}
+function closeImageOpacidad() {
+  closeImagen.style.opacity = "0.6";
+}
+function removeCloseImageOpacidad() {
+  closeImagen.style.opacity = "1";
+}
+
 
 edit.addEventListener("mouseover", editOpacidad);
 edit.addEventListener("mouseout", removeEditOpacidad);
@@ -160,6 +176,10 @@ add.addEventListener("mouseover", addOpacidad);
 add.addEventListener("mouseout", removeAddOpacidad);
 close.addEventListener("mouseover", closeOpacidad);
 close.addEventListener("mouseout", removeCloseOpacidad);
+closePlace.addEventListener("mouseover", closePlaceOpacidad);
+closePlace.addEventListener("mouseout", removeClosePlaceOpacidad);
+closeImagen.addEventListener("mouseover", closeImageOpacidad);
+closeImagen.addEventListener("mouseout", removeCloseImageOpacidad);
 
 /*FUNCION CARDS */
 function functionCards(card) {
@@ -179,8 +199,8 @@ function functionCards(card) {
   /**CLICK EN IMAGEN */
   elementCard.querySelector('.card__image').addEventListener("click", function (evt) {
     console.log('Click en imagen');
-    const imagenPlace = document.querySelector('.modal__image-place');
-    const namePlace = document.querySelector('.name__place');
+    const imagenPlace = document.querySelector('.modal-image__place');
+    const namePlace = document.querySelector('.modal-image__name-place');
     imagenPlace.setAttribute("src", evt.target.src);
     namePlace.textContent = card.name;
     console.log(evt.target);

@@ -55,9 +55,12 @@
 
 /*MODAL IMAGEN*/
 @import url(../blocks/modal-image/modal-image.css);
-@import url(../blocks/modal/__container/modal__container-image.css);
-@import url(../blocks/modal/__content/modal__content_image.css);
-@import url(../blocks/modal/__image-place/modal__image-place.css);
+@import url(../blocks/modal-image/__content/modal-image__content.css);
+@import url(../blocks/modal-image/__btn-close/modal-image__btn-close.css);
+@import url(../blocks/modal-image/__close-image/modal-image__close-image.css);
+@import url(../blocks/modal-image/__container-image/modal-image__container-image.css);
+@import url(../blocks/modal-image/__place/modal-image__place.css);
+@import url(../blocks/modal-image/__name-place/modal-image__name-place.css);
 
 /*FOOTER*/
 @import url(../blocks/footer/footer.css)
