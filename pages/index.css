@@ -40,6 +40,7 @@
 
 /*MODAL EDITAR PERFIL*/
 @import url(../blocks/modal/modal.css);
+
 @import url(../blocks/modal/__content/modal__content.css);
 @import url(../blocks/modal/__btn-close/modal__btn-close.css);
 @import url(../blocks/modal/__btn-close/modal__close-image.css);
@@ -49,18 +50,6 @@
 @import url(../blocks/modal/__titulo/modal__titulo.css);
 @import url(../blocks/modal/__formulario/modal__formulario-name.css);
 @import url(../blocks/modal/__formulario/modal__formulario-description.css);
-
-/*MODAL AÑADIR LUGAR*/
-@import url(../blocks/modal-add/modal-add.css);
-@import url(../blocks/modal-add/__content/modal-add__content.css);
-@import url(../blocks/modal-add/__close-image/modal-add__close-image.css);
-@import url(../blocks/modal-add/__close-place/modal-add__close-place.css);
-@import url(../blocks/modal-add/__container/modal-add__container.css);
-@import url(../blocks/modal-add/__titulo/modal-add__titulo.css);
-
-
-
-
 
 
 /*MODAL IMAGEN*/

@@ -48,25 +48,25 @@ const addplace = document.querySelector(".btn-add");
 const modalAdd = document.querySelector(".modal-add");
 addplace.addEventListener("click", (e) => {
   e.preventDefault();
-  modalAdd.classList.add('modal-add--show');
+  modalAdd.classList.add('modal--show');
 });
 
 /*CERRAR MODAL AÑADIR LUGAR*/
 const placeClose = (e) => {
   e.preventDefault();
-  modalAdd.classList.remove('modal-add--show');
+  modalAdd.classList.remove('modal--show');
 };
-const placeCerrar = document.querySelector(".modal-add__close-place");
+const placeCerrar = document.querySelector(".modal__btn-close-place");
 placeCerrar.addEventListener("click", placeClose);
 
 /*AÑADIR UN LUGAR AL ARRAY */
-const savePlace = document.querySelector(".save__place");
+const savePlace = document.querySelector(".modal__btn-guardar-place");
 function savePlaces(e) {
   e.preventDefault();
 
-  const name = document.querySelector(".name__new-place").value;
+  const name = document.querySelector(".modal__formulario-name-place").value;
   console.log(name);
-  const link = document.querySelector(".url__place").value;
+  const link = document.querySelector(".modal__formulario-description-url-place").value;
   console.log(name, link);
   const card = { name: name, link: link };
   console.log(card.name);
@@ -81,7 +81,7 @@ function savePlaces(e) {
 
 
 function closeModalPlace() {
-  modalAdd.classList.remove('modal-add--show');
+  modalAdd.classList.remove('modal--show');
 }
 savePlace.addEventListener("click", savePlaces);
 
@@ -133,7 +133,7 @@ form.addEventListener("submit", guardarPerfil);
 const edit = document.querySelector(".btn-edit");
 const add = document.querySelector(".btn-add");
 const close = document.querySelector(".modal__btn-close");
-const closePlace = document.querySelector(".modal-add__close-place");
+const closePlace = document.querySelector(".modal__btn-close-place");
 const closeImagen = document.querySelector(".modal-image__close-image");
 
 /* add.style.opacity = '0.8' */
