@@ -226,3 +226,4 @@ function functionCards(card) {
   containerCard.prepend(elementCard);
   /******************************************* */
 }
+/* Validacion de formularios */
