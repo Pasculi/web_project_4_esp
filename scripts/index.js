@@ -37,7 +37,7 @@ const imagenDisplay = document.querySelector('.modal-image');
 
 
 function closeImage(e) {
-  e.preventDefault();
+
   imagenDisplay.classList.remove('modal-image--show')
 }
 imagenDisplay.addEventListener('click', closeImage);
@@ -47,13 +47,13 @@ imagenDisplay.addEventListener('click', closeImage);
 const addplace = document.querySelector(".btn-add");
 const modalAdd = document.querySelector(".modal-add");
 addplace.addEventListener("click", (e) => {
-  e.preventDefault();
+
   modalAdd.classList.add('modal--show');
 });
 
 /*CERRAR MODAL AÑADIR LUGAR*/
 const placeClose = (e) => {
-  e.preventDefault();
+
   modalAdd.classList.remove('modal--show');
 };
 const placeCerrar = document.querySelector(".modal__btn-close-place");
@@ -61,19 +61,18 @@ placeCerrar.addEventListener("click", placeClose);
 
 /*AÑADIR UN LUGAR AL ARRAY */
 const savePlace = document.querySelector(".modal__btn-guardar-place");
-function savePlaces(e) {
-  e.preventDefault();
-
+function savePlaces(evt) {
+  evt.preventDefault();
   const name = document.querySelector(".modal__formulario-name-place").value;
-  console.log(name);
+
   const link = document.querySelector(".modal__formulario-description-url-place").value;
-  console.log(name, link);
+
   const card = { name: name, link: link };
-  console.log(card.name);
+
   initialCards.unshift(card);
 
   functionCards(card);
-  console.log(initialCards);
+
 
   closeModalPlace();
   renderCardsInitial(card);
@@ -83,7 +82,7 @@ function savePlaces(e) {
 function closeModalPlace() {
   modalAdd.classList.remove('modal--show');
 }
-savePlace.addEventListener("click", savePlaces);
+savePlace.addEventListener("submit", savePlaces);
 
 /*Declaración de variables*/
 /* ============================== */
@@ -100,7 +99,7 @@ function editarPerfil() {
   modal.classList.add('modal--show')
   const valorNombre = nameInput.innerText;
   const valorAcerca = jobInput.innerText;
-  console.log(valorNombre);
+
   inputNombre.setAttribute("placeholder", valorNombre);
   inputAcerca.setAttribute("placeholder", valorAcerca);
 }
@@ -201,16 +200,13 @@ function functionCards(card) {
     });
   /**CLICK EN IMAGEN */
   elementCard.querySelector('.card__image').addEventListener("click", function (evt) {
-    console.log('Click en imagen');
+
     const imagenPlace = document.querySelector('.modal-image__place');
     const namePlace = document.querySelector('.modal-image__name-place');
     imagenPlace.setAttribute("src", evt.target.src);
     imagenPlace.setAttribute("alt", evt.target.alt);
 
     namePlace.textContent = card.name;
-    console.log(evt.target);
-    console.log(evt.target.src);
-    console.log(evt.target);
 
     const modalImagen = document.querySelector('.modal-image');
     modalImagen.classList.add('modal-image--show')
@@ -219,11 +215,9 @@ function functionCards(card) {
   elementCard
     .querySelector(".btn__like")
     .addEventListener("click", function (evt) {
-      console.log(evt.target);
       evt.target.classList.toggle("btn__like-active");
     });
 
   containerCard.prepend(elementCard);
   /******************************************* */
 }
-/* Validacion de formularios */

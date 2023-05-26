@@ -69,15 +69,21 @@
           </button>
           <div class="modal-image__container-image">
             <figure>
-              <img class="modal-image__place" src="https://www.rioenlinea.cl/wp-content/uploads/2019/01/1525688701351a0b10999b-w800h533-1-768x512.jpg" alt="Algún lugar" />
-              <figcaption class="modal-image__name-place">En algún lugar</figcaption>
+              <img
+                class="modal-image__place"
+                src="https://www.rioenlinea.cl/wp-content/uploads/2019/01/1525688701351a0b10999b-w800h533-1-768x512.jpg"
+                alt="Algún lugar"
+              />
+              <figcaption class="modal-image__name-place">
+                En algún lugar
+              </figcaption>
             </figure>
           </div>
         </div>
       </section>
       <!-- FIN MODAL IMAGEN -->
 
-      <!-- INICIO MODAL EDITAR PERFIL -->
+      <!-- INICIO FORMULARIO EDITAR PERFIL -->
       <section class="modal">
         <div class="modal__content">
           <button class="modal__btn-close modal__btn-close-perfil">
@@ -89,27 +95,39 @@
           </button>
           <div class="modal__container">
             <h2 class="modal__titulo">Edit profile</h2>
-            <form action="#" class="modal__formulario">
+            <form action="#" class="modal__formulario modal__formulario-profile" novalidate>
               <input
-                class="modal__formulario-name"
+                class="modal__formulario-name form__input"
                 type="text"
                 name="nombre"
                 id="nombre"
-                value="Jacques Cousteau"
+                placeholder="Jacques Cousteau"
+                minlength="2"
+                maxlength="40"
+                required
               />
+              <span class="modal__error" id="edit-profile-name-error">
+                Por favor, rellena este campo.</span
+              >
               <input
-                class="modal__formulario-description"
+                class="modal__formulario-description form__input"
                 type="text"
                 name="acerca"
                 id="acerca"
-                value="Explorador"
+                placeholder="Explorador"
+                minlength="2"
+                maxlength="200"
+                required
               />
+              <span class="modal__error" id="edit-profile-title-error">
+                Por favor, rellena este campo.</span
+              >
               <button type="submit" class="modal__btn-guardar">Guardar</button>
             </form>
           </div>
         </div>
       </section>
-      <!-- PLANTILLA CARDS -->
+      <!-- FIN FORMULARIO EDITAR PERFIL -->
 
       <!-- INICIO FORMULARIO DE INGRESO LUGAR-->
       <section class="modal modal-add">
@@ -123,22 +141,35 @@
           </button>
           <div class="modal__container">
             <h2 class="modal__titulo modal-add__titulo">New Place</h2>
-            <form action="#" class="modal__formulario modal__formulario-place">
+            <form action="#" class="modal__formulario modal__formulario-place" novalidate>
               <input
-                class="modal__formulario-name modal__formulario-name-place"
+                class="modal__formulario-name modal__formulario-name-place form__input"
                 type="text"
                 name="nombre"
                 id="name"
-                value="Title"
+                placeholder="Title"
+                minlength="2"
+                maxlength="30"
+                required
               />
+               <span class="modal__error" id="new-place-title-error">
+            Por favor, rellena este campo.</span
+          >
               <input
-                class="modal__formulario-description modal__formulario-description-url-place"
+                class="modal__formulario-description modal__formulario-description-url-place form__input"
                 type="text"
                 name="acerca"
                 id="about"
-                value="Image url"
+                placeholder="Image url"
+                required
               />
-              <button type="submit" class="modal__btn-guardar modal__btn-guardar-place">
+              <span class="modal__error" id="new-place-url-error">
+            Por favor, rellena este campo.</span
+          >
+              <button
+                type="submit"
+                class="modal__btn-guardar modal__btn-guardar-place"
+              >
                 Guardar
               </button>
             </form>
@@ -152,5 +183,6 @@
       </footer>
     </div>
     <script src="scripts/index.js"></script>
+    <script src="scripts/validate.js"></script>
   </body>
 </html>
