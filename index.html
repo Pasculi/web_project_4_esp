@@ -84,7 +84,7 @@
       <!-- FIN MODAL IMAGEN -->
 
       <!-- INICIO FORMULARIO EDITAR PERFIL -->
-      <section class="modal">
+      <section class="modal modal--show modal__profile">
         <div class="modal__content">
           <button class="modal__btn-close modal__btn-close-perfil">
             <img
@@ -95,34 +95,43 @@
           </button>
           <div class="modal__container">
             <h2 class="modal__titulo">Edit profile</h2>
-            <form action="#" class="modal__formulario modal__formulario-profile" novalidate>
+            <form
+              action="#"
+              name="form_profile"
+              class="modal__formulario modal__formulario-profile"
+              novalidate
+            >
               <input
-                class="modal__formulario-name form__input"
+                class="modal__formulario-name form__input form__input-error_active"
                 type="text"
-                name="nombre"
-                id="nombre"
+                id="edit-profile-name"
                 placeholder="Jacques Cousteau"
                 minlength="2"
                 maxlength="40"
                 required
               />
-              <span class="modal__error" id="edit-profile-name-error">
+              <span class="form__input-error edit-profile-name-error">
                 Por favor, rellena este campo.</span
               >
               <input
                 class="modal__formulario-description form__input"
                 type="text"
                 name="acerca"
-                id="acerca"
+                id="edit-profile-about"
                 placeholder="Explorador"
                 minlength="2"
                 maxlength="200"
                 required
               />
-              <span class="modal__error" id="edit-profile-title-error">
+              <span class="form__input-error edit-profile-about-error">
                 Por favor, rellena este campo.</span
               >
-              <button type="submit" class="modal__btn-guardar">Guardar</button>
+              <button
+                type="submit"
+                class="form__submit button modal__btn-guardar"
+              >
+                Guardar
+              </button>
             </form>
           </div>
         </div>
@@ -141,34 +150,37 @@
           </button>
           <div class="modal__container">
             <h2 class="modal__titulo modal-add__titulo">New Place</h2>
-            <form action="#" class="modal__formulario modal__formulario-place" novalidate>
+            <form
+              action="#"
+              name="form__place"
+              class="modal__formulario modal__formulario-place"
+              novalidate
+            >
               <input
                 class="modal__formulario-name modal__formulario-name-place form__input"
                 type="text"
-                name="nombre"
-                id="name"
+                id="new-place-title"
                 placeholder="Title"
                 minlength="2"
                 maxlength="30"
                 required
               />
-               <span class="modal__error" id="new-place-title-error">
-            Por favor, rellena este campo.</span
-          >
+              <span class="form__input-error new-place-title-error">
+                Por favor, rellena este campo.</span
+              >
               <input
                 class="modal__formulario-description modal__formulario-description-url-place form__input"
                 type="text"
-                name="acerca"
-                id="about"
+                id="new-place-url"
                 placeholder="Image url"
                 required
               />
-              <span class="modal__error" id="new-place-url-error">
-            Por favor, rellena este campo.</span
-          >
+              <span class="form__input-error new-place-url-error">
+                Por favor, rellena este campo.</span
+              >
               <button
                 type="submit"
-                class="modal__btn-guardar modal__btn-guardar-place"
+                class="form__submit button modal__btn-guardar modal__btn-guardar-place"
               >
                 Guardar
               </button>

@@ -62,4 +62,7 @@
 @import url(../blocks/modal-image/__name-place/modal-image__name-place.css);
 
 /*FOOTER*/
-@import url(../blocks/footer/footer.css)
+@import url(../blocks/footer/footer.css);
+
+/*ESTILOS DE VALIDACIÓN*/
+@import url(../blocks/modal/__error/modal__error.css)
