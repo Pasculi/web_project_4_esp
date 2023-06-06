@@ -65,4 +65,5 @@
 @import url(../blocks/footer/footer.css);
 
 /*ESTILOS DE VALIDACIÓN*/
-@import url(../blocks/modal/__error/modal__error.css)
+@import url(../blocks/modal/__error/modal__error.css);
+@import url(../blocks/popup/__error_visible/popup__popup__error_visible.css)

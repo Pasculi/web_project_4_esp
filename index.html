@@ -98,11 +98,11 @@
             <form
               action="#"
               name="form_profile"
-              class="modal__formulario modal__formulario-profile"
-              novalidate
+              class="popup__form modal__formulario modal__formulario-profile"
+
             >
               <input
-                class="modal__formulario-name form__input form__input-error_active"
+                class="modal__formulario-name form__input popup__input_type_error_active popup__input"
                 type="text"
                 name="nombre"
                 id="nombre"
@@ -111,11 +111,11 @@
                 maxlength="40"
                 required
               />
-              <span class="form__input-error edit-profile-name-error">
+              <span class="popup__input_type_error edit-profile-name-error">
                 Por favor, rellena este campo.</span
               >
               <input
-                class="modal__formulario-description form__input"
+                class="modal__formulario-description form__input popup__input"
                 type="text"
                 name="acerca"
                 id="edit-profile-about"
@@ -124,12 +124,12 @@
                 maxlength="200"
                 required
               />
-              <span class="form__input-error edit-profile-about-error">
+              <span class="popup__input_type_error edit-profile-about-error">
                 Por favor, rellena este campo.</span
               >
               <button
                 type="submit"
-                class="form__submit button modal__btn-guardar"
+                class="form__submit button modal__btn-guardar popup__button"
               >
                 Guardar
               </button>
@@ -154,11 +154,11 @@
             <form
               action="#"
               name="form__place"
-              class="modal__formulario modal__formulario-place"
-              novalidate
+              class="popup__form modal__formulario modal__formulario-place"
+
             >
               <input
-                class="modal__formulario-name modal__formulario-name-place form__input"
+                class="modal__formulario-name modal__formulario-name-place form__input popup__input"
                 type="text"
                 name="nombre"
                 id="name"
@@ -167,23 +167,23 @@
                 maxlength="30"
                 required
               />
-              <span class="form__input-error new-place-title-error">
+              <span class="popup__input_type_error new-place-title-error">
                 Por favor, rellena este campo.</span
               >
               <input
-                class="modal__formulario-description modal__formulario-description-url-place form__input"
-                type="text"
+                class="modal__formulario-description modal__formulario-description-url-place form__input popup__input"
+                type="url"
                 name="acerca"
                 id="about"
                 placeholder="Image url"
                 required
               />
-              <span class="form__input-error new-place-url-error">
+              <span class="popup__input_type_error new-place-url-error">
                 Por favor, rellena este campo.</span
               >
               <button
                 type="submit"
-                class="form__submit button modal__btn-guardar modal__btn-guardar-place"
+                class="form__submit button modal__btn-guardar modal__btn-guardar-place popup__button"
               >
                 Guardar
               </button>
@@ -198,6 +198,6 @@
       </footer>
     </div>
     <script src="scripts/index.js"></script>
-    <script src="scripts/validate.js"></script>
+    <script src="scripts/validation.js"></script>
   </body>
 </html>

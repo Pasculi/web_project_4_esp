@@ -1,4 +1,4 @@
-const showInputError = (formElement, inputElement, errorMessage) => {
+/* const showInputError = (formElement, inputElement, errorMessage) => {
   const formError = formElement.querySelector(`.${formInput.id}-error`);
   console.log(formError);
   inputElement.classList.add('from__input_type_error');
@@ -12,7 +12,6 @@ const hideInputError = (formElement, inputElement) => {
   inputElement.classList.remove('from__input_type_error');
   formError.classList.remove('from__input-error_active');
   formError.textContent = "";
-
 }
 
 const isValid = (formElement, inputElement) => {
