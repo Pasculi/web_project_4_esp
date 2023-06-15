@@ -2,10 +2,13 @@
 // pasar todas las configuraciones en la llamada
 
 enableValidation({
-  formSelector: ".popup__form",
-  inputSelector: ".popup__input",
-  submitButtonSelector: ".popup__button",
-  inactiveButtonClass: "popup__button_disabled",
-  inputErrorClass: "popup__input_type_error",
-  errorClass: "popup__error_visible"
+  formSelector: ".modal__formulario",
+  inputSelector: ".form__input",
+  submitButtonSelector: ".form__submit",
+  inactiveButtonClass: ".popup__button_disabled",
+  inputErrorClass: ".form__input-error",
+  errorClass: ".popup__error_visible"
 }); 
+
+
+

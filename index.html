@@ -94,45 +94,51 @@
             />
           </button>
           <div class="modal__container">
-            <h2 class="modal__titulo">Edit profile</h2>
+            <div class="grupo__titulo">
+              <h2 class="modal__titulo">Edit profile</h2>
+            </div>
             <form
               action="#"
               name="form_profile"
               class="modal__formulario modal__formulario-profile"
               novalidate
             >
-              <input
-                class="modal__formulario-name form__input form__input-error_active"
-                type="text"
-                name="nombre"
-                id="nombre"
-                placeholder="Jacques Cousteau"
-                minlength="2"
-                maxlength="40"
-                required
-              />
-              <span class="form__input-error edit-profile-name-error">
-                Por favor, rellena este campo.</span
-              >
-              <input
-                class="modal__formulario-description form__input"
-                type="text"
-                name="acerca"
-                id="edit-profile-about"
-                placeholder="Explorador"
-                minlength="2"
-                maxlength="200"
-                required
-              />
-              <span class="form__input-error edit-profile-about-error">
-                Por favor, rellena este campo.</span
-              >
-              <button
-                type="submit"
-                class="form__submit button modal__btn-guardar"
-              >
-                Guardar
-              </button>
+            <!-- Grupo Input Nombre -->
+              <div class="grupo__input">
+                <input
+                  class="modal__formulario-name form__input 
+                  type="text"
+                  name="nombre"
+                  id="nombre"
+                  placeholder="Jacques Cousteau"
+                  minlength="2"
+                  maxlength="40"
+                  required
+                />
+                <span class="form__input-error form__input-error_active edit-profile-name-error">Rellene los campos</span>
+              </div>
+              <!-- Grupo input Acerca -->
+              <div class="grupo__input">
+                <input
+                  class="modal__formulario-description form__input"
+                  type="text"
+                  name="acerca"
+                  id="edit-profile-about"
+                  placeholder="Explorador"
+                  minlength="2"
+                  maxlength="200"
+                  required
+                />
+                <span class="form__input-error form__input-error_active edit-profile-about-error">Rellene los campos</span>
+              </div>
+              <div class="grupo__button">
+                <button
+                  type="submit"
+                  class="form__submit popup__button_disabled modal__btn-guardar"
+                >
+                  Guardar
+                </button>
+              </div>
             </form>
           </div>
         </div>
@@ -150,43 +156,50 @@
             />
           </button>
           <div class="modal__container">
-            <h2 class="modal__titulo modal-add__titulo">New Place</h2>
+            <div class="grupo__titulo">
+
+              <h2 class="modal__titulo modal-add__titulo">New Place</h2>
+            </div>
             <form
               action="#"
               name="form__place"
               class="modal__formulario modal__formulario-place"
               novalidate
             >
-              <input
-                class="modal__formulario-name modal__formulario-name-place form__input"
-                type="text"
-                name="nombre"
-                id="name"
-                placeholder="Title"
-                minlength="2"
-                maxlength="30"
-                required
-              />
-              <span class="form__input-error new-place-title-error">
-                Por favor, rellena este campo.</span
-              >
-              <input
-                class="modal__formulario-description modal__formulario-description-url-place form__input"
-                type="text"
-                name="acerca"
-                id="about"
-                placeholder="Image url"
-                required
-              />
-              <span class="form__input-error new-place-url-error">
-                Por favor, rellena este campo.</span
-              >
-              <button
-                type="submit"
-                class="form__submit button modal__btn-guardar modal__btn-guardar-place"
-              >
-                Guardar
-              </button>
+            <!-- Grupo input Titulo -->
+              <div class="grupo__input">
+                <input
+                  class="modal__formulario-name modal__formulario-name-place form__input"
+                  type="text"
+                  name="nombre"
+                  id="name"
+                  placeholder="Title"
+                  minlength="2"
+                  maxlength="30"
+                  required
+                />
+                <span class="form__input-error form__input-error_active new-place-title-error">Rellene los campos</span>
+              </div>
+              <!-- Grupo input URL -->
+              <div class="grupo__input">
+                <input
+                  class="modal__formulario-description modal__formulario-description-url-place form__input"
+                  type="text"
+                  name="acerca"
+                  id="about"
+                  placeholder="Image url"
+                  required
+                />
+                <span class="form__input-error form__input-error_active new-place-url-error">Rellene los campos</span>
+              </div>
+              <div class="grupo__button">                
+                <button
+                  type="submit"
+                  class="form__submit popup__button_disabled modal__btn-guardar modal__btn-guardar-place"
+                >
+                  Guardar
+                </button>
+              </div>
             </form>
           </div>
         </div>
@@ -197,7 +210,7 @@
         <p>&COPY; 2023 Alrededor de los EEUU</p>
       </footer>
     </div>
-    <script src="scripts/index.js"></script>
-    <script src="scripts/validate.js"></script>
+    <script src="./scripts/index.js"></script>
+    <script src="./scripts/validate.js"></script>
   </body>
 </html>
