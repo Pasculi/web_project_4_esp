@@ -1,4 +1,6 @@
+import { config, enableValidation } from "./validate.js"
 
+enableValidation();
 
 /*ARRAY DE OBJETOS INICIAL */
 const initialCards = [
