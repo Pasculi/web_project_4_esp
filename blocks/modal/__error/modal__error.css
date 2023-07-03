@@ -18,11 +18,10 @@
 }
 
 .popup__button_disabled {
-  color              : #000000;
-  background         : #ffffff;
-  pointer-events     : none;
-  -webkit-user-select: none;
-  -moz-user-select   : none;
-  -ms-user-select    : none;
-  user-select        : none;
+  color           : #000;
+  background-color: #FFF;
+  pointer-events  : none;
+  user-select     : none;
+  border          : 1px solid #000000;
+  opacity         : 0.3;
 }

@@ -26,16 +26,22 @@ const hideInputError = (inputElement) => {
 
 const setEventListeners = () => {
   const inputs = Array.from(document.querySelectorAll(inputSelector));
+  const buttonElement = document.querySelector(submitButtonSelector)
+  console.log(buttonElement)
   inputs.forEach(inputElement => {
     inputElement.addEventListener('input', () => {
-      if (!inputElement.validity.valid) {
-        showInputError(inputElement, inputElement.validationMessage)
-      } else {
-        hideInputError(inputElement)
-      }
+      checkValidityInput(inputs);
     })
   })
 }
+const checkValidityInput = (inputElement) => {
+  if (!inputElement.validity.valid) {
+    showInputError(inputElement, inputElement.validationMessage)
+  } else {
+    hideInputError(inputElement)
+  }
+}
+
 export const enableValidation = (config) => {
   const forms = Array.from(document.querySelector(formSelector));
   forms.forEach(formElement => {

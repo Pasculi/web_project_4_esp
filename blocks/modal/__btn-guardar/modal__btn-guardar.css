@@ -12,15 +12,6 @@
   background-color: rgba(0, 0, 0, 0.8);
 }
 
-.popup__button_disabled {
-  color              : #000;
-  background-color   : #FFF;
-  pointer-events     : none;
-  user-select        : none;
-  border: 1px solid #000000;
-  opacity            : 0.2;
-}
-
 @media screen and (max-width:589px) {
   .modal__btn-guardar {
     width: 100%;
