@@ -4,10 +4,10 @@
   font-weight: 400;
   font-size: 14px;
   line-height: 17px;
-  color: #C4C4C4;
+  color: #CCC;
   border: none;
   outline: none;
-  border-bottom: 1px solid #C4C4C4;
+  border-bottom: 1px solid #CCc;
 
 }
 
@@ -17,7 +17,7 @@
 }
 
 .modal__formulario-name::placeholder {
-  color: #C4C4C4;
+  color: #CCC;
 }
 
 @media screen and (max-width:589px) {

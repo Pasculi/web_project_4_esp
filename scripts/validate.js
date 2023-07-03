@@ -7,7 +7,42 @@ export const config = {
   errorClass: "popup__error_visible"
 };
 
+const { formSelector, inputSelector, submitButtonSelector, inactiveButtonClass, inputErrorClass, errorClass } = config
 
-export function enableValidation() {
-  console.log("hola")
+
+const showInputError = (inputElement, errorMessage) => {
+  const inputError = document.querySelector(`.${inputElement.id}-error`);
+  inputElement.classList.add(inputErrorClass);
+  inputError.textContent = errorMessage;
+  inputError.classList.add(errorClass)
+}
+
+const hideInputError = (inputElement) => {
+  const inputError = document.querySelector(`.${inputElement.id}-error`);
+  inputElement.classList.remove(inputErrorClass);
+  inputError.textContent = '';
+  inputError.classList.add(errorClass)
+}
+
+const setEventListeners = () => {
+  const inputs = Array.from(document.querySelectorAll(inputSelector));
+  inputs.forEach(inputElement => {
+    inputElement.addEventListener('input', () => {
+      if (!inputElement.validity.valid) {
+        showInputError(inputElement, inputElement.validationMessage)
+      } else {
+        hideInputError(inputElement)
+      }
+    })
+  })
+}
+export const enableValidation = (config) => {
+  const forms = Array.from(document.querySelector(formSelector));
+  forms.forEach(formElement => {
+    formElement.addEventListener('submit', (evt) => {
+      evt.preventDefault()
+    })
+  })
+  setEventListeners()
+
 }
