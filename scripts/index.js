@@ -40,7 +40,7 @@ function renderCardsInitial(initialCards) {
 const imagenDisplay = document.querySelector('.modal-image');
 
 
-function closeImage(e) {
+function closeImage() {
   imagenDisplay.classList.remove('modal-image--show')
 }
 
@@ -56,7 +56,7 @@ addplace.addEventListener("click", (e) => {
 });
 
 /*CERRAR MODAL AÑADIR LUGAR*/
-const placeClose = (e) => {
+const placeClose = () => {
 
   modalAdd.classList.remove('modal--show');
 };
@@ -124,8 +124,8 @@ btn__cerrar.addEventListener("click", closeModal);
 /* ============================== */
 /*/*BOTON SUBMIT EDITAR PERFIL*/
 const form = document.querySelector(".modal__formulario");
-function guardarPerfil(e) {
-  e.preventDefault();
+function guardarPerfil(evt) {
+  evt.preventDefault();
   nameInput.textContent = `${inputNombre.value}`;
   jobInput.textContent = `${inputAcerca.value}`;
   closeModal();
