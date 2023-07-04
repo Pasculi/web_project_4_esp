@@ -40,7 +40,7 @@
 
 /*MODAL EDITAR PERFIL*/
 @import url(../blocks/modal/modal.css);
-
+@import url(../blocks/modal/popup/popup__content.css);
 @import url(../blocks/modal/__content/modal__content.css);
 @import url(../blocks/modal/__btn-close/modal__btn-close.css);
 @import url(../blocks/modal/__btn-close/modal__close-image.css);

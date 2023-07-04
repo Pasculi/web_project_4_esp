@@ -95,13 +95,15 @@
           </button>
           <div class="modal__container">
             <div class="grupo__titulo">
-              <h2 class="modal__titulo">Edit profile</h2>
             </div>
             <form
-              action="#"
-              name="form_profile"
-              class="popup__form modal__formulario modal__formulario-profile " novalidate
+            action="#"
+            name="form_profile"
+            class="popup__form modal__formulario modal__formulario-profile " novalidate
             >
+            <fieldset class="popup__content">
+              <h2 class="modal__titulo">Edit profile</h2>
+
               <!-- Grupo Input Nombre -->
               <div class="grupo__input">
                 <input class="modal__formulario-name form__input popup__input" type="text"
@@ -135,11 +137,12 @@
               <div class="grupo__button">
                 <button
                   type="submit"
-                  class="form__submit popup__button  modal__btn-guardar popup__button_disabled"
+                  class="form__submit popup__button  modal__btn-guardar popup__button_disabled" disabled="true"
                 >
                   Guardar
                 </button>
               </div>
+            </fieldset>
             </form>
           </div>
         </div>
@@ -158,13 +161,14 @@
           </button>
           <div class="modal__container">
             <div class="grupo__titulo">
-              <h2 class="modal__titulo modal-add__titulo">New Place</h2>
             </div>
             <form
-              action="#"
-              name="form__place"
-              class="popup__form modal__formulario modal__formulario-place" novalidate
+            action="#"
+            name="form__place"
+            class="popup__form modal__formulario modal__formulario-place" novalidate
             >
+            <fieldset class="popup__content">
+              <h2 class="modal__titulo modal-add__titulo">New Place</h2>
               <!-- Grupo input Titulo -->
               <div class="grupo__input">
                 <input
@@ -202,11 +206,13 @@
               <div class="grupo__button">
                 <button
                   type="submit"
-                  class="form__submit popup__button modal__btn-guardar modal__btn-guardar-place popup__button_disabled"
+                  class="form__submit popup__button modal__btn-guardar modal__btn-guardar-place popup__button_disabled" disabled="true"
                 >
                   Guardar
                 </button>
               </div>
+
+            </fieldset>
             </form>
           </div>
         </div>
