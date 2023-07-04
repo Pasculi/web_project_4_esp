@@ -1,6 +1,5 @@
 export const config = {
   formSelector: ".popup__form",
-  formFieldSet: ".popup__content",
   inputSelector: ".popup__input",
   submitButtonSelector: ".popup__button",
   inactiveButtonClass: "popup__button_disabled",
@@ -22,11 +21,11 @@ const hideInputError = (formElement, inputElement, config) => {
   inputError.classList.add(config.errorClass)
 }
 const checkValidityInput = (formElement, inputElement, config) => {
-  console.log(inputElement)
-  if (!inputElement.validity.valid) {
+    if (!inputElement.validity.valid) {
     console.log(inputElement.validity.valid)
     showInputError(formElement, inputElement, inputElement.validationMessage, config)
-  } else {
+    } else {
+      console.log(inputElement.validity.valid)
     hideInputError(formElement, inputElement, config)
   }
 }
@@ -64,10 +63,7 @@ export const enableValidation = (config) => {
     formElement.addEventListener('submit', evt => {
       evt.preventDefault()
     });
-    const fieldsetList = Array.from(formElement.querySelectorAll(config.formFieldSet));
-    fieldsetList.forEach((fieldset) => {
-      setEventListeners(fieldset, config);
-    })
+    setEventListeners(formElement, config);
   })
 
 }
