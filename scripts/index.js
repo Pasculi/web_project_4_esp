@@ -18,7 +18,7 @@ const initialCards = [
   },
   {
     name: "Calama",
-    link: "https://patrimonio.bienes.cl/wp-content/uploads/2020/05/ZCH3.jpg",
+    link: "https://www.melhoresdestinos.com.br/wp-content/uploads/2019/02/passagens-aereas-atacama-capa2019-01-820x430.jpg",
   },
   {
     name: "Antofagasta",
