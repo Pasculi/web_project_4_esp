@@ -120,6 +120,17 @@ function closeModal() {
 }
 const btn__cerrar = document.querySelector(".modal__btn-close-perfil");
 btn__cerrar.addEventListener("click", closeModal);
+document.addEventListener('keydown', evt => {
+  console.log(evt.key);
+  if (evt.key === 'Escape') {
+    closeModal()
+    closeModalPlace()
+  }
+});
+
+
+
+
 
 /* ============================== */
 /*/*BOTON SUBMIT EDITAR PERFIL*/
