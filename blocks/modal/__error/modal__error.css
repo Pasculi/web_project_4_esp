@@ -9,15 +9,15 @@
   sans-serif;
 }
 
-.modal__error_visible {
+.modal__error-visible {
   opacity: 1;
 }
 
-.modal__input_type_error {
+.modal__input-type-error {
   border-bottom-color: red;
 }
 
-.modal__button_disabled {
+.modal__button-disabled {
   color           : #000;
   background-color: #FFF;
   pointer-events  : none;

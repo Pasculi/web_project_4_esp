@@ -1,10 +1,10 @@
 export const config = {
   formSelector: ".modal__formulario",
   inputSelector: ".modal__form-input",
-  submitButtonSelector: ".modal__form__submit",
-  inactiveButtonClass: "modal__button_disabled",
-  inputErrorClass: "modal__input_type_error",
-  errorClass: "modal__error_visible"
+  submitButtonSelector: ".modal__form-submit",
+  inactiveButtonClass: "modal__button-disabled",
+  inputErrorClass: "modal__input-type-error",
+  errorClass: "modal__error-visible"
 };
 
 const showInputError = (formElement, inputElement, errorMessage, config) => {
