@@ -1,6 +1,6 @@
 export const config = {
   formSelector: ".modal__formulario",
-  inputSelector: ".modal__form__input",
+  inputSelector: ".modal__form-input",
   submitButtonSelector: ".modal__form__submit",
   inactiveButtonClass: "modal__button_disabled",
   inputErrorClass: "modal__input_type_error",
