@@ -84,7 +84,7 @@
       <!-- FIN MODAL IMAGEN -->
 
       <!-- INICIO FORMULARIO EDITAR PERFIL -->
-      <section class="modal modal__profile">
+      <section class="modal">
         <div class="modal__content">
           <button class="modal__btn-close modal__btn-close-perfil">
             <img
@@ -94,7 +94,7 @@
             />
           </button>
           <div class="modal__container">
-            <div class="grupo__titulo">
+            <div class="modal__grupo__titulo">
               <h2 class="modal__titulo">Edit profile</h2>
             </div>
             <form
@@ -103,19 +103,19 @@
             class="modal__formulario modal__formulario-profile " novalidate
             >
               <!-- Grupo Input Nombre -->
-              <div class="grupo__input">
+              <div class="modal__grupo__input">
                 <input class="modal__formulario-name form__input" type="text"
                 name="nombre" id="profile-input" placeholder="Jacques Cousteau" pattern="[A-Za-zäÄëËïÏöÖüÜáéíóúáéíóúÁÉÍÓÚÂÊÎÔÛâêîôûàèìòùÀÈÌÒÙ ]+"
                 minlength="2"
                 maxlength="40"
                 required />
                 <span
-                  class="form__input-error form__input-error_active profile-input-error"
+                  class="modal__form__input-error form__input-error_active profile-input-error"
                   ></span
                 >
               </div>
               <!-- Grupo input Acerca -->
-              <div class="grupo__input">
+              <div class="modal__grupo__input">
                 <input
                   class="modal__formulario-description form__input"
                   type="text"
@@ -128,14 +128,14 @@
                   required
                 />
                 <span
-                  class="form__input-error form__input-error_active about-input-error"
+                  class="modal__form__input-error form__input-error_active about-input-error"
                   ></span
                 >
               </div>
-              <div class="grupo__button">
+              <div class="modal__grupo__button">
                 <button
                   type="submit"
-                  class="form__submit modal__btn-guardar popup__button_disabled" disabled="true"
+                  class="modal__form__submit modal__btn-guardar modal__button_disabled" disabled="true"
                 >
                   Guardar
                 </button>
@@ -158,7 +158,7 @@
             />
           </button>
           <div class="modal__container">
-            <div class="grupo__titulo">
+            <div class="modal__grupo__titulo">
               <h2 class="modal__titulo modal-add__titulo">New Place</h2>
             </div>
             <form
@@ -167,7 +167,7 @@
             class="modal__formulario modal__formulario-place" novalidate
             >
               <!-- Grupo input Titulo -->
-              <div class="grupo__input">
+              <div class="modal__grupo__input">
                 <input
                   class="modal__formulario-name modal__formulario-name-place form__input"
                   type="text"
@@ -185,7 +185,7 @@
                 >
               </div>
               <!-- Grupo input URL -->
-              <div class="grupo__input">
+              <div class="modal__grupo__input">
                 <input
                   class="modal__formulario-description modal__formulario-description-url-place form__input"
                   type="url"
@@ -196,14 +196,14 @@
                   required
                 />
                 <span
-                  class="form__input-error form__input-error_active url-input-error"
+                  class="modal__form__input-error form__input-error_active url-input-error"
                   ></span
                 >
               </div>
-              <div class="grupo__button">
+              <div class="modal__grupo__button">
                 <button
                   type="submit"
-                  class="form__submit modal__btn-guardar modal__btn-guardar-place popup__button_disabled" disabled="true"
+                  class="modal__form__submit modal__btn-guardar modal__btn-guardar-place modal__button_disabled" disabled="true"
                 >
                   Guardar
                 </button>

@@ -9,15 +9,15 @@
   sans-serif;
 }
 
-.popup__error_visible {
+.modal__error_visible {
   opacity: 1;
 }
 
-.popup__input_type_error {
+.modal__input_type_error {
   border-bottom-color: red;
 }
 
-.popup__button_disabled {
+.modal__button_disabled {
   color           : #000;
   background-color: #FFF;
   pointer-events  : none;
