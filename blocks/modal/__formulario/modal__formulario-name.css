@@ -1,13 +1,16 @@
+:root
+
 .modal__formulario-name {
   width: 430px;
   font-style: normal;
   font-weight: 400;
   font-size: 14px;
   line-height: 17px;
-  color: #CCC;
+  color: var(--input-text-color);
   border: none;
   outline: none;
-  border-bottom: 1px solid #CCc;
+  border-bottom: 1px solid var(--input-text-color-opacity);
+
 
 }
 
@@ -17,7 +20,7 @@
 }
 
 .modal__formulario-name::placeholder {
-  color: #CCC;
+  color: var(--input-text-color-opacity);
 }
 
 @media screen and (max-width:589px) {

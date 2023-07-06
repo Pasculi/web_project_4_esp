@@ -1,4 +1,11 @@
-* {
+:root {
+  --main-bg-color: #000000;
+  --main-text-color:#FFFFFF;
+  --input-text-color:#000000;
+  --input-text-color-opacity:#00000033;
+}
+
+*{
   padding: 0;
   margin: 0;
 }
@@ -7,8 +14,8 @@
   max-width: 880px;
   margin: auto;
   box-sizing: border-box;
-  background-color: #000;
-  color: #fff;
+  background-color: var(--main-bg-color);
+  color: var(--main-text-color);
   font-family: 'Inter',
     sans-serif;
 

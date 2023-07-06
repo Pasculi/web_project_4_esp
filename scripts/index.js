@@ -30,6 +30,28 @@ const initialCards = [
   },
 ];
 
+/*
+  #############Declaración de constantes######################
+  */
+const imagenDisplay = document.querySelector('.modal-image');
+const addplace = document.querySelector(".btn-add");
+const modalAdd = document.querySelector(".modal-add");
+const placeCerrar = document.querySelector(".modal__btn-close-place");
+const savePlace = document.querySelector(".modal__btn-guardar-place");
+const modal = document.querySelector(".modal");
+const nameInput = document.querySelector(".profile__author");
+const jobInput = document.querySelector(".profile__activit");
+const inputNombre = document.querySelector(".modal__formulario-name");
+const inputAcerca = document.querySelector(".modal__formulario-description");
+const btn_guardar = document.querySelector(".modal__btn-guardar");
+const btn__editar = document.querySelector(".btn-edit");
+const edit = document.querySelector(".btn-edit");
+const add = document.querySelector(".btn-add");
+const close = document.querySelector(".modal__btn-close");
+const closePlace = document.querySelector(".modal__btn-close-place");
+const closeImagen = document.querySelector(".modal-image__close-image");
+const form = document.querySelector(".modal__formulario");
+
 /*CARGA DE GALLERIA INICIAL*/
 renderCardsInitial(initialCards);
 function renderCardsInitial(initialCards) {
@@ -37,80 +59,55 @@ function renderCardsInitial(initialCards) {
     functionCards(card);
   });
 }
-const imagenDisplay = document.querySelector('.modal-image');
 
 
 function closeImage() {
   imagenDisplay.classList.remove('modal-image--show')
 }
-
 imagenDisplay.addEventListener('click', closeImage);
 
 /*ABRIR MODAL AÑADIR LUGAR*/
 
-const addplace = document.querySelector(".btn-add");
-const modalAdd = document.querySelector(".modal-add");
-addplace.addEventListener("click", (e) => {
 
+addplace.addEventListener("click", (e) => {
   modalAdd.classList.add('modal--show');
 });
 
 /*CERRAR MODAL AÑADIR LUGAR*/
 const placeClose = () => {
-
   modalAdd.classList.remove('modal--show');
 };
-const placeCerrar = document.querySelector(".modal__btn-close-place");
+
 placeCerrar.addEventListener("click", placeClose);
 
 /*AÑADIR UN LUGAR AL ARRAY */
 
-const savePlace = document.querySelector(".modal__btn-guardar-place");
+
 function savePlaces(evt) {
   evt.preventDefault();
   const name = document.querySelector(".modal__formulario-name-place").value;
   const link = document.querySelector(".modal__formulario-description-url-place").value;
-
   const card = { name: name, link: link };
-
   initialCards.unshift(card);
-
   functionCards(card);
-
-
   closeModalPlace();
   renderCardsInitial(card);
 }
-
 
 function closeModalPlace() {
   modalAdd.classList.remove('modal--show');
 }
 savePlace.addEventListener("submit", savePlaces);
 
-/*Declaración de variables*/
-/* ============================== */
-const modal = document.querySelector(".modal");
-const nameInput = document.querySelector(".profile__author");
-const jobInput = document.querySelector(".profile__activit");
-const inputNombre = document.querySelector(".modal__formulario-name");
-const inputAcerca = document.querySelector(".modal__formulario-description");
-const btn_guardar = document.querySelector(".modal__btn-guardar");
-
 
 /**EDITAR PERFIL Y CERRAR MODAL**/
 function editarPerfil() {
   modal.classList.add('modal--show')
-
   const valorNombre = nameInput.innerText;
   const valorAcerca = jobInput.innerText;
-
   inputNombre.setAttribute("placeholder", valorNombre);
   inputAcerca.setAttribute("placeholder", valorAcerca);
-
 }
-
-const btn__editar = document.querySelector(".btn-edit");
 btn__editar.addEventListener("click", editarPerfil);
 
 /* ========== */
@@ -128,13 +125,8 @@ document.addEventListener('keydown', evt => {
   }
 });
 
+/*BOTON SUBMIT EDITAR PERFIL*/
 
-
-
-
-/* ============================== */
-/*/*BOTON SUBMIT EDITAR PERFIL*/
-const form = document.querySelector(".modal__formulario");
 function guardarPerfil(evt) {
   evt.preventDefault();
   nameInput.textContent = `${inputNombre.value}`;
@@ -143,17 +135,10 @@ function guardarPerfil(evt) {
 }
 form.addEventListener("submit", guardarPerfil);
 
-/* ============================== */
+
 
 /*Aplicar Opacidad a Botones de Editar (edit) y Añadir (add)*/
-
-const edit = document.querySelector(".btn-edit");
-const add = document.querySelector(".btn-add");
-const close = document.querySelector(".modal__btn-close");
-const closePlace = document.querySelector(".modal__btn-close-place");
-const closeImagen = document.querySelector(".modal-image__close-image");
-
-/* add.style.opacity = '0.8' */
+/* add.style.opacity = '0.6' */
 
 function addOpacidad() {
   add.style.opacity = "0.6";
@@ -218,14 +203,11 @@ function functionCards(card) {
     });
   /**CLICK EN IMAGEN */
   elementCard.querySelector('.card__image').addEventListener("click", function (evt) {
-
     const imagenPlace = document.querySelector('.modal-image__place');
     const namePlace = document.querySelector('.modal-image__name-place');
     imagenPlace.setAttribute("src", evt.target.src);
     imagenPlace.setAttribute("alt", evt.target.alt);
-
     namePlace.textContent = card.name;
-
     const modalImagen = document.querySelector('.modal-image');
     modalImagen.classList.add('modal-image--show')
   });
