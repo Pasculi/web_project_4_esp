@@ -43,7 +43,6 @@ const nameInput = document.querySelector(".profile__author");
 const jobInput = document.querySelector(".profile__activit");
 const inputNombre = document.querySelector(".modal__formulario-name");
 const inputAcerca = document.querySelector(".modal__formulario-description");
-const btn_guardar = document.querySelector(".modal__btn-guardar");
 const btn__editar = document.querySelector(".btn-edit");
 const edit = document.querySelector(".btn-edit");
 const add = document.querySelector(".btn-add");
@@ -69,7 +68,7 @@ imagenDisplay.addEventListener('click', closeImage);
 /*ABRIR MODAL AÑADIR LUGAR*/
 
 
-addplace.addEventListener("click", (e) => {
+addplace.addEventListener("click", () => {
   modalAdd.classList.add('modal--show');
 });
 
@@ -118,8 +117,7 @@ function closeModal() {
 const btn__cerrar = document.querySelector(".modal__btn-close-perfil");
 btn__cerrar.addEventListener("click", closeModal);
 document.addEventListener('keydown', evt => {
-  console.log(evt.key);
-  if (evt.key === 'Escape') {
+   if (evt.key === 'Escape') {
     closeModal()
     closeModalPlace()
   }
