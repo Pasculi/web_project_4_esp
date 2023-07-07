@@ -75,6 +75,7 @@ addplace.addEventListener("click", () => {
 /*CERRAR MODAL AÑADIR LUGAR*/
 const placeClose = () => {
   modalAdd.classList.remove('modal--show');
+  console.log('Guardando...')
 };
 
 placeCerrar.addEventListener("click", placeClose);
@@ -82,12 +83,12 @@ placeCerrar.addEventListener("click", placeClose);
 /*AÑADIR UN LUGAR AL ARRAY */
 
 
-function savePlaces(evt) {
-  evt.preventDefault();
+function savePlaces() {
   const name = document.querySelector(".modal__formulario-name-place").value;
   const link = document.querySelector(".modal__formulario-description-url-place").value;
   const card = { name: name, link: link };
   initialCards.unshift(card);
+
   functionCards(card);
   closeModalPlace();
   renderCardsInitial(card);
@@ -96,7 +97,7 @@ function savePlaces(evt) {
 function closeModalPlace() {
   modalAdd.classList.remove('modal--show');
 }
-savePlace.addEventListener("submit", savePlaces);
+savePlace.addEventListener("click", savePlaces);
 
 
 /**EDITAR PERFIL Y CERRAR MODAL**/
