@@ -220,3 +220,11 @@ function functionCards(card) {
   containerCard.prepend(elementCard);
   /******************************************* */
 }
+
+defaultCardButton.addEventListener('click', () => {
+  renderElements(true)
+});
+
+horizontalCardButton.addEventListener('click', () => {
+  renderElements(false)
+});
