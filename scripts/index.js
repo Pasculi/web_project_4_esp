@@ -1,8 +1,9 @@
-import { config, enableValidation } from "./validate.js"
+import { closePopupPlace, opacityButtons } from "./utils.js";
+import { config, enableValidation } from "./fromValidator.js";
+import Card from "./card.js"
 
-enableValidation(config);
-
-/*ARRAY DE OBJETOS INICIAL */
+opacityButtons()
+enableValidation(config)
 const initialCards = [
   {
     name: "Santiago",
@@ -22,7 +23,7 @@ const initialCards = [
   },
   {
     name: "Antofagasta",
-    link: "https://visitchile.imgix.net/destinos/320_Antofagasta1.jpg?w=960&h=448&fit=crop&q=auto&auto=format",
+    link: "https://www.holidayinnexpress.cl/wp-content/uploads/2017/08/destacada_antofagasta.jpg",
   },
   {
     name: "Ciudad de Arica",
@@ -30,201 +31,25 @@ const initialCards = [
   },
 ];
 
-/*
-  #############Declaración de constantes######################
-  */
-const imagenDisplay = document.querySelector('.modal-image');
-const addplace = document.querySelector(".btn-add");
-const modalAdd = document.querySelector(".modal-add");
-const placeCerrar = document.querySelector(".modal__btn-close-place");
-const savePlace = document.querySelector(".modal__btn-guardar-place");
-const modal = document.querySelector(".modal");
-const nameInput = document.querySelector(".profile__author");
-const jobInput = document.querySelector(".profile__activit");
-const inputNombre = document.querySelector(".modal__formulario-name");
-const inputAcerca = document.querySelector(".modal__formulario-description");
-const btn__editar = document.querySelector(".btn-edit");
-const edit = document.querySelector(".btn-edit");
-const add = document.querySelector(".btn-add");
-const close = document.querySelector(".modal__btn-close");
-const closePlace = document.querySelector(".modal__btn-close-place");
-const closeImagen = document.querySelector(".modal-image__close-image");
-const form = document.querySelector(".modal__formulario");
-
-/*CARGA DE GALLERIA INICIAL*/
-renderCardsInitial(initialCards);
-function renderCardsInitial(initialCards) {
-  initialCards.map((card) => {
-    functionCards(card);
-  });
-}
+const cardElement = document.querySelector('.container-card');
+initialCards.forEach(initialCard => {
+  const card = new Card('.card', initialCard)
+  cardElement.appendChild(card.render())
+})
 
 
-function closeImage() {
-  imagenDisplay.classList.remove('modal-image--show')
-}
-imagenDisplay.addEventListener('click', closeImage);
-
-/*ABRIR MODAL AÑADIR LUGAR*/
-
-
-addplace.addEventListener("click", () => {
-  modalAdd.classList.add('modal--show');
-});
-
-/*CERRAR MODAL AÑADIR LUGAR*/
-const placeClose = () => {
-  modalAdd.classList.remove('modal--show');
-  console.log('Guardando...')
-};
-
-placeCerrar.addEventListener("click", placeClose);
-
-/*AÑADIR UN LUGAR AL ARRAY */
-
-
+/*Función para Guardar una Imagen*/
+const savePlace = document.querySelector(".popup__button-place");
 function savePlaces() {
-  const name = document.querySelector(".modal__formulario-name-place").value;
-  const link = document.querySelector(".modal__formulario-description-url-place").value;
-  const card = { name: name, link: link };
-  initialCards.unshift(card);
-
-  functionCards(card);
-  closeModalPlace();
-  renderCardsInitial(card);
+  const name = document.querySelector("#popup__input-place").value;
+  const link = document.querySelector("#popup__input-url").value;
+  const cardNueva = new Card('.card', { name, link });
+  cardElement.prepend(cardNueva.render());
+  closePopupPlace();
+  render(initialCards);
 }
 
-function closeModalPlace() {
-  modalAdd.classList.remove('modal--show');
-}
 savePlace.addEventListener("click", savePlaces);
 
+export { initialCards }
 
-/**EDITAR PERFIL Y CERRAR MODAL**/
-function editarPerfil() {
-  modal.classList.add('modal--show')
-  const valorNombre = nameInput.innerText;
-  const valorAcerca = jobInput.innerText;
-  inputNombre.setAttribute("placeholder", valorNombre);
-  inputAcerca.setAttribute("placeholder", valorAcerca);
-}
-btn__editar.addEventListener("click", editarPerfil);
-
-/* ========== */
-
-function closeModal() {
-  modal.classList.remove('modal--show');
-}
-const btn__cerrar = document.querySelector(".modal__btn-close-perfil");
-btn__cerrar.addEventListener("click", closeModal);
-document.addEventListener('keydown', evt => {
-   if (evt.key === 'Escape') {
-    closeModal()
-    closeModalPlace()
-  }
-});
-
-/*BOTON SUBMIT EDITAR PERFIL*/
-
-function guardarPerfil(evt) {
-  evt.preventDefault();
-  nameInput.textContent = `${inputNombre.value}`;
-  jobInput.textContent = `${inputAcerca.value}`;
-  closeModal();
-}
-form.addEventListener("submit", guardarPerfil);
-
-
-
-/*Aplicar Opacidad a Botones de Editar (edit) y Añadir (add)*/
-/* add.style.opacity = '0.6' */
-
-function addOpacidad() {
-  add.style.opacity = "0.6";
-}
-function removeAddOpacidad() {
-  add.style.opacity = "1";
-}
-function editOpacidad() {
-  edit.style.opacity = "0.6";
-}
-function removeEditOpacidad() {
-  edit.style.opacity = "1";
-}
-function closeOpacidad() {
-  close.style.opacity = "0.6";
-}
-function removeCloseOpacidad() {
-  close.style.opacity = "1";
-}
-function closePlaceOpacidad() {
-  closePlace.style.opacity = "0.6";
-}
-function removeClosePlaceOpacidad() {
-  closePlace.style.opacity = "1";
-}
-function closeImageOpacidad() {
-  closeImagen.style.opacity = "0.6";
-}
-function removeCloseImageOpacidad() {
-  closeImagen.style.opacity = "1";
-}
-
-
-edit.addEventListener("mouseover", editOpacidad);
-edit.addEventListener("mouseout", removeEditOpacidad);
-add.addEventListener("mouseover", addOpacidad);
-add.addEventListener("mouseout", removeAddOpacidad);
-close.addEventListener("mouseover", closeOpacidad);
-close.addEventListener("mouseout", removeCloseOpacidad);
-closePlace.addEventListener("mouseover", closePlaceOpacidad);
-closePlace.addEventListener("mouseout", removeClosePlaceOpacidad);
-closeImagen.addEventListener("mouseover", closeImageOpacidad);
-closeImagen.addEventListener("mouseout", removeCloseImageOpacidad);
-
-/*FUNCION CARDS */
-function functionCards(card) {
-  /******************************************* */
-  const containerCard = document.querySelector(".card-container");
-  const templateCard = document.querySelector(".card-container").content;
-  const elementCard = templateCard.querySelector(".card").cloneNode(true);
-  elementCard.querySelector(".card__name").textContent = `${card.name}`;
-  elementCard
-    .querySelector(".card__image")
-    .setAttribute("src", `${card.link}`);
-  elementCard
-    .querySelector(".card__image")
-    .setAttribute("alt", `${card.name}`);
-  elementCard
-    .querySelector(".btn__delete")
-    .addEventListener("click", function (evt) {
-      evt.target.parentNode.parentNode.remove();
-    });
-  /**CLICK EN IMAGEN */
-  elementCard.querySelector('.card__image').addEventListener("click", function (evt) {
-    const imagenPlace = document.querySelector('.modal-image__place');
-    const namePlace = document.querySelector('.modal-image__name-place');
-    imagenPlace.setAttribute("src", evt.target.src);
-    imagenPlace.setAttribute("alt", evt.target.alt);
-    namePlace.textContent = card.name;
-    const modalImagen = document.querySelector('.modal-image');
-    modalImagen.classList.add('modal-image--show')
-  });
-  /**CLICK EN IMAGEN */
-  elementCard
-    .querySelector(".btn__like")
-    .addEventListener("click", function (evt) {
-      evt.target.classList.toggle("btn__like-active");
-    });
-
-  containerCard.prepend(elementCard);
-  /******************************************* */
-}
-
-defaultCardButton.addEventListener('click', () => {
-  renderElements(true)
-});
-
-horizontalCardButton.addEventListener('click', () => {
-  renderElements(false)
-});

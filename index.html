@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="pages/index.css" />
+    <link rel="stylesheet" href="./pages/index.css" />
     <title>Alrededor de los EE.UU.</title>
   </head>
   <body class="root">
@@ -15,10 +15,9 @@
         <div class="header__line"></div>
       </header>
       <!-- FIN DE CABECERA -->
-
       <!-- INICIO SECCCION PROFILE -->
       <section class="profile">
-        <div class="profile__info">
+        <div class="profile__data">
           <div class="profile__avatar">
             <img
               class="profile__avatar-image"
@@ -29,198 +28,161 @@
           <div class="profile__presentation">
             <div class="profile__name">
               <h1 class="profile__author">Jacques Cousteau</h1>
-              <button class="btn btn-edit"></button>
+              <button class="btn profile__author-button--edit"></button>
             </div>
             <h2 class="profile__activit">Explorador</h2>
           </div>
         </div>
-        <button class="btn btn-add"></button>
+        <button class="btn profile__author-button--add-place"></button>
       </section>
       <!-- FIN SECCCION PROFILE -->
-
+      <!-- CONTENEDOR MOSTRAR CARD -->
+      <div class="container-card"></div>
+      <!-- FIN CONTENEDOR MOSTRAR CARD -->
       <!-- PLANTILLA CARDS -->
-      <template class="card-container">
-        <div class="card">
-          <button class="btn__delete">
-            <img class="trash" src="images/vector__eliminar.png" alt="trash" />
+      <template class="card">
+        <div class="card__place">
+          <button class="card__place-button--delete">
+            <img
+              class="card__place-imagen-trash"
+              src="images/vector__eliminar.png"
+              alt="Eliminar"
+            />
           </button>
-          <img
-            class="card__image"
-            src="images/image__mountain_calvas.png"
-            alt="Montañas Calvas"
-          />
-          <div class="card__place">
-            <h2 class="card__name"></h2>
-            <button class="btn__like"></button>
+          <img class="card__place-image-place"
+          src="https://q-xx.bstatic.com/xdata/images/city/600x480/671802.jpg?k=f2af7c265359c6bfef67dd8137aae05a987d3df4208c8423068a807acc405ad3&o="
+          alt="Valdivia" />
+          <div class="card__place-footer">
+            <h2 class="card__place-name"></h2>
+            <button class="card__place-button--like"></button>
           </div>
         </div>
       </template>
       <!-- FIN PLANTILLA CARDS -->
-
-      <!-- INICIO MODAL IMAGEN -->
-      <section class="modal-image">
-        <div class="modal-image__content">
-          <button class="modal-image__btn-close">
+      <!-- INICIO MODAL PERFIL -->
+      <div class="popup popup-profile">
+        <div class="popup__container">
+          <button class="btn popup__button-close popup__button-close-profile">
             <img
-              class="modal-image__close-image"
+              class="popup__close-image"
+              src="images/vector__close.png"
+              alt="Cerrar popup"
+            />
+          </button>
+          <form action="#" class="popup__form popup__form-profile" novalidate>
+            <h2 class="popup__title">Edit Profile</h2>
+            <!-- Grupo Input Nombre -->
+            <div class="popup__grupo-input">
+              <input
+                class="popup__input"
+                type="text"
+                name="nombre"
+                id="popup__input-profile"
+                placeholder="Jacques Cousteau"
+                pattern="[A-Za-zäÄëËïÏöÖüÜáéíóúáéíóúÁÉÍÓÚÂÊÎÔÛâêîôûàèìòùÀÈÌÒÙ.,ñÑ() ]+"
+                minlength="2"
+                maxlength="40"
+                required
+              />
+              <span
+                class="popup__input_error popup__input-profile_error"
+              ></span>
+            </div>
+            <!-- Grupo Input Acerca -->
+            <div class="popup__grupo-input">
+              <input
+                class="popup__input"
+                type="text"
+                name="nombre"
+                id="popup__input-about"
+                placeholder="Explorador"
+                pattern="[A-Za-zäÄëËïÏöÖüÜáéíóúáéíóúÁÉÍÓÚÂÊÎÔÛâêîôûàèìòùÀÈÌÒÙ.,ñÑ() ]+"
+                minlength="2"
+                maxlength="200"
+                required
+              />
+              <span class="popup__input_error popup__input-about_error"></span>
+            </div>
+            <button class="popup__button popup__button-profile" type="submit">Guardar</button>
+          </form>
+        </div>
+      </div>
+      <!-- FIN MODAL PERFIL -->
+      <!-- INICIO MODAL LUGAR -->
+      <div class="popup popup-place">
+        <div class="popup__container">
+          <button class="btn popup__button-close popup__button-close-place">
+            <img
+              class="popup__close-image"
+              src="images/vector__close.png"
+              alt="Cerrar popup"
+            />
+          </button>
+          <form action="" class="popup__form popup__form-place" novalidate>
+            <h2 class="popup__title">New Place</h2>
+            <!-- Grupo Input Nombre Lugar -->
+            <div class="popup__grupo-input">
+              <input
+                class="popup__input"
+                type="text"
+                name="nombre"
+                id="popup__input-place"
+                placeholder="Title"
+                pattern="[A-Za-zäÄëËïÏöÖüÜáéíóúáéíóúÁÉÍÓÚÂÊÎÔÛâêîôûàèìòùÀÈÌÒÙ.,ñÑ() ]+"
+                minlength="2"
+                maxlength="30"
+                required
+              />
+              <span class="popup__input_error popup__input-place_error"></span>
+            </div>
+            <!-- Grupo Input Url Lugar -->
+            <div class="popup__grupo-input">
+              <input
+                class="popup__input"
+                type="url"
+                name="nombre"
+                id="popup__input-url"
+                placeholder="Enlace a la imagen"
+                pattern="https:\/\/www\.|http:\/\/www\.|https:\/\/|http:\/\/)?[a-zA-Z]{2,}(\.[a-zA-Z]{2,})(\.[a-zA-Z]{2,})?\/[a-zA-Z0-9]{2,}|((https:\/\/www\.|http:\/\/www\.|https:\/\/|http:\/\/)?[a-zA-Z]{2,}(\.[a-zA-Z]{2,})(\.[a-zA-Z]{2,})?)|(https:\/\/www\.|http:\/\/www\.|https:\/\/|http:\/\/)?[a-zA-Z0-9]{2,}\.[a-zA-Z0-9]{2,}\.[a-zA-Z0-9]{2,}(\.[a-zA-Z0-9]{2,})?/g;"
+                title="Incluir http://"
+                required
+              />
+              <span class="popup__input_error popup__input-url_error"></span>
+            </div>
+            <button class="popup__button popup__button-place" type="submit">Guardar</button>
+          </form>
+        </div>
+      </div>
+      <!-- FIN MODAL LUGAR -->
+
+      <!-- INICIO POPUP IMAGENES -->
+      <div class="popup-image">
+        <div class="popup-image__content">
+          <button
+            class="btn popup__button-close popup-image__button-close-image"
+          >
+            <img
+              class="popup-image__close-image"
               src="images/vector__close.png"
               alt="Cerrar Modal"
             />
           </button>
-          <div class="modal-image__container-image">
-            <figure>
-              <img
-                class="modal-image__place"
-                src="https://www.rioenlinea.cl/wp-content/uploads/2019/01/1525688701351a0b10999b-w800h533-1-768x512.jpg"
-                alt="Algún lugar"
-              />
-              <figcaption class="modal-image__name-place">
-                En algún lugar
-              </figcaption>
+          <div class="popup-image__container-image">
+            <figure class="popup-image__conainer">
+              <img class="popup-image__url" src="https://www.chileplayas.cl/wp-content/uploads/2014/04/playa-grande-villarrica.jpg" alt="Villarrica"/>
+              <figcaption class="popup-image__name-place">Villarrica</figcaption>
             </figure>
           </div>
         </div>
-      </section>
-      <!-- FIN MODAL IMAGEN -->
+      </div>
+      <!-- FIN POPUP IMAGENES -->
 
-      <!-- INICIO FORMULARIO EDITAR PERFIL -->
-      <section class="modal">
-        <div class="modal__content">
-          <button class="modal__btn-close modal__btn-close-perfil">
-            <img
-              class="modal__close-image"
-              src="images/vector__close.png"
-              alt="Cerrar Modal"
-            />
-          </button>
-          <div class="modal__container">
-            <div class="modal__grupo-titulo">
-              <h2 class="modal__titulo">Edit profile</h2>
-            </div>
-            <form
-            action="#"
-            name="form_profile"
-            class="modal__formulario modal__formulario-profile " novalidate
-            >
-              <!-- Grupo Input Nombre -->
-              <div class="modal__grupo-input">
-                <input class="modal__formulario-name modal__form-input" type="text"
-                name="nombre" id="profile-input" placeholder="Jacques Cousteau"  pattern="[A-Za-zäÄëËïÏöÖüÜáéíóúáéíóúÁÉÍÓÚÂÊÎÔÛâêîôûàèìòùÀÈÌÒÙñÑ ]+"
-                minlength="2"
-                maxlength="40"
-                required />
-                <span
-                  class="modal__form-input-error profile-input-error"
-                  ></span
-                >
-              </div>
-              <!-- Grupo input Acerca -->
-              <div class="modal__grupo-input">
-                <input
-                  class="modal__formulario-description modal__form-input"
-                  type="text"
-                  name="acerca"
-                  id="about-input"
-                  placeholder="Explorador"
-
-                  pattern="[A-Za-zäÄëËïÏöÖüÜáéíóúáéíóúÁÉÍÓÚÂÊÎÔÛâêîôûàèìòùÀÈÌÒÙñÑ ]+"
-                  minlength="2"
-                  maxlength="200"
-                  required
-                />
-                <span
-                  class="modal__form-input-error about-input-error"
-                  ></span
-                >
-              </div>
-              <div class="modal__grupo-button">
-                <button
-                  type="submit"
-                  class="Perfil modal__form-submit modal__btn-guardar modal__button-disabled" disabled="true"
-                >
-                  Guardar
-                </button>
-
-              </div>
-
-            </form>
-          </div>
-        </div>
-      </section>
-      <!-- FIN FORMULARIO EDITAR PERFIL -->
-
-      <!-- INICIO FORMULARIO DE INGRESO LUGAR-->
-      <section class="modal modal-add">
-        <div class="modal__content modal__content-add">
-          <button class="modal__btn-close modal__btn-close-place">
-            <img
-              class="modal__close-image"
-              src="images/vector__close.png"
-              alt="Cerrar Modal"
-            />
-          </button>
-          <div class="modal__container">
-            <div class="modal__grupo-titulo">
-              <h2 class="modal__titulo modal-add__titulo">New Place</h2>
-            </div>
-            <form
-            action="#"
-            name="form__place"
-            class="modal__formulario modal__formulario-place" novalidate
-            >
-              <!-- Grupo input Titulo -->
-              <div class="modal__grupo-input">
-                <input
-                  class="modal__formulario-name modal__formulario-name-place modal__form-input"
-                  type="text"
-                  name="nombre"
-                  id="name-input"
-                  placeholder="Title"
-                  minlength="2"
-                  maxlength="30"
-                  pattern="[A-Za-zäÄëËïÏöÖüÜáéíóúáéíóúÁÉÍÓÚÂÊÎÔÛâêîôûàèìòùÀÈÌÒÙ ]+"
-                  required
-                />
-                <span
-                  class="modal__form-input-error name-input-error"
-                  ></span
-                >
-              </div>
-              <!-- Grupo input URL -->
-              <div class="modal__grupo-input">
-                <input
-                  class="modal__formulario-description modal__formulario-description-url-place modal__form-input"
-                  type="url"
-                  name="acerca"
-                  id="url-input"
-                  placeholder="Image url"
-                  pattern="https:\/\/www\.|http:\/\/www\.|https:\/\/|http:\/\/)?[a-zA-Z]{2,}(\.[a-zA-Z]{2,})(\.[a-zA-Z]{2,})?\/[a-zA-Z0-9]{2,}|((https:\/\/www\.|http:\/\/www\.|https:\/\/|http:\/\/)?[a-zA-Z]{2,}(\.[a-zA-Z]{2,})(\.[a-zA-Z]{2,})?)|(https:\/\/www\.|http:\/\/www\.|https:\/\/|http:\/\/)?[a-zA-Z0-9]{2,}\.[a-zA-Z0-9]{2,}\.[a-zA-Z0-9]{2,}(\.[a-zA-Z0-9]{2,})?/g;" title="Incluir http://"
-                  required
-                />
-                <span
-                  class="modal__form-input-error url-input-error"
-                  ></span
-                >
-              </div>
-              <div class="modal__grupo-button">
-                <button
-                  type="submit"
-                  class="lugar modal__form-submit modal__btn-guardar modal__btn-guardar-place modal__button-disabled" disabled="true"
-                >
-                  Guardar
-                </button>
-              </div>
-            </form>
-          </div>
-        </div>
-      </section>
-
-      <!-- FIN FORMULARIO DE INGRESO LUGAR-->
+      <!-- INICO FOOTER -->
       <footer class="footer">
-        <p>&COPY; 2023 Alrededor de los EEUU</p>
+        <p>&COPY; 2023 Jorge Sepúlveda Turpie</p>
       </footer>
+      <!-- FIN FOOTER -->
     </div>
-    <script src="./scripts/index.js" type="module" ></script>
-    <script src="./scripts/validate.js" type="module"></script>
+    <script src="./scripts/index.js" type="module"></script>
   </body>
 </html>

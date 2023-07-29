@@ -10,6 +10,14 @@
   line-height  : 1.33;
 }
 
+@media screen and (max-width: 812px) {
+  .profile__author {
+    width: 282px;
+    text-align: center;
+    font-size: 22px;
+  }
+}
+
 @media screen and (max-width: 587px) {
   .profile__author {
     font-size: 22px;
