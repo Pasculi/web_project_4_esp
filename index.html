@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./pages/index.css" />
+    <title>Alrededor de los EE.UU.</title>
+  </head>
+  <body class="root">
+    <div class="root__container">
+      <!-- INICIO DE CABECERA -->
+      <header class="header">
+        <img class="header__logo" src="images/logo.svg" alt="Logo Around" />
+        <div class="header__line"></div>
+      </header>
+      <!-- FIN DE CABECERA -->
+      <!-- INICIO SECCCION PROFILE -->
+      <section class="profile">
+        <div class="profile__data">
+          <div class="profile__avatar">
+            <img
+              class="profile__avatar-image"
+              src="images/image__profile.jpg"
+              alt="Jacques Cousteau"
+            />
+          </div>
+          <div class="profile__presentation">
+            <div class="profile__name">
+              <h1 class="profile__author">Jacques Cousteau</h1>
+              <button class="btn profile__author-button--edit"></button>
+            </div>
+            <h2 class="profile__activit">Explorador</h2>
+          </div>
+        </div>
+        <button class="btn profile__author-button--add-place"></button>
+      </section>
+      <!-- FIN SECCCION PROFILE -->
+      <!-- CONTENEDOR MOSTRAR CARD -->
+      <div class="container-card"></div>
+      <!-- FIN CONTENEDOR MOSTRAR CARD -->
+      <!-- PLANTILLA CARDS -->
+      <template class="card">
+        <div class="card__place">
+          <button class="card__place-button--delete">
+            <img
+              class="card__place-imagen-trash"
+              src="images/vector__eliminar.png"
+              alt="Eliminar"
+            />
+          </button>
+          <img class="card__place-image-place"
+          src="https://q-xx.bstatic.com/xdata/images/city/600x480/671802.jpg?k=f2af7c265359c6bfef67dd8137aae05a987d3df4208c8423068a807acc405ad3&o="
+          alt="Valdivia" />
+          <div class="card__place-footer">
+            <h2 class="card__place-name"></h2>
+            <button class="card__place-button--like"></button>
+          </div>
+        </div>
+      </template>
+      <!-- FIN PLANTILLA CARDS -->
+      <!-- INICIO MODAL PERFIL -->
+      <div class="popup popup-profile">
+        <div class="popup__container">
+          <button class="btn popup__button-close popup__button-close-profile">
+            <img
+              class="popup__close-image"
+              src="images/vector__close.png"
+              alt="Cerrar popup"
+            />
+          </button>
+          <form action="#" class="popup__form popup__form-profile" novalidate>
+            <h2 class="popup__title">Edit Profile</h2>
+            <!-- Grupo Input Nombre -->
+            <div class="popup__grupo-input">
+              <input
+                class="popup__input"
+                type="text"
+                name="nombre"
+                id="popup__input-profile"
+                placeholder="Jacques Cousteau"
+                pattern="[A-Za-zäÄëËïÏöÖüÜáéíóúáéíóúÁÉÍÓÚÂÊÎÔÛâêîôûàèìòùÀÈÌÒÙ.,ñÑ() ]+"
+                minlength="2"
+                maxlength="40"
+                required
+              />
+              <span
+                class="popup__input_error popup__input-profile_error"
+              ></span>
+            </div>
+            <!-- Grupo Input Acerca -->
+            <div class="popup__grupo-input">
+              <input
+                class="popup__input"
+                type="text"
+                name="nombre"
+                id="popup__input-about"
+                placeholder="Explorador"
+                pattern="[A-Za-zäÄëËïÏöÖüÜáéíóúáéíóúÁÉÍÓÚÂÊÎÔÛâêîôûàèìòùÀÈÌÒÙ.,ñÑ() ]+"
+                minlength="2"
+                maxlength="200"
+                required
+              />
+              <span class="popup__input_error popup__input-about_error"></span>
+            </div>
+            <button class="popup__button popup__button-profile" type="submit">Guardar</button>
+          </form>
+        </div>
+      </div>
+      <!-- FIN MODAL PERFIL -->
+      <!-- INICIO MODAL LUGAR -->
+      <div class="popup popup-place">
+        <div class="popup__container">
+          <button class="btn popup__button-close popup__button-close-place">
+            <img
+              class="popup__close-image"
+              src="images/vector__close.png"
+              alt="Cerrar popup"
+            />
+          </button>
+          <form action="" class="popup__form popup__form-place" novalidate>
+            <h2 class="popup__title">New Place</h2>
+            <!-- Grupo Input Nombre Lugar -->
+            <div class="popup__grupo-input">
+              <input
+                class="popup__input"
+                type="text"
+                name="nombre"
+                id="popup__input-place"
+                placeholder="Title"
+                pattern="[A-Za-zäÄëËïÏöÖüÜáéíóúáéíóúÁÉÍÓÚÂÊÎÔÛâêîôûàèìòùÀÈÌÒÙ.,ñÑ() ]+"
+                minlength="2"
+                maxlength="30"
+                required
+              />
+              <span class="popup__input_error popup__input-place_error"></span>
+            </div>
+            <!-- Grupo Input Url Lugar -->
+            <div class="popup__grupo-input">
+              <input
+                class="popup__input"
+                type="url"
+                name="nombre"
+                id="popup__input-url"
+                placeholder="Enlace a la imagen"
+                pattern="https:\/\/www\.|http:\/\/www\.|https:\/\/|http:\/\/)?[a-zA-Z]{2,}(\.[a-zA-Z]{2,})(\.[a-zA-Z]{2,})?\/[a-zA-Z0-9]{2,}|((https:\/\/www\.|http:\/\/www\.|https:\/\/|http:\/\/)?[a-zA-Z]{2,}(\.[a-zA-Z]{2,})(\.[a-zA-Z]{2,})?)|(https:\/\/www\.|http:\/\/www\.|https:\/\/|http:\/\/)?[a-zA-Z0-9]{2,}\.[a-zA-Z0-9]{2,}\.[a-zA-Z0-9]{2,}(\.[a-zA-Z0-9]{2,})?/g;"
+                title="Incluir http://"
+                required
+              />
+              <span class="popup__input_error popup__input-url_error"></span>
+            </div>
+            <button class="popup__button popup__button-place" type="submit">Guardar</button>
+          </form>
+        </div>
+      </div>
+      <!-- FIN MODAL LUGAR -->
+
+      <!-- INICIO POPUP IMAGENES -->
+      <div class="popup-image">
+        <div class="popup-image__content">
+          <button
+            class="btn popup__button-close popup-image__button-close-image"
+          >
+            <img
+              class="popup-image__close-image"
+              src="images/vector__close.png"
+              alt="Cerrar Modal"
+            />
+          </button>
+          <div class="popup-image__container-image">
+            <figure class="popup-image__conainer">
+              <img class="popup-image__url" src="" alt=""/>
+              <figcaption class="popup-image__name-place"></figcaption>
+            </figure>
+          </div>
+        </div>
+      </div>
+      <!-- FIN POPUP IMAGENES -->
+
+      <!-- INICO FOOTER -->
+      <footer class="footer">
+        <p>&COPY; 2023 Jorge Sepúlveda Turpie</p>
+      </footer>
+      <!-- FIN FOOTER -->
+    </div>
+    <script src="./scripts/index.js" type="module"></script>
+  </body>
+</html>
