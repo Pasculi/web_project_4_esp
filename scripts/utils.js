@@ -28,8 +28,8 @@ const buttonDeleteCard = (evt) => {
 }
 
 /*Abrir y cerrar Popup_Form*/
-const editProfile = document.querySelector('.profile__author-button--edit');
-const editPlace = document.querySelector('.profile__author-button--add-place');
+const editProfile = document.querySelector('.profile__author-button-edit');
+const editPlace = document.querySelector('.profile__author-button-add-place');
 const popupCloseProfile = document.querySelector('.popup__button-close-profile');
 const popupClosePlace = document.querySelector('.popup__button-close-place');
 const popupCloseImage = document.querySelector('.popup__button-close-image');
