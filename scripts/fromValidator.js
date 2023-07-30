@@ -8,7 +8,7 @@ export const config = {
 };
 
 const showInputError = (formElement, inputElement, errorMessage, config) => {
-  const inputError = formElement.querySelector(`.${inputElement.id}_error`);
+  const inputError = formElement.querySelector(`.${inputElement.id}-error`);
   inputElement.classList.add(config.inputErrorClass);
   inputError.textContent = errorMessage;
   inputError.classList.add(config.errorClass);
@@ -16,7 +16,7 @@ const showInputError = (formElement, inputElement, errorMessage, config) => {
 
 const hideInputError = (formElement, inputElement, config) => {
 
-  const inputError = formElement.querySelector(`.${inputElement.id}_error`);
+  const inputError = formElement.querySelector(`.${inputElement.id}-error`);
   inputElement.classList.remove(config.inputErrorClass);
   inputError.textContent = '';
   inputError.classList.add(config.errorClass)
