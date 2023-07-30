@@ -1,4 +1,4 @@
-.profile__author-button--add-place{
+.profile__author-button-add-place{
   width              : 9.375rem;
   height             : 3.125rem;
   border             : 2px solid #FFFFFF;
@@ -12,13 +12,13 @@
 }
 
 @media screen and (max-width: 892px) {
-  .profile__author-button--add-place {
+  .profile__author-button-add-place {
     margin-right: 21px;
   }
 }
 
 @media screen and (max-width: 812px) {
-  .profile__author-button--add-place {
+  .profile__author-button-add-place {
     width: 282px;
     margin: 0;
   }

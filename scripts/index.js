@@ -52,4 +52,3 @@ function savePlaces() {
 savePlace.addEventListener("click", savePlaces);
 
 export { initialCards }
-

@@ -22,8 +22,8 @@
 @import url(../blocks/profile/__presentation/profile__presentation.css);
 @import url(../blocks/profile/__name/profile__name.css);
 @import url(../blocks/profile/__author/profile__author.css);
-@import url(../blocks/profile/__author/profile__author-button--edit.css);
-@import url(../blocks/profile/__author/profile__author-button--add-place.css);
+@import url(../blocks/profile/__author/profile__author-button-edit.css);
+@import url(../blocks/profile/__author/profile__author-button-add-place.css);
 @import url(../blocks/profile/__activiti/profile__activiti.css);
 @import url(../blocks/profile/__data/profile__data.css);
 
