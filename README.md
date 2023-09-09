@@ -15,7 +15,7 @@
 
 ### Descripción general
 
-En este proyecto tiene por objetivo mostrar una galeria de fotos de lugares de Estados Unidos, utilizando técnicas como BEM para la estructura de archivos y notación de clases. Además se utiliza Flexbox y Grid para maquetar algunas estructurasn del sitio y asi poder implementar de mejor forma la responsividad para diferentes dispositivos. En este proyecto aparte de usar, HTML para la maquetación y CSS para dar estilos, se utiliza Javascript para implementar un modal que captura los datos de perfil de usuario mediante un evento submit, y los imprime en el inicio de página.
+En este proyecto tiene por objetivo mostrar una galeria de fotos de lugares de Estados Unidos, utilizando técnicas como BEM para la estructura de archivos y notación de clases. Además se utiliza Flexbox y Grid para maquetar algunas estructurasn del sitio y asi poder implementar de mejor forma la responsividad para diferentes dispositivos. En este proyecto aparte de usar, HTML para la maquetación y CSS para dar estilos, se utiliza Javascript para implementar un modal que captura los datos de perfil de usuario mediante un evento submit, y los imprime en el inicio de página...
 
 ###Items
 
