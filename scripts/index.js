@@ -1,5 +1,5 @@
 import { closePopupPlace, opacityButtons } from "./utils.js";
-import Card from "./Card.js"
+import Card from "./card.js"
 opacityButtons()
 
 const initialCards = [
