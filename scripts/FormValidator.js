@@ -10,7 +10,7 @@ const config = {
 export default class FormValidator {
   constructor(config, formElement) {
     this._config = config;
-    this.formElement = formElement;
+    this._formElement = formElement;
 
 
   }
@@ -68,7 +68,7 @@ export default class FormValidator {
     this._formElement.addEventListener('submit', evt => {
       evt.preventDefault()
     });
-    this._setEventListeners(formElement, config);
+    this._setEventListeners();
   }
 }
 

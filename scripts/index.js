@@ -1,9 +1,7 @@
 import { closePopupPlace, opacityButtons } from "./utils.js";
-/* import { config, enableValidation } from "./FormValidator.js" */
-import Card from "./card.js"
-
+import Card from "./Card.js"
 opacityButtons()
-/* enableValidation(config) */
+
 const initialCards = [
   {
     name: "Santiago",

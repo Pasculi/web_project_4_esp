@@ -1,6 +1,5 @@
 import { config } from "./FormValidator.js"
 
-
 /*Función que aplica opacidad a los botones editar, añadir lugar y a las X de cerrar */
 const btns = Array.from(document.querySelectorAll('.btn'));
 const opacityButtons = () => {
