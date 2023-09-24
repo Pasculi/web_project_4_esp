@@ -17,7 +17,7 @@ const initialCards = [
   },
   {
     name: "Calama",
-    link: "https://www.melhoresdestinos.com.br/wp-content/uploads/2019/02/passagens-aereas-atacama-capa2019-01-820x430.jpg",
+    link: "https://cdnx.jumpseller.com/ad-toma-aerea-banco-de-im/image/21301255/Captura_de_Pantalla_2021-12-17_a_la_s__19.49.20.jpg?1639781545",
   },
   {
     name: "Antofagasta",
