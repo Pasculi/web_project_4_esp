@@ -1,6 +1,3 @@
-import { initialCards } from "./index.js";
-
-
 export default class Card {
   constructor(selector, data) {
     this._selector = selector;
@@ -24,7 +21,7 @@ export default class Card {
   _handleButtonLike(evt) {
     evt.target.classList.toggle('card__place-button--like-active')
   }
-  _handleButtonDelete(evt){
+  _handleButtonDelete(evt) {
     evt.target.closest('.card__place').remove();
   }
   _handleOpenPopupImage() {
@@ -34,12 +31,10 @@ export default class Card {
     popupImage.querySelector('.popup-image__name-place').setAttribute("src", this._name);
     popupImage.querySelector('.popup-image__name-place').textContent = this._name;
     popupImage.classList.add('popup-image--show');
- }
+  }
   _setEventListeners() {
     this._node.querySelector(".card__place-button--like").addEventListener("click", (evt) => this._handleButtonLike(evt));
-
-     this._node.querySelector('.card__place-button--delete').addEventListener('click', (evt) => this._handleButtonDelete(evt));
-
+    this._node.querySelector('.card__place-button--delete').addEventListener('click', (evt) => this._handleButtonDelete(evt));
     this._node.querySelector('.card__place-image-place').addEventListener('click', () => this._handleOpenPopupImage());
   }
 
