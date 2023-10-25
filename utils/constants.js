@@ -1,4 +1,32 @@
-import { config } from "./FormValidator.js"
+import { config } from "../components/FormValidator.js"
+
+
+const initialCards = [
+  {
+    name: "Santiago",
+    link: "https://storage.googleapis.com/chile-travel-newsite-static-content/2021/08/santiago-portada.jpg",
+  },
+  {
+    name: "Valdivia",
+    link: "https://storage.googleapis.com/chile-travel-newsite-static-content/2021/07/Encantos_Valdivia-y-Corral_mercado-fluvialjpg-1024x683.jpg",
+  },
+  {
+    name: "Puerto de Valparaíso",
+    link: "https://media.istockphoto.com/id/827067390/es/foto/colorido-valparaiso.jpg?s=612x612&w=0&k=20&c=VsJWIW249JHwoSUfpIhCYjl7gELpdCLxa0trOo_nqjk=",
+  },
+  {
+    name: "Calama",
+    link: "https://cdnx.jumpseller.com/ad-toma-aerea-banco-de-im/image/21301255/Captura_de_Pantalla_2021-12-17_a_la_s__19.49.20.jpg?1639781545",
+  },
+  {
+    name: "Antofagasta",
+    link: "https://www.holidayinnexpress.cl/wp-content/uploads/2017/08/destacada_antofagasta.jpg",
+  },
+  {
+    name: "Ciudad de Arica",
+    link: "https://q-xx.bstatic.com/xdata/images/city/600x480/671802.jpg?k=f2af7c265359c6bfef67dd8137aae05a987d3df4208c8423068a807acc405ad3&o=",
+  },
+];
 
 /*Función que aplica opacidad a los botones editar, añadir lugar y a las X de cerrar */
 const btns = Array.from(document.querySelectorAll('.btn'));
@@ -100,4 +128,4 @@ popupEditProfile()
 buttonProfile.addEventListener('click', closePopupProfile)
 
 
-export { openPopupImage, closePopupImage, showPopupProfile, closePopupProfile, showPopupPlace, closePopupPlace, opacityButtons, buttonLike, buttonDeleteCard };
+export { initialCards, openPopupImage, closePopupImage, showPopupProfile, closePopupProfile, showPopupPlace, closePopupPlace, opacityButtons, buttonLike, buttonDeleteCard };
