@@ -7,25 +7,15 @@ export default class Section {
     this._container = document.querySelector(selectorContainer);
 
   }
-  renderer() {
-    this._container = '';
-    this._renderer.forEach((item) => {
-      this.renderer(item);
+  rendererItems() {
+    this._items.forEach((item) => {
+      this._renderer(item);
     });
 
   }
-  addItem() {
-    this._selectorContainer.prepend(element);
+  addItem(element) {
+    this._container.prepend(element);
 
   }
 }
 
-const newCard = new Section({
-  items: initialCards,
-  renderer: (item) => {
-    const card = new Card('.card', item);
-    newCard.addItem(card);
-  }
-})
-
-console.log("Section")

@@ -10,7 +10,7 @@ export default class Card {
     return cardElement;
 
   }
-  render() {
+  generateCard() {
     this._node = this._getTemplate();
     this._setEventListeners();
     this._node.querySelector('.card__place-name').textContent = this._name;
