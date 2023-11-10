@@ -1,28 +1,32 @@
 import { opacityButtons, initialCards } from "../utils/constants.js";
-import Card from "../components/card.js";
+import Card from "../components/Card.js";
 import Section from "../components/Section.js";
 import UserInfo from "../components/UserInfo.js"
-import PopUp from "../components/Popup.js";
 import PopupWithImage from "../components/PopupWithImage.js"
 
 
 opacityButtons()
 
-
+const popupImage = '.popup-image';
 /*Llamamos a la clase Section y poblamos con las cards*/
+const nuevaImagen = new PopupWithImage(popupImage)
+
 
 const newSection = new Section({
   items: initialCards,
   renderer: (item) => {
-    const card = new Card('.card', item);
+    const card = new Card('.card', item, nuevaImagen);
     const cardGenerate = card.generateCard();
     newSection.addItem(cardGenerate)
   },
 }, ".container-card"
 )
+
 newSection.rendererItems()
 
-
+document.addEventListener('click', (evt) => {
+  console.log(evt)
+})
 
 /*Función para Guardar una Imagen*/
 const savePlace = document.querySelector(".popup__button-place");
@@ -46,14 +50,11 @@ savePlace.addEventListener("click", savePlaces);
 const nameSelector = '.profile__author';
 const jobSelector = '.profile__activit';
 
-const defaultUser = new UserInfo({ nameSelector, jobSelector })
-console.log(defaultUser.getUserInfo());
-
-const popupImage = '.popup-image';
-
-const newimage = new PopupWithImage(popupImage)
-console.log(newimage.open("San Pedro de Atacama", "https://lh3.googleusercontent.com/p/AF1QipMmZ4UQ2vriACFJVbBRh8sFTZwK6unMKuvMJle6=s680-w680-h510"))
 
 
+const closeImage = '.popup-image__button-close';
+
+console.log(document.querySelector( closeImage))
+closeImage.this.setEventListeners()
 
 export { nameSelector, jobSelector }

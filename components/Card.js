@@ -1,6 +1,7 @@
 export default class Card {
-  constructor(selector, data) {
+  constructor(selector, data, image) {
     this._selector = selector;
+    this._image = image;
     this._name = data.name;
     this._link = data.link;
   }
@@ -25,14 +26,19 @@ export default class Card {
     evt.target.closest('.card__place').remove();
   }
   _handleOpenPopupImage() {
-    const popupImage = document.querySelector('.popup-image');
-    
+
+    this._image.open(this._name, this._link)
+
+
+    /* const popupImage = document.querySelector('.popup-image');
+    console.log("Ejecutando desde CARD")
     popupImage.querySelector('.popup-image__url').setAttribute("src", this._link)
     popupImage.querySelector('.popup-image__name-place').setAttribute("src", this._name);
     popupImage.querySelector('.popup-image__name-place').textContent = this._name;
-    popupImage.classList.add('popup--show');
+    popupImage.classList.add('popup--show'); */
   }
   _setEventListeners() {
+
     this._node.querySelector(".card__place-button--like").addEventListener("click", (evt) => this._handleButtonLike(evt));
     this._node.querySelector('.card__place-button--delete').addEventListener('click', (evt) => this._handleButtonDelete(evt));
     this._node.querySelector('.card__place-image-place').addEventListener('click', () => this._handleOpenPopupImage());

@@ -1,6 +1,6 @@
 const editProfile = '.profile__author-button-edit';
 const editPlace = '.profile__author-button-add-place';
-const popupImage = '.popup-image'
+
 
 const popupCloseProfile = document.querySelector('.popup__button-close-profile');
 const popupClosePlace = document.querySelector('.popup__button-close-place');
@@ -18,31 +18,20 @@ export default class PopUp{
   }
   open() {
     this.popup.classList.add('popup--show');
+    document.addEventListener('Escape', this._handleEscClose);
   }
   close() {
 
     this.popup.classList.remove('popup--show');
+    document.addEventListener('Escape', this._handleEscClose);
   }
-  _handleEscClose() {
+  _handleEscClose(evt) {
     if (evt.key === 'Escape') {
       this.close()
     }
   }
   setEventListeners() {
-    this.popup.addEventListener('click', this.close)
+
   }
 }
-
-
-const saludo = "Hola como estas"
-console.log(saludo)
-
-
-
-
-
-
-
-
-
 
