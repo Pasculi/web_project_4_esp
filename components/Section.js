@@ -1,5 +1,3 @@
-import Card from "./card.js"
-
 export default class Section {
   constructor({ items, renderer }, selectorContainer) {
     this._items = items;

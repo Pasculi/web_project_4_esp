@@ -1,8 +1,10 @@
-import { closePopupPlace, opacityButtons, initialCards } from "../utils/constants.js";
+import { opacityButtons, initialCards } from "../utils/constants.js";
 import Card from "../components/card.js";
 import Section from "../components/Section.js";
 import UserInfo from "../components/UserInfo.js"
-import PopUp from '../components/Popup.js';
+import PopUp from "../components/Popup.js";
+import PopupWithImage from "../components/PopupWithImage.js"
+
 
 opacityButtons()
 
@@ -19,6 +21,7 @@ const newSection = new Section({
 }, ".container-card"
 )
 newSection.rendererItems()
+
 
 
 /*Función para Guardar una Imagen*/
@@ -46,12 +49,10 @@ const jobSelector = '.profile__activit';
 const defaultUser = new UserInfo({ nameSelector, jobSelector })
 console.log(defaultUser.getUserInfo());
 
-const newName = "Jorge Rodrigo Sepúlveda Turpie"
-const newJob = "Desarrollador fullstack javascript mención MERN (Mongodb, Expressjs, React, Nodejs)"
+const popupImage = '.popup-image';
 
-
-/* console.log(defaultUser.setUserInfo(newName, newJob)) */
-console.log(defaultUser.getUserInfo())
+const newimage = new PopupWithImage(popupImage)
+console.log(newimage.open("San Pedro de Atacama", "https://lh3.googleusercontent.com/p/AF1QipMmZ4UQ2vriACFJVbBRh8sFTZwK6unMKuvMJle6=s680-w680-h510"))
 
 
 

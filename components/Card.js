@@ -26,11 +26,11 @@ export default class Card {
   }
   _handleOpenPopupImage() {
     const popupImage = document.querySelector('.popup-image');
-    console.log(popupImage);
+    
     popupImage.querySelector('.popup-image__url').setAttribute("src", this._link)
     popupImage.querySelector('.popup-image__name-place').setAttribute("src", this._name);
     popupImage.querySelector('.popup-image__name-place').textContent = this._name;
-    popupImage.classList.add('popup-image--show');
+    popupImage.classList.add('popup--show');
   }
   _setEventListeners() {
     this._node.querySelector(".card__place-button--like").addEventListener("click", (evt) => this._handleButtonLike(evt));

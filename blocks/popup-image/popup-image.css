@@ -13,7 +13,7 @@
 
 
 }
-.popup-image--show{
+.popup--show{
   transition : opacity .6s;
   opacity:1;
   z-index: 10;
