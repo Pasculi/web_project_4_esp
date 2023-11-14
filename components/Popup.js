@@ -4,7 +4,7 @@ const editPlace = '.profile__author-button-add-place';
 
 const popupCloseProfile = document.querySelector('.popup__button-close-profile');
 const popupClosePlace = document.querySelector('.popup__button-close-place');
-const popupCloseImage = document.querySelector('.popup-image__button-close');
+const popupCloseImage = document.querySelector('.popup-image__close');
 const popupProfile = document.querySelector('.popup-profile');
 const popupPlace = document.querySelector('.popup-place');
 
@@ -19,11 +19,14 @@ export default class PopUp{
   open() {
     this.popup.classList.add('popup--show');
     document.addEventListener('Escape', this._handleEscClose);
+    this.setEventListeners();
   }
   close() {
+        this.popup.classList.remove('popup--show');
+        document.addEventListener('Escape', this._handleEscClose);
 
-    this.popup.classList.remove('popup--show');
-    document.addEventListener('Escape', this._handleEscClose);
+
+
   }
   _handleEscClose(evt) {
     if (evt.key === 'Escape') {
@@ -31,6 +34,9 @@ export default class PopUp{
     }
   }
   setEventListeners() {
+    this.selectorPopup.querySelector(`${popupCloseImage}`).addEventListener('click', () => {
+      this.close();
+    });
 
   }
 }

@@ -10,12 +10,15 @@ opacityButtons()
 const popupImage = '.popup-image';
 /*Llamamos a la clase Section y poblamos con las cards*/
 const nuevaImagen = new PopupWithImage(popupImage)
+const popupCloseImage = document.querySelector('.popup-image__close');
+console.log("🚀 ~ file: index.js:14 ~ popupCloseImage:", popupCloseImage)
+
 
 
 const newSection = new Section({
   items: initialCards,
   renderer: (item) => {
-    const card = new Card('.card', item, nuevaImagen);
+    const card = new Card('.card', item, nuevaImagen);6666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666
     const cardGenerate = card.generateCard();
     newSection.addItem(cardGenerate)
   },
@@ -52,9 +55,9 @@ const jobSelector = '.profile__activit';
 
 
 
-const closeImage = '.popup-image__button-close';
+/* const closeImage = '.popup-image__button-close';
 
 console.log(document.querySelector( closeImage))
-closeImage.this.setEventListeners()
+closeImage.this.setEventListeners() */
 
 export { nameSelector, jobSelector }
