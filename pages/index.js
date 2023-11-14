@@ -18,7 +18,7 @@ console.log("🚀 ~ file: index.js:14 ~ popupCloseImage:", popupCloseImage)
 const newSection = new Section({
   items: initialCards,
   renderer: (item) => {
-    const card = new Card('.card', item, nuevaImagen);/a
+    const card = new Card('.card', item, nuevaImagen);
     const cardGenerate = card.generateCard();
     newSection.addItem(cardGenerate)
   },

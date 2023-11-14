@@ -1,6 +1,3 @@
-<<<<<<< HEAD
-import { config } from "./FormValidator.js"
-=======
 const initialCards = [
   {
     name: "Santiago",
@@ -30,7 +27,6 @@ const initialCards = [
 
 
 
->>>>>>> 1a49dab (feat:Confeccionando Clase PopupWithImage)
 
 /*Función que aplica opacidad a los botones editar, añadir lugar y a las X de cerrar */
 const btns = Array.from(document.querySelectorAll('.btn'));
@@ -58,18 +54,6 @@ const buttonDeleteCard = (evt) => {
   evt.target.parentNode.parentNode.remove();
 }
 
-<<<<<<< HEAD
-/*Abrir y cerrar Popup_Form*/
-const editProfile = document.querySelector('.profile__author-button-edit');
-const editPlace = document.querySelector('.profile__author-button-add-place');
-const popupCloseProfile = document.querySelector('.popup__button-close-profile');
-const popupClosePlace = document.querySelector('.popup__button-close-place');
-const popupCloseImage = document.querySelector('.popup-image__button-close');
-const popupProfile = document.querySelector('.popup-profile');
-const popupPlace = document.querySelector('.popup-place');
-
-function showPopupProfile() {
-=======
 
 
 
@@ -78,7 +62,6 @@ function showPopupProfile() {
 
 
 /* function showPopupProfile() {
->>>>>>> 1a49dab (feat:Confeccionando Clase PopupWithImage)
   popupProfile.classList.add('popup--show');
 }
 function closePopupProfile() {
@@ -107,15 +90,9 @@ document.addEventListener('keydown', evt => {
 
 
 /*Funcion para desplagar una imagen */
-<<<<<<< HEAD
-const popupImage = document.querySelector('.popup-image')
-function openPopupImage() {
-  popupImage.classList.add('popup-image--show')
-=======
 
 /* function openPopupImage() {
   popupImage.classList.add('popup--show')
->>>>>>> 1a49dab (feat:Confeccionando Clase PopupWithImage)
 }
 function closePopupImage() {
   popupImage.classList.remove('popup--show');
@@ -126,20 +103,10 @@ document.addEventListener('keydown', evt => {
   if (evt.key === 'Escape') {
     closePopupImage()
   }
-<<<<<<< HEAD
-});
-
-/*Cambiar Nombre de Perfil y Acerca de en Perfil*/
-const buttonProfile = document.querySelector('.popup__button-profile')
-function popupEditProfile() {
-  const nameProfile = document.querySelector('.profile__author');
-  const activitProfile = document.querySelector('.profile__activit');
-=======
 }); */
 
 
 /* const popupEditProfile = () => {
->>>>>>> 1a49dab (feat:Confeccionando Clase PopupWithImage)
   const inputsElements = Array.from(document.querySelectorAll(config.inputSelector))
   inputsElements.forEach(inputElement => {
     inputElement.addEventListener('input', evt => {
@@ -153,12 +120,6 @@ function popupEditProfile() {
   })
 }
 popupEditProfile()
-<<<<<<< HEAD
-buttonProfile.addEventListener('click', closePopupProfile)
-
-
-export { openPopupImage, closePopupImage, showPopupProfile, closePopupProfile, showPopupPlace, closePopupPlace, opacityButtons, buttonLike, buttonDeleteCard };
-=======
 buttonProfile.addEventListener('click', closePopupProfile) */
 /*Abrir y cerrar Popup_Form*/
 
@@ -166,4 +127,3 @@ buttonProfile.addEventListener('click', closePopupProfile) */
 
 
 export { initialCards, opacityButtons, buttonLike, buttonDeleteCard };
->>>>>>> 1a49dab (feat:Confeccionando Clase PopupWithImage)
