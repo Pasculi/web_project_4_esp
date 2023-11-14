@@ -18,7 +18,7 @@ console.log("🚀 ~ file: index.js:14 ~ popupCloseImage:", popupCloseImage)
 const newSection = new Section({
   items: initialCards,
   renderer: (item) => {
-    const card = new Card('.card', item, nuevaImagen);6666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666666
+    const card = new Card('.card', item, nuevaImagen);/a
     const cardGenerate = card.generateCard();
     newSection.addItem(cardGenerate)
   },
@@ -59,5 +59,6 @@ const jobSelector = '.profile__activit';
 
 console.log(document.querySelector( closeImage))
 closeImage.this.setEventListeners() */
+
 
 export { nameSelector, jobSelector }
