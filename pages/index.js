@@ -10,6 +10,8 @@ opacityButtons()
 const popupImage = '.popup-image';
 /*Llamamos a la clase Section y poblamos con las cards*/
 const nuevaImagen = new PopupWithImage(popupImage)
+const imageElement = document.querySelector('.popup-image');
+
 
 
 const newSection = new Section({

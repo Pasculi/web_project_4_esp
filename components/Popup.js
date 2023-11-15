@@ -26,13 +26,12 @@ export default class PopUp{
         document.removeEventListener('keydown', this._handleEscClose);
   }
   _handleEscClose(evt) {
-    /* console.log(evt.key) */
-    if (evt.key === 'Escape') {
+    if (evt.key === 'Escape') { 
       this.closePopUp()
     }
   }
   setEventListeners() {    
-    this.popupCloseImage.addEventListener('click', () =>{
+    this.popupCloseImage.addEventListener('click', () =>{      
       this.closePopUp()
     })
 
