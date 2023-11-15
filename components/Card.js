@@ -27,7 +27,7 @@ export default class Card {
   }
   _handleOpenPopupImage() {
 
-    this._image.open(this._name, this._link)
+    this._image.openPopUp(this._name, this._link)
 
 
     /* const popupImage = document.querySelector('.popup-image');
@@ -38,10 +38,10 @@ export default class Card {
     popupImage.classList.add('popup--show'); */
   }
   _setEventListeners() {
-
     this._node.querySelector(".card__place-button--like").addEventListener("click", (evt) => this._handleButtonLike(evt));
     this._node.querySelector('.card__place-button--delete').addEventListener('click', (evt) => this._handleButtonDelete(evt));
     this._node.querySelector('.card__place-image-place').addEventListener('click', () => this._handleOpenPopupImage());
+
   }
 
 }

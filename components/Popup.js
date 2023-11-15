@@ -4,7 +4,6 @@ const editPlace = '.profile__author-button-add-place';
 
 const popupCloseProfile = document.querySelector('.popup__button-close-profile');
 const popupClosePlace = document.querySelector('.popup__button-close-place');
-const popupCloseImage = document.querySelector('.popup-image__close');
 const popupProfile = document.querySelector('.popup-profile');
 const popupPlace = document.querySelector('.popup-place');
 
@@ -14,29 +13,28 @@ const inputJob = document.querySelector("#popup__input-about").value
 export default class PopUp{
   constructor(selectorPopup) {
     this.selectorPopup = selectorPopup;
+    this.popupCloseImage = document.querySelector('.popup-image__close');
     this.popup = document.querySelector(this.selectorPopup);
   }
-  open() {
+  openPopUp() {
     this.popup.classList.add('popup--show');
-    document.addEventListener('Escape', this._handleEscClose);
+    document.addEventListener('keydown', this._handleEscClose);
     this.setEventListeners();
   }
-  close() {
+  closePopUp() {
         this.popup.classList.remove('popup--show');
-        document.addEventListener('Escape', this._handleEscClose);
-
-
-
+        document.removeEventListener('keydown', this._handleEscClose);
   }
   _handleEscClose(evt) {
+    /* console.log(evt.key) */
     if (evt.key === 'Escape') {
-      this.close()
+      this.closePopUp()
     }
   }
-  setEventListeners() {
-    this.selectorPopup.querySelector(`${popupCloseImage}`).addEventListener('click', () => {
-      this.close();
-    });
+  setEventListeners() {    
+    this.popupCloseImage.addEventListener('click', () =>{
+      this.closePopUp()
+    })
 
   }
 }

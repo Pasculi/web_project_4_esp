@@ -10,9 +10,6 @@ opacityButtons()
 const popupImage = '.popup-image';
 /*Llamamos a la clase Section y poblamos con las cards*/
 const nuevaImagen = new PopupWithImage(popupImage)
-const popupCloseImage = document.querySelector('.popup-image__close');
-console.log("🚀 ~ file: index.js:14 ~ popupCloseImage:", popupCloseImage)
-
 
 
 const newSection = new Section({
@@ -26,10 +23,6 @@ const newSection = new Section({
 )
 
 newSection.rendererItems()
-
-document.addEventListener('click', (evt) => {
-  console.log(evt)
-})
 
 /*Función para Guardar una Imagen*/
 const savePlace = document.querySelector(".popup__button-place");
@@ -52,13 +45,6 @@ savePlace.addEventListener("click", savePlaces);
 
 const nameSelector = '.profile__author';
 const jobSelector = '.profile__activit';
-
-
-
-/* const closeImage = '.popup-image__button-close';
-
-console.log(document.querySelector( closeImage))
-closeImage.this.setEventListeners() */
 
 
 export { nameSelector, jobSelector }

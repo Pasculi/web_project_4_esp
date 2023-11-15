@@ -4,7 +4,7 @@ export default class PopupWithImage extends PopUp {
   constructor(selectorPopup) {
     super(selectorPopup);
   }
-  open(name, link) {
+  openPopUp(name, link) {
     const containerImage = document.querySelector(this.selectorPopup);
 
     const figCaption = containerImage.querySelector('.popup-image__name-place');
@@ -12,6 +12,7 @@ export default class PopupWithImage extends PopUp {
     figCaption.textContent = name;
     image.src = link;
     image.alt = name;
-    super.open();
+    super.openPopUp();
   }
+  
 }
