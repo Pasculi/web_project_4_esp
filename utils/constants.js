@@ -83,22 +83,6 @@ document.addEventListener('keydown', evt => {
 }); */
 
 
-/*Funcion para desplagar una imagen */
-
-/* function openPopupImage() {
-  popupImage.classList.add('popup--show')
-}
-function closePopupImage() {
-  popupImage.classList.remove('popup--show');
-
-}
-
-document.addEventListener('keydown', evt => {
-  if (evt.key === 'Escape') {
-    closePopupImage()
-  }
-}); */
-
 
 /* const popupEditProfile = () => {
   const inputsElements = Array.from(document.querySelectorAll(config.inputSelector))

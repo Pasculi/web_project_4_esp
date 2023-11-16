@@ -1,9 +1,10 @@
 import { opacityButtons, initialCards } from "../utils/constants.js";
 import Card from "../components/Card.js";
 import Section from "../components/Section.js";
+import FormValidator from "../components/FormValidator.js";
 /* import UserInfo from "../components/UserInfo.js" */
 import PopupWithImage from "../components/PopupWithImage.js"
-import PopupWithForm from "../components/PopupWithForm.js"
+/* import PopupWithForm from "../components/PopupWithForm.js" */
 
 
 opacityButtons()
@@ -15,8 +16,7 @@ const nuevaImagen = new PopupWithImage(popupImage)
 
 /*Instancia a PopUpForm */
 
-const popupForm = new PopupWithForm({popupSelector:'.popup-place', handleFromData:(fromData)=>{
-  console.log(fromData)
+/* const popupForm = new PopupWithForm({popupSelector:'.popup-place', handleFromData:(fromData)=>{
   const UserData = new UserInfo({
     nameSelector:'#popup__input-profile',
     jobSelector:'#popup__input-about',
@@ -26,10 +26,37 @@ const popupForm = new PopupWithForm({popupSelector:'.popup-place', handleFromDat
     job:fromData.trabajo
   })
 }
-});
+}); */
 
-document.addEventListener('click', evt =>{
-  console.log(evt.target)
+
+
+/********************PASAR A POPUPWITHFORM SETEVENTLISTENERS****************************** */
+
+const popupProfile = document.querySelector('.popup-profile');
+const editProfile = document.querySelector('.profile__author-button-edit');
+const popupCloseProfile = document.querySelector('.popup__button-close-profile');
+editProfile.addEventListener('click', (evt) => {
+  console.log("Abre el modal perfil")
+  console.log(document.querySelector(`.popup-${evt.target.id}`))
+  popupProfile.classList.add('popup--show')
+})
+popupCloseProfile.addEventListener('click', () => {
+  popupProfile.classList.remove('popup--show')
+})
+
+/************************************************** */
+
+const popupPlace = document.querySelector('.popup-place');
+const editPlace = document.querySelector('.profile__author-button-add-place');
+const popupClosePlace = document.querySelector('.popup__button-close-place');
+editPlace.addEventListener('click', (evt) => {
+  console.log("Abre el modal Lugares")
+  console.log(document.querySelector(`.popup-${evt.target.id}`))
+  popupPlace.classList.add('popup--show')
+})
+
+popupClosePlace.addEventListener('click', () => {
+  popupPlace.classList.remove('popup--show')
 })
 
 /* popupForm.openPopUp(); */
