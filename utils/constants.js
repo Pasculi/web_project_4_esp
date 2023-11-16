@@ -55,12 +55,6 @@ const buttonDeleteCard = (evt) => {
 }
 
 
-
-
-
-
-
-
 /* function showPopupProfile() {
   popupProfile.classList.add('popup--show');
 }

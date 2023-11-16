@@ -1,8 +1,9 @@
 import { opacityButtons, initialCards } from "../utils/constants.js";
 import Card from "../components/Card.js";
 import Section from "../components/Section.js";
-import UserInfo from "../components/UserInfo.js"
+/* import UserInfo from "../components/UserInfo.js" */
 import PopupWithImage from "../components/PopupWithImage.js"
+import PopupWithForm from "../components/PopupWithForm.js"
 
 
 opacityButtons()
@@ -10,10 +11,34 @@ opacityButtons()
 const popupImage = '.popup-image';
 /*Llamamos a la clase Section y poblamos con las cards*/
 const nuevaImagen = new PopupWithImage(popupImage)
-const imageElement = document.querySelector('.popup-image');
+
+
+/*Instancia a PopUpForm */
+
+const popupForm = new PopupWithForm({popupSelector:'.popup-place', handleFromData:(fromData)=>{
+  console.log(fromData)
+  const UserData = new UserInfo({
+    nameSelector:'#popup__input-profile',
+    jobSelector:'#popup__input-about',
+  }  )
+  UserData.setUserInfo({
+    name:fromData.nombre,
+    job:fromData.trabajo
+  })
+}
+});
+
+document.addEventListener('click', evt =>{
+  console.log(evt.target)
+})
+
+/* popupForm.openPopUp(); */
+/* popupForm.closePopUp(); */
 
 
 
+
+/*Instancia a Section */
 const newSection = new Section({
   items: initialCards,
   renderer: (item) => {

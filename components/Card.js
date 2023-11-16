@@ -28,14 +28,6 @@ export default class Card {
   _handleOpenPopupImage() {
 
     this._image.openPopUp(this._name, this._link)
-
-
-    /* const popupImage = document.querySelector('.popup-image');
-    console.log("Ejecutando desde CARD")
-    popupImage.querySelector('.popup-image__url').setAttribute("src", this._link)
-    popupImage.querySelector('.popup-image__name-place').setAttribute("src", this._name);
-    popupImage.querySelector('.popup-image__name-place').textContent = this._name;
-    popupImage.classList.add('popup--show'); */
   }
   _setEventListeners() {
     this._node.querySelector(".card__place-button--like").addEventListener("click", (evt) => this._handleButtonLike(evt));

@@ -1,15 +1,3 @@
-const editProfile = '.profile__author-button-edit';
-const editPlace = '.profile__author-button-add-place';
-
-
-const popupCloseProfile = document.querySelector('.popup__button-close-profile');
-const popupClosePlace = document.querySelector('.popup__button-close-place');
-const popupProfile = document.querySelector('.popup-profile');
-const popupPlace = document.querySelector('.popup-place');
-
-
-const inputName = document.querySelector("#popup__input-profile").value
-const inputJob = document.querySelector("#popup__input-about").value
 export default class PopUp{
   constructor(selectorPopup) {
     this.selectorPopup = selectorPopup;
