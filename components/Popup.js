@@ -1,8 +1,8 @@
 export default class PopUp{
   constructor(selectorPopup) {
     this.selectorPopup = selectorPopup;
-    this.popupCloseImage = document.querySelector('.popup-image__close');
     this.popup = document.querySelector(this.selectorPopup);
+    this.popupCloseImage = document.querySelector('.popup-image__close');
   }
   openPopUp() {
     this.popup.classList.add('popup--show');

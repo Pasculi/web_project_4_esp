@@ -4,6 +4,7 @@ import Section from "../components/Section.js";
 import FormValidator from "../components/FormValidator.js";
 /* import UserInfo from "../components/UserInfo.js" */
 import PopupWithImage from "../components/PopupWithImage.js"
+import PopupWithForm from "../components/PopupWithForm.js";
 /* import PopupWithForm from "../components/PopupWithForm.js" */
 
 
@@ -32,11 +33,21 @@ const nuevaImagen = new PopupWithImage(popupImage)
 
 /********************PASAR A POPUPWITHFORM SETEVENTLISTENERS****************************** */
 
-const popupProfile = document.querySelector('.popup-profile');
+const popupProfile = '.popup-profile';
+
+console.log(document.querySelector('.popup-profile'))
+
+const popUpForm = new PopupWithForm(popupProfile)
+popUpForm.setEventListeners()
+
+document.addEventListener('click', evt => {
+  console.log(evt.target.id)
+})
+
+
 const editProfile = document.querySelector('.profile__author-button-edit');
 const popupCloseProfile = document.querySelector('.popup__button-close-profile');
 editProfile.addEventListener('click', (evt) => {
-  console.log("Abre el modal perfil")
   console.log(document.querySelector(`.popup-${evt.target.id}`))
   popupProfile.classList.add('popup--show')
 })
@@ -46,18 +57,17 @@ popupCloseProfile.addEventListener('click', () => {
 
 /************************************************** */
 
-const popupPlace = document.querySelector('.popup-place');
+/* const popupPlace = document.querySelector('.popup-place');
 const editPlace = document.querySelector('.profile__author-button-add-place');
 const popupClosePlace = document.querySelector('.popup__button-close-place');
 editPlace.addEventListener('click', (evt) => {
-  console.log("Abre el modal Lugares")
   console.log(document.querySelector(`.popup-${evt.target.id}`))
   popupPlace.classList.add('popup--show')
 })
 
 popupClosePlace.addEventListener('click', () => {
   popupPlace.classList.remove('popup--show')
-})
+}) */
 
 /* popupForm.openPopUp(); */
 /* popupForm.closePopUp(); */
