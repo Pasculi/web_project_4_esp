@@ -5,7 +5,6 @@ import FormValidator from "../components/FormValidator.js";
 /* import UserInfo from "../components/UserInfo.js" */
 import PopupWithImage from "../components/PopupWithImage.js"
 import PopupWithForm from "../components/PopupWithForm.js";
-/* import PopupWithForm from "../components/PopupWithForm.js" */
 
 
 opacityButtons()
@@ -13,6 +12,7 @@ opacityButtons()
 const popupImage = '.popup-image';
 /*Llamamos a la clase Section y poblamos con las cards*/
 const nuevaImagen = new PopupWithImage(popupImage)
+
 
 
 /*Instancia a PopUpForm */
@@ -34,18 +34,17 @@ const nuevaImagen = new PopupWithImage(popupImage)
 /********************PASAR A POPUPWITHFORM SETEVENTLISTENERS****************************** */
 
 const popupProfile = '.popup-profile';
+const buttonProfile = '.profile__author-button-edit';
 
-console.log(document.querySelector('.popup-profile'))
+const popUpForm = new PopupWithForm(popupProfile, buttonProfile)
 
-const popUpForm = new PopupWithForm(popupProfile)
 popUpForm.setEventListeners()
 
-document.addEventListener('click', evt => {
-  console.log(evt.target.id)
+document.addEventListener('click', (evt) =>{
+  console.log(evt.target)
 })
 
-
-const editProfile = document.querySelector('.profile__author-button-edit');
+/* const editProfile = document.querySelector('.profile__author-button-edit');
 const popupCloseProfile = document.querySelector('.popup__button-close-profile');
 editProfile.addEventListener('click', (evt) => {
   console.log(document.querySelector(`.popup-${evt.target.id}`))
@@ -53,7 +52,7 @@ editProfile.addEventListener('click', (evt) => {
 })
 popupCloseProfile.addEventListener('click', () => {
   popupProfile.classList.remove('popup--show')
-})
+}) */
 
 /************************************************** */
 
