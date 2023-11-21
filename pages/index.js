@@ -36,13 +36,16 @@ const nuevaImagen = new PopupWithImage(popupImage)
 const popupProfile = '.popup-profile';
 const buttonProfile = '.profile__author-button-edit';
 
-const popUpForm = new PopupWithForm(popupProfile, buttonProfile)
+const popUpFormProfile = new PopupWithForm(popupProfile, buttonProfile)
+popUpFormProfile.setEventListeners();
 
-popUpForm.setEventListeners()
+const popupPlace = '.popup-place';
+const buttonPlace = '.profile__author-button-add-place';
 
-document.addEventListener('click', (evt) =>{
-  console.log(evt.target)
-})
+const popUpFormPlace = new PopupWithForm(popupPlace, buttonPlace)
+popUpFormPlace.setEventListeners();
+
+
 
 /* const editProfile = document.querySelector('.profile__author-button-edit');
 const popupCloseProfile = document.querySelector('.popup__button-close-profile');

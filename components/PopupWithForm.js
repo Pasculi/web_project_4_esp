@@ -9,17 +9,16 @@ export default class PopupWithForm extends PopUp {
   constructor(selectorPopup, buttonSelector) {
     super(selectorPopup)
     this.buttonOpen = document.querySelector(buttonSelector);
-    this.popupCloseImage = document.querySelector('.popup__close-image');
+    this.popupCloseImage = document.querySelector('.popup-image__close');
   }
   _getInputValues() {
 
   }
   setEventListeners() {
+    super.setEventListeners();
     this.buttonOpen.addEventListener('click', () => {
       super.openPopUp()
     })
-    this.popupCloseImage.addEventListener('click', () => {
-      super.closePopUp()
-    })
+
   }
 }
