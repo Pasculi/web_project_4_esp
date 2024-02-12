@@ -9,13 +9,13 @@
 [Resize]: https://www.iloveimg.com/es/redimensionar-imagen#resize-options,pixels
 
 
-![Logo|200px](./images/Logoperfil.PNG)
+![Logo|200px](./src/images/Logoperfil.PNG)
 
 # Proyecto 4: Alrededor de los Estados Unidos
 
 ### Descripción general
 
-En este proyecto tiene por objetivo mostrar una galeria de fotos de lugares de Estados Unidos, utilizando técnicas como BEM para la estructura de archivos y notación de clases. Además se utiliza Flexbox y Grid para maquetar algunas estructurasn del sitio y asi poder implementar de mejor forma la responsividad para diferentes dispositivos. En este proyecto aparte de usar, HTML para la maquetación y CSS para dar estilos, se utiliza Javascript para implementar un modal que captura los datos de perfil de usuario mediante un evento submit, y los imprime en el inicio de página.
+En este proyecto se tiene por objetivo mostrar una galeria de fotos de lugares de Estados Unidos, utilizando técnicas como BEM para la estructura de archivos y notación de clases en css. Además se utiliza Flexbox y Grid para maquetar algunas estructurasn del sitio y asi poder implementar de mejor forma la responsividad para diferentes dispositivos(media queries). En este proyecto aparte de usar, HTML para la maquetación y CSS para dar estilos, se utiliza Javascript para implementar de 3 modales (popups) que captura los datos tanto para el perfil de usuario como para la adición de imagenes al proyecto, mediante un evento submit, y los imprime en el inicio de página. Todo esto utilizando el paradigma de programación Orientada a Objetos.-
 
 ###Items
 
@@ -28,12 +28,12 @@ En este proyecto tiene por objetivo mostrar una galeria de fotos de lugares de E
 
 **Imágenes**
 
-Se exportan las imágenes directamente desde Figma; y se optimizan [aquí](https://tinypng.com/), y algunas se redimensionan en [![Resize|50px](./images/img.jpg)][Resize]
+Se exportan las imágenes directamente desde Figma; y se optimizan [aquí](https://tinypng.com/), y algunas se redimensionan en [![Resize|50px](./src/images/img.jpg)][Resize]
 
 
 ## Tecnologías utilizadas:
 
-[![HTML|50px](./images/html.png)][html]  [![CSS|50px](./images/css.png)][css] [![JS|50px](./images/js.png)][JS]
+[![HTML|50px](./src/images/html.png)][html]  [![CSS|50px](./src/images/css.png)][css] [![JS|50px](./src/images/js.png)][JS]
 
 ## Contacto
 
