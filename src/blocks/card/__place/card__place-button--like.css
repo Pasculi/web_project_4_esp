@@ -6,7 +6,7 @@
   fill            : currentColor;
   color           : black;
   padding         : 0 22px 0 0;
-  background      : url('../../../asset/vector__like.svg') center no-repeat;
+  background      : url('../../../images/vector__like.svg') center no-repeat;
   cursor          : pointer;
   opacity         : 0.5;
   transition      : 0.3s;
@@ -19,5 +19,5 @@
 
 .card__place-button--like-active {
   opacity   : 1;
-  background: url('../../../asset/vector__like-black.svg') center no-repeat;
+  background: url('../../../images/vector__like-black.svg') center no-repeat;
 }
