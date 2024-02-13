@@ -12,6 +12,9 @@ export default class PopupWithImage extends PopUp {
     this._popupTitle.alt = name;
     super.openPopUp();
   }
+  closePopUp() {
+    super.closePopUp();
+  }
 
 }
 
