@@ -1,11 +1,11 @@
-import './pages/index.css';
-import { data, config, sectionCard, btnPopupEdit, btnPopupPlace, profileName, profileAbout, inputProfileName, inputProfileAbout, inputNamePlace, inputUrlPlace, popupFormProfile, popupFormPlace } from './utils/utils.js';
-import Card from './components/Card.js';
-import Section from './components/Section.js';
-import UserInfo from './components/UserInfo.js';
-import FormValidator from './components/FormValidator.js';
-import PopupWithImage from './components/PopupWithImage.js';
-import PopupWithForm from './components/PopupWithForm.js';
+import './index.css';
+import { data, config, sectionCard, btnPopupEdit, btnPopupPlace, profileName, profileAbout, inputProfileName, inputProfileAbout, inputNamePlace, inputUrlPlace, popupFormProfile, popupFormPlace } from '../utils/utils.js';
+import Card from '../components/Card.js';
+import Section from '../components/Section.js';
+import UserInfo from '../components/UserInfo.js';
+import FormValidator from '../components/FormValidator.js';
+import PopupWithImage from '../components/PopupWithImage.js';
+import PopupWithForm from '../components/PopupWithForm.js';
 
 const formValidatorProfile = new FormValidator(config, popupFormProfile);
 formValidatorProfile.enableValidation();
