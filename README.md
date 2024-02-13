@@ -9,7 +9,7 @@
 [Resize]: https://www.iloveimg.com/es/redimensionar-imagen#resize-options,pixels
 
 
-![Logo|200px](./src/asset/Logoperfil.PNG)
+![Logo|200px](./src/images/Logoperfil.PNG)
 
 # Proyecto 4: Alrededor de los Estados Unidos
 
@@ -28,12 +28,12 @@ En este proyecto se tiene por objetivo mostrar una galeria de fotos de lugares d
 
 **Imágenes**
 
-Se exportan las imágenes directamente desde Figma; y se optimizan [aquí](https://tinypng.com/), y algunas se redimensionan en [![Resize|50px](./src/asset/img.jpg)][Resize]
+Se exportan las imágenes directamente desde Figma; y se optimizan [aquí](https://tinypng.com/), y algunas se redimensionan en [![Resize|50px](./src/images/img.jpg)][Resize]
 
 
 ## Tecnologías utilizadas:
 
-[![HTML|50px](./src/asset/html.png)][html]  [![CSS|50px](./src/asset/css.png)][css] [![JS|50px](./src/asset/js.png)][JS]
+[![HTML|50px](./src/images/html.png)][html]  [![CSS|50px](./src/images/css.png)][css] [![JS|50px](./src/images/js.png)][JS]
 
 ## Contacto
 
