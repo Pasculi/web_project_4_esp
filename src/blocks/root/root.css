@@ -1,5 +1,5 @@
 .root{
-  width       : 100vw;
+  width       : 100%;
   display: inline-block;
   position: relative;
   justify-content: center;
@@ -7,7 +7,6 @@
   box-sizing      : border-box;
   font-family     : 'Inter',
     sans-serif;
-
 }
 
 

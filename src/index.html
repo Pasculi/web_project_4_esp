@@ -105,7 +105,7 @@
             <div class="popup__grupo-input">
               <input class="popup__input" type="url" name="url-place" id="popup__input-url-place"
                 placeholder="Enlace a la imagen"
-                pattern="/https?:\/\/(?:www\.)?[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b(?:[-a-zA-Z0-9()@:%_\+.~#?&\/=]*)/g"
+                pattern="[(http(s)?):\/\/(www\.)?\w-/=#%&\.\?]{2,}\.[a-z]{2,}([\w-/=#%&\.\?]*)"
                 required />
               <span class="popup__input-error popup__input-url-place-error"></span>
             </div>
