@@ -70,13 +70,13 @@
             <!-- Grupo Input Nombre -->
             <div class="popup__grupo-input">
               <input class="popup__input" type="text" name="name-user" id="popup__input-profile" placeholder="Nombre"
-                pattern="^[ a-zA-ZñÑáéíóúÁÉÍÓÚ()]+$" minlength="2" maxlength="40" required value="Jacques Cousteau" />
+                pattern="/^[ a-zA-ZñÑáéíóúÁÉÍÓÚ()]" minlength="2" maxlength="40" required value="Jacques Cousteau" />
               <span class="popup__input-error popup__input-profile-error"></span>
             </div>
             <!-- Grupo Input Acerca -->
             <div class="popup__grupo-input">
               <input class="popup__input" type="text" name="job-user" id="popup__input-about" placeholder="Acerca de mi"
-                pattern="^[ a-zA-ZñÑáéíóúÁÉÍÓÚ()]+$" minlength="2" maxlength="200" required value="Explorador" />
+                pattern="/^[ a-zA-ZñÑáéíóúÁÉÍÓÚ()]" minlength="2" maxlength="200" required value="Explorador" />
               <span class="popup__input-error popup__input-about-error"></span>
             </div>
             <button class="popup__button popup__button-profile" type="submit">
@@ -98,14 +98,14 @@
             <!-- Grupo Input Nombre Lugar -->
             <div class="popup__grupo-input">
               <input class="popup__input" type="text" name="name-place" id="popup__input-name-place" placeholder="Title"
-                pattern="^[ a-zA-ZñÑáéíóúÁÉÍÓÚ]+$" minlength="2" maxlength="30" required />
+                pattern="/^[ a-zA-ZñÑáéíóúÁÉÍÓÚ()]" minlength="2" maxlength="30" required />
               <span class="popup__input-error popup__input-name-place-error"></span>
             </div>
             <!-- Grupo Input Url Lugar -->
             <div class="popup__grupo-input">
               <input class="popup__input" type="url" name="url-place" id="popup__input-url-place"
                 placeholder="Enlace a la imagen"
-                pattern="[(http(s)?):\/\/(www\.)?\w-/=#%&\.\?]{2,}\.[a-z]{2,}([\w-/=#%&\.\?]*)"
+                pattern="/^https?:\/\/[\w\-]+(\.[\w\-]+)+[/#?]?.*$"
                 required />
               <span class="popup__input-error popup__input-url-place-error"></span>
             </div>
