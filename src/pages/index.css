@@ -55,10 +55,9 @@
 
 /*POPUP IMAGEN*/
 @import url(../blocks/popup/__image/popup__image.css);
-@import url(../blocks/popup/__image/__content/popup__image__content.css);
-@import url(../blocks/popup/__image/__content/popup__image__content.css);
-@import url(../blocks/popup/__image/__url/popup__image__url.css);
-@import url(../blocks/popup/__image/__button/popup__image__button-close.css);
+@import url(../blocks/popup/__image/popup__image-content.css);
+@import url(../blocks/popup/__image/popup__image-url.css);
+@import url(../blocks/popup/__image/popup__image-button-close.css);
 
 /*POPUP ERROR*/
 @import url(../blocks/popup/__button/popup__button-disable.css);
