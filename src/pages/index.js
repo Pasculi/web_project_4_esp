@@ -12,7 +12,7 @@ formValidatorProfile.enableValidation();
 
 const formValidatorNewCard = new FormValidator(config, popupFormPlace);
 formValidatorNewCard.enableValidation();
-const popupImage = new PopupWithImage('.popup__image')
+const popupImage = new PopupWithImage('.popup-img-close-image')
 /******************Generamos Las Card y las incorporamos a la seccción de las CARDS*******************/
 const sectionContainerCard = new Section(
   {
