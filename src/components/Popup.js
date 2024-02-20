@@ -19,7 +19,7 @@ export default class PopUp {
     }
   }
   setEventListeners() {
-    const buttonClose = Array.from(document.querySelectorAll('.popup__image__close'))
+    const buttonClose = Array.from(document.querySelectorAll('.popup__image-close'))
     buttonClose.forEach((item) => {
       item.addEventListener("click", () => {
         this.closePopUp();
