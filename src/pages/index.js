@@ -1,5 +1,5 @@
 import './index.css';
-import { data, config, sectionCard, btnPopupEdit, btnPopupPlace, profileName, profileAbout, inputProfileName, inputProfileAbout, inputNamePlace, inputUrlPlace, popupFormProfile, popupFormPlace } from '../utils/utils.js';
+import { initialCards, config, sectionCard, btnPopupEdit, btnPopupPlace, profileName, profileAbout, inputProfileName, inputProfileAbout, inputNamePlace, inputUrlPlace, popupFormProfile, popupFormPlace } from '../utils/utils.js';
 import Card from '../components/Card.js';
 import Section from '../components/Section.js';
 import UserInfo from '../components/UserInfo.js';
@@ -12,11 +12,12 @@ formValidatorProfile.enableValidation();
 
 const formValidatorNewCard = new FormValidator(config, popupFormPlace);
 formValidatorNewCard.enableValidation();
+
 const popupImage = new PopupWithImage('.popup-img-close-image')
 /******************Generamos Las Card y las incorporamos a la seccción de las CARDS*******************/
 const sectionContainerCard = new Section(
   {
-    items: data,
+    items: initialCards,
     renderer: (data) => {
       const cardNew = new Card(
         data,
@@ -44,20 +45,23 @@ btnPopupEdit.addEventListener('click', () => {
 const formProfile = new PopupWithForm('.popup-profile', () => {
   /*Se actualiza el perfil del usuario*/
   userInfo.setUserInfo({ name: inputProfileName.value, about: inputProfileAbout.value })
-})//Revisar
+})
 
 /***************************Procesamos formulario de Place************************************ */
 
 const formPlace = new PopupWithForm('.popup-place', () => {
   const dataImage = { name: inputNamePlace.value, link: inputUrlPlace.value };
   const createOneCard = new Card(
-    dataImage, '.card', function () {
+    dataImage,
+    '.card',
+    function () {
       popupImage.openPopUp({ name: dataImage.name, link: dataImage.link })
     }
   );
   const oneCard = createOneCard.generateCard()
   sectionContainerCard.addItem(oneCard);
-})
+});
+
 btnPopupPlace.addEventListener('click', () => {
   formPlace.openPopUp()
 })

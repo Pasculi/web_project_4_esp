@@ -1,4 +1,4 @@
-export const data = [
+export const initialCards = [
   {
     name: "Santiago",
     link: "https://storage.googleapis.com/chile-travel-newsite-static-content/2021/08/santiago-portada.jpg",

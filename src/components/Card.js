@@ -16,7 +16,7 @@ export default class Card {
     this._setEventListeners();
     this._node.querySelector('.card__place-name').textContent = this._name;
     this._node.querySelector('.card__place-image-place').src = this._link;
-    this._node.querySelector('.card__place-name').alt = this._name;
+    this._node.querySelector('.card__place-image-place').alt = this._name;
     return this._node;
   }
   _handleButtonLike(evt) {
