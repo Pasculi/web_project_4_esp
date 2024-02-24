@@ -4,6 +4,7 @@
 [css]: https://developer.mozilla.org/es/docs/Web/CSS
 [JS]: https://developer.mozilla.org/es/docs/Web/JavaScript
 [linkpage]: https://webproject4esp.netlify.app
+[linkpage2]: https://pasculi.github.io/web_project_4_esp/
 [github]: https://github.com/Pasculi
 [linkedin]: https://www.linkedin.com/in/jsepulvedaturpie/
 [Resize]: https://www.iloveimg.com/es/redimensionar-imagen#resize-options,pixels
@@ -43,5 +44,5 @@ Se exportan las imágenes directamente desde Figma; y se optimizan [aquí](https
 
 ## Link hacia el deploy del Proyecto
 
-[Alrededor de los Estados Unidos][linkpage]
-
+[Alrededor de los Estados Unidos - Deploy en Netifly][linkpage]
+[Alrededor de los Estados Unidos Deploy en gitHub pages][linkpage]
