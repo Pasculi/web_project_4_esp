@@ -3,7 +3,7 @@
 [html]: https://developer.mozilla.org/es/docs/Web/HTML
 [css]: https://developer.mozilla.org/es/docs/Web/CSS
 [JS]: https://developer.mozilla.org/es/docs/Web/JavaScript
-[linkpage]: https://pasculi.github.io/web_project_4_esp/
+[linkpage]: https://webproject4esp.netlify.app
 [github]: https://github.com/Pasculi
 [linkedin]: https://www.linkedin.com/in/jsepulvedaturpie/
 [Resize]: https://www.iloveimg.com/es/redimensionar-imagen#resize-options,pixels
