@@ -45,4 +45,5 @@ Se exportan las imágenes directamente desde Figma; y se optimizan [aquí](https
 ## Link hacia el deploy del Proyecto
 
 [Alrededor de los Estados Unidos - Deploy en Netifly][linkpage]
-[Alrededor de los Estados Unidos Deploy en gitHub pages][linkpage]
+
+[Alrededor de los Estados Unidos Deploy en gitHub pages][linkpage2]
