@@ -6,6 +6,16 @@ import UserInfo from '../components/UserInfo.js';
 import FormValidator from '../components/FormValidator.js';
 import PopupWithImage from '../components/PopupWithImage.js';
 import PopupWithForm from '../components/PopupWithForm.js';
+import Api from '../components/Api.js';
+
+
+const api = new Api('https://around.nomoreparties.co/v1/web_es_11', {
+  headers: {
+    authorization: "962f1eb6-c335-46ac-b3a5-7d22c2a5fd9a"
+  }
+});
+
+
 
 const formValidatorProfile = new FormValidator(config, popupFormProfile);
 formValidatorProfile.enableValidation();
@@ -15,6 +25,24 @@ formValidatorNewCard.enableValidation();
 
 const popupImage = new PopupWithImage('.popup-img-close-image')
 /******************Generamos Las Card y las incorporamos a la seccción de las CARDS*******************/
+const dataCards = api.getInitialCards().then(res => {
+  if (res.ok) {
+    const result = res.json();
+    return result
+  }
+})
+  .then(data => {
+    console.log(data);
+  })
+  .catch(err => {
+    return `Error: ${err}`
+  })
+;
+
+dataCards.forEach(card => {
+console.log(card);
+})
+
 const sectionContainerCard = new Section(
   {
     items: initialCards,
