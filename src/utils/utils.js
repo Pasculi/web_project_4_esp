@@ -51,5 +51,6 @@ export const submitPopupProfile = document.querySelector('.popup__button-profile
 export const submitPopupPlace = document.querySelector('.popup__button-place');
 export const inputNamePlace = document.querySelector('#popup__input-name-place');
 export const inputUrlPlace = document.querySelector('#popup__input-url-place');
+export const buttonLike = document.querySelector('.card__place-button--like');
 
 

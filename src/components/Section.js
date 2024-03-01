@@ -10,6 +10,14 @@ export default class Section {
       this._renderer(item);
     });
   }
+  setItems(items) {
+    this.clear();
+    this._items = items;
+
+  }
+  clear() {
+    this._container.innerHTML = '';
+  }
   addItem(element) {
     this._container.prepend(element);
 

@@ -1,21 +1,33 @@
 import './index.css';
-import { initialCards, config, sectionCard, btnPopupEdit, btnPopupPlace, profileName, profileAbout, inputProfileName, inputProfileAbout, inputNamePlace, inputUrlPlace, popupFormProfile, popupFormPlace } from '../utils/utils.js';
+import { initialCards, config, sectionCard, btnPopupEdit, btnPopupPlace, profileName, profileAbout, inputProfileName, inputProfileAbout, inputNamePlace, inputUrlPlace, popupFormProfile, popupFormPlace, buttonLike } from '../utils/utils.js';
 import Card from '../components/Card.js';
 import Section from '../components/Section.js';
 import UserInfo from '../components/UserInfo.js';
 import FormValidator from '../components/FormValidator.js';
 import PopupWithImage from '../components/PopupWithImage.js';
 import PopupWithForm from '../components/PopupWithForm.js';
-import Api from '../components/Api.js';
+import { api } from '../components/Api.js';
 
 
-const api = new Api('https://around.nomoreparties.co/v1/web_es_11', {
-  headers: {
-    authorization: "962f1eb6-c335-46ac-b3a5-7d22c2a5fd9a"
-  }
-});
+function remoteDeleteCard(idCard) {
+  api.deletCard(idCard).then(() => {
+    api.getInitialCards().then((cards) => {
+      sectionContainerCard.setItems(cards);
+      sectionContainerCard.rendererItems();
+    })
+  });
+}
+function remoteRemoveLike(idCard, buttonLike) {
+  api.remoteRemoveLike(idCard).then(() => {
+    buttonLike.classList.remove('card__place-button--like-active')
+  })
+}
 
-
+function removeLike(idCard, buttonLike) {
+  api.removeLike(idCard).then(() => {
+    buttonLike.classList.add('card__place-button--like-active')
+  })
+}
 
 const formValidatorProfile = new FormValidator(config, popupFormProfile);
 formValidatorProfile.enableValidation();
@@ -25,23 +37,6 @@ formValidatorNewCard.enableValidation();
 
 const popupImage = new PopupWithImage('.popup-img-close-image')
 /******************Generamos Las Card y las incorporamos a la seccción de las CARDS*******************/
-const dataCards = api.getInitialCards().then(res => {
-  if (res.ok) {
-    const result = res.json();
-    return result
-  }
-})
-  .then(data => {
-    console.log(data);
-  })
-  .catch(err => {
-    return `Error: ${err}`
-  })
-;
-
-dataCards.forEach(card => {
-console.log(card);
-})
 
 const sectionContainerCard = new Section(
   {
@@ -52,14 +47,28 @@ const sectionContainerCard = new Section(
         '.card',
         function () {
           popupImage.openPopUp({ name: data.name, link: data.link })
-        });
+        },
+        remoteDeleteCard,
+        removeLike,
+        remoteDeleteCard,
+        data
+      );
       const cardList = cardNew.generateCard();
       sectionContainerCard.addItem(cardList);
     },
   },
   sectionCard
 );
-sectionContainerCard.rendererItems();
+api
+  .getInitialCards()
+  .then((cards) => {
+  sectionContainerCard.setItems(cards);
+  })
+  .finally(() => {
+  sectionContainerCard.rendererItems();
+
+});
+/* sectionContainerCard.rendererItems(); */
 
 /*********************Creamos al Usuario************************/
 const userInfo = new UserInfo(profileName, profileAbout);
@@ -77,19 +86,26 @@ const formProfile = new PopupWithForm('.popup-profile', () => {
 
 /***************************Procesamos formulario de Place************************************ */
 
-const formPlace = new PopupWithForm('.popup-place', () => {
-  const dataImage = { name: inputNamePlace.value, link: inputUrlPlace.value };
-  const createOneCard = new Card(
-    dataImage,
-    '.card',
-    function () {
-      popupImage.openPopUp({ name: dataImage.name, link: dataImage.link })
-    }
-  );
-  const oneCard = createOneCard.generateCard()
-  sectionContainerCard.addItem(oneCard);
-});
+const formPlace = new PopupWithForm('.popup-place', (data) => {
+  api.addCard(data.link, data.name).then(card => {
+    /* const dataImage = { name: inputNamePlace.value, link: inputUrlPlace.value }; */
+    const createOneCard = new Card(
+      dataImage,
+      '.card',
+      function () {
+        popupImage.openPopUp({ name: dataImage.name, link: dataImage.link })
+      },
+      remoteDeleteCard,
+      removeLike,
+      remoteDeleteCard,
+      card
+    );
+    const oneCard = createOneCard.generateCard()
+    sectionContainerCard.addItem(oneCard);
+  });
 
-btnPopupPlace.addEventListener('click', () => {
-  formPlace.openPopUp()
-})
+  btnPopupPlace.addEventListener('click', () => {
+    formPlace.openPopUp()
+  })
+}
+);
