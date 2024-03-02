@@ -1,6 +1,5 @@
 .root__container {
-  position: relative;
-  width: 100vw;
+  width: 880px;
   display: flex;
   flex-direction: column;
   align-items: center;
