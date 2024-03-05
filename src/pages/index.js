@@ -1,5 +1,5 @@
 import './index.css';
-import { config, sectionCard, btnPopupEdit, btnPopupPlace, avatar, profileName, profileAbout, inputProfileName, inputProfileAbout, inputNamePlace, inputUrlPlace, popupFormProfile, popupFormPlace, buttonEditProfile, avatarSection } from '../utils/utils.js';
+import { config, sectionCard, btnPopupEdit, btnPopupPlace, avatar, profileName, profileAbout, inputProfileName, inputProfileAbout, inputNamePlace, inputUrlPlace, popupFormProfile, popupFormPlace, buttonEditProfile, avatarSection, overlayAvatar, popupEditAvatar, buttonEditAvatar, inputUrlAvatar } from '../utils/utils.js';
 import Card from '../components/Card.js';
 import Section from '../components/Section.js';
 import UserInfo from '../components/UserInfo.js';
@@ -23,26 +23,24 @@ const popupImage = new PopupWithImage('.popup-img-close-image')
 /******************Obtenemos las card desde la API y las incorporamos a la seccción de las CARDS*******************/
 api.getInitialCards()
   .then(cards => {
-  const sectionContainerCard = new Section(
-    {
-      items: cards,
-      renderer: (data) => {
-        const cardNew = new Card(
-          data,
-          '.card',
-          function () {
-            popupImage.openPopUp({ name: data.name, link: data.link })
-          });
-        const cardList = cardNew.generateCard();
-        sectionContainerCard.addItem(cardList);
+    const sectionContainerCard = new Section(
+      {
+        items: cards,
+        renderer: (data) => {
+          const cardNew = new Card(
+            data,
+            '.card',
+            function () {
+              popupImage.openPopUp({ name: data.name, link: data.link })
+            });
+          const cardList = cardNew.generateCard();
+          sectionContainerCard.addItem(cardList);
+        },
       },
-    },
-    sectionCard
-  );
-  sectionContainerCard.rendererItems();
-})
-
-
+      sectionCard
+    );
+    sectionContainerCard.rendererItems();
+  })
 
 /*********************Creamos al Usuario************************/
 api.getUserInfo()
@@ -56,14 +54,30 @@ api.getUserInfo()
 
 function addEditAvatar() {
   buttonEditProfile.classList.add('profile__avatar-edit--show');
+  overlayAvatar.classList.add('profile__overlay-avatar--show')
 }
 function removeEditAvatar() {
   buttonEditProfile.classList.remove('profile__avatar-edit--show')
+  overlayAvatar.classList.remove('profile__overlay-avatar--show')
 }
 
 avatarSection.addEventListener('mouseover', addEditAvatar)
-
 avatarSection.addEventListener('mouseout', removeEditAvatar)
+
+buttonEditProfile.addEventListener('click', () => {
+  popupEditAvatar.classList.add('popup__edit-profile--show')
+})
+
+buttonEditAvatar.addEventListener('submit', () => {  
+  const link = inputUrlAvatar.values;
+  console.log(link)
+  buttonEditAvatar.textContent = "Guardando..."
+  api.updateAvatar(link).then((userAvatar) => {
+    console.log(userAvatar)
+  })
+})
+
+
 const userInfo = new UserInfo(profileName, profileAbout);
 
 /***************************Procesamos formulario de Profile************************************ */

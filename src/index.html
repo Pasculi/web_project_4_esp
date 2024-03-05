@@ -24,6 +24,7 @@
           <img class="profile__avatar-image" src="."
             alt="." />
           <button class="profile__avatar-edit"></button>
+          <div class="profile__overlay-avatar"></div>
         </div>
         <div class="profile__presentation">
           <div class="profile__name">
@@ -151,7 +152,7 @@
     </div>
     <!-- FIN POPUP BORRAR CARD -->
     <!-- INICIO EDITAR AVATAR -->
-    <div class="popup__edit-profile" id="popup-edit-profile">
+    <div class="popup__edit-profile" id="popup-edit-avatar">
       <div class="popup__container-edit-profile">
         <button class="btn popup__button-close popup__button-close-place">
           <img class="popup__image-close" src="<%=require('./images/vector__close.png')%>" alt="Cerrar popup"
@@ -165,7 +166,7 @@
               pattern="/^https?:\/\/[\w\-]+(\.[\w\-]+)+[/#?]?.*$" required />
             <span class="popup__input-error popup__input-url-profile-error"></span>
           </div>
-          <button class="popup__button popup__button-edit-profile type="submit">
+          <button class="popup__button popup__button-edit-profile" type="submit">
             Guardar
           </button>
         </form>

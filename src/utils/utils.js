@@ -55,3 +55,11 @@ export const buttonLike = document.querySelector('.card__place-button--like');
 export const avatar = document.querySelector('.profile__avatar-image');
 export const avatarSection = document.querySelector('.profile__avatar');
 export const buttonEditProfile = document.querySelector('.profile__avatar-edit');
+export const overlayAvatar = document.querySelector('.profile__overlay-avatar');
+export const popupEditAvatar = document.querySelector('#popup-edit-avatar');
+export const buttonEditAvatar = document.querySelector('.popup__button-edit-profile')
+export const inputUrlAvatar = document.querySelector('.popup__input-url-profile');
+
+
+
+
