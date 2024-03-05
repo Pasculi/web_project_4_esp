@@ -1,8 +1,11 @@
 .profile__avatar {
+  position:relative;
   text-align: center;
   width     : 10.5rem;
   height    : 7.969rem;
+
 }
+
 @media screen and (max-width: 812px) {
   .profile__avatar {
     width        : 100%;

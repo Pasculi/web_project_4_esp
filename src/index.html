@@ -21,15 +21,16 @@
     <section class="profile">
       <div class="profile__data">
         <div class="profile__avatar">
-          <img class="profile__avatar-image" src="<%=require('./images/image__profile.jpg') %>"
-            alt="Jacques Cousteau" />
+          <img class="profile__avatar-image" src="."
+            alt="." />
+          <button class="profile__avatar-edit"></button>
         </div>
         <div class="profile__presentation">
           <div class="profile__name">
-            <h1 class="profile__author">Jacques Cousteau</h1>
+            <h1 class="profile__author"></h1>
             <button class="btn btn-profile profile__author-button-edit" id="btn_profile"></button>
           </div>
-          <h2 class="profile__activit">Explorador</h2>
+          <h2 class="profile__activit"></h2>
         </div>
       </div>
       <button class="btn bt-place profile__author-button-add-place" id="btn_place"></button>
@@ -52,7 +53,7 @@
           src='https://img.freepik.com/foto-gratis/resumen-superficie-texturas-muro-piedra-hormigon-blanco_74190-8189.jpg'
           alt="" />
         <div class="card__place-footer">
-          <h2 class="card__place-name">Algún Lugar</h2>
+          <h2 class="card__place-name"></h2>
           <button class="card__place-button--like"></button>
         </div>
       </div>
@@ -149,6 +150,28 @@
       </div>
     </div>
     <!-- FIN POPUP BORRAR CARD -->
+    <!-- INICIO EDITAR AVATAR -->
+    <div class="popup__edit-profile" id="popup-edit-profile">
+      <div class="popup__container-edit-profile">
+        <button class="btn popup__button-close popup__button-close-place">
+          <img class="popup__image-close" src="<%=require('./images/vector__close.png')%>" alt="Cerrar popup"
+            id="img-close-place" />
+        </button>
+        <form action="" class="popup__form-edit-profile">
+          <h2 class="popup__title">Cambiar foto de perfil</h2>
+          <!-- Grupo Input Url Lugar -->
+          <div class="popup__grupo-input">
+            <input class="popup__input" type="url" name="url-profile" id="popup__input-url-profile" placeholder="Enlace a la imagen"
+              pattern="/^https?:\/\/[\w\-]+(\.[\w\-]+)+[/#?]?.*$" required />
+            <span class="popup__input-error popup__input-url-profile-error"></span>
+          </div>
+          <button class="popup__button popup__button-edit-profile type="submit">
+            Guardar
+          </button>
+        </form>
+      </div>
+    </div>
+    <!-- FIN EDITAR AVATAR -->
 
 
     <!-- INICO FOOTER -->

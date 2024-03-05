@@ -1,4 +1,4 @@
-export const initialCards = [
+/* export const initialCards = [
   {
     name: "Santiago",
     link: "https://storage.googleapis.com/chile-travel-newsite-static-content/2021/08/santiago-portada.jpg",
@@ -23,7 +23,7 @@ export const initialCards = [
     name: "Ciudad de Arica",
     link: "https://q-xx.bstatic.com/xdata/images/city/600x480/671802.jpg?k=f2af7c265359c6bfef67dd8137aae05a987d3df4208c8423068a807acc405ad3&o=",
   },
-];
+]; */
 
 export const config = ({
   formSelector: ".popup__form",
@@ -52,5 +52,6 @@ export const submitPopupPlace = document.querySelector('.popup__button-place');
 export const inputNamePlace = document.querySelector('#popup__input-name-place');
 export const inputUrlPlace = document.querySelector('#popup__input-url-place');
 export const buttonLike = document.querySelector('.card__place-button--like');
-
-
+export const avatar = document.querySelector('.profile__avatar-image');
+export const avatarSection = document.querySelector('.profile__avatar');
+export const buttonEditProfile = document.querySelector('.profile__avatar-edit');

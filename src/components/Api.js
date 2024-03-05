@@ -1,4 +1,4 @@
-export default class Api {
+class Api {
   constructor(baseUrl, headers) {
     this._baseUrl = baseUrl;
     this._headers = headers;
@@ -50,37 +50,37 @@ export default class Api {
       .then((res) => res.json())
 
   }
-  deletCard(idCard) {
-    return fetch(`${this._baseUrl}/cards/${idCard}`, {
+  deletCard(id) {
+    return fetch(`${this._baseUrl}/cards/${id}`, {
       headers: this._headers,
       method: 'DELETE',
       body: JSON.stringify({
-        idCard
+        id
       })
     })
       .then((res) => res.json())
 
   }
-  likeCard(idCard) {
-    return fetch(`${this._baseUrl}/cards/likes/${idCard}`, {
+  likeCard(id, isLiked) {
+    const method = isLiked ? "DELETE" : "PUT";
+    return fetch(`${this._baseUrl}/cards/likes/${id}`, {
       headers: this._headers,
-      method: 'PUT',
+      method: method,
       body: JSON.stringify({
-        idCard
+        id
       })
     })
       .then((res) => res.json())
   }
-  deleteLikeCard(idCard) {
-    return fetch(`${this._baseUrl}/cards/likes/${idCard}`, {
+  deleteLikeCard(id) {
+    return fetch(`${this._baseUrl}/cards/likes/${id}`, {
       headers: this._headers,
       method: 'DELETE',
       body: JSON.stringify({
-        idCard
+        id
       })
     })
       .then((res) => res.json())
-
   }
 }
 
@@ -89,16 +89,3 @@ export const api = new Api('https://around.nomoreparties.co/v1/web_es_11', {
     authorization: "962f1eb6-c335-46ac-b3a5-7d22c2a5fd9a", "Content-Type": "application/json"
   }
 });
-
-const options = {
-  method: 'GET',
-  headers: {
-    accept: 'application/json',
-    Authorization: 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI2NGViNDBmZmQ0Mjk5ZDQ5YmJhMGI1N2RiZDUwYzFjZCIsInN1YiI6IjYzNWQ1MjY5YjMzMTZiMDA4MWZhZTJkZSIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.oMZKBkrvXsw_iuBhlIXfyGNJsiJ19fRYqYFVt7Nwopc'
-  }
-};
-
-fetch('https://api.themoviedb.org/3/trending/all/day?language=en-US', options)
-  .then(response => response.json())
-  .then(response => console.log(response))
-  .catch(err => console.error(err));
