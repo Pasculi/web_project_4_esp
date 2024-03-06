@@ -7,6 +7,7 @@ import FormValidator from '../components/FormValidator.js';
 import PopupWithImage from '../components/PopupWithImage.js';
 import PopupWithForm from '../components/PopupWithForm.js';
 import { api } from '../components/Api.js';
+/* import PopupWithFormAvatar from '../components/PopupWithFormAvatar.js'; */
 
 
 
@@ -18,6 +19,12 @@ const formValidatorNewCard = new FormValidator(config, popupFormPlace);
 formValidatorNewCard.enableValidation();
 
 const popupImage = new PopupWithImage('.popup-img-close-image')
+
+/***********************************************************************/
+const formEditAvatar = new PopupWithForm('.popup__edit-profile')
+console.log("🚀 ~ formEditAvatar:", formEditAvatar)
+const formValidatorEditAvatar = new FormValidator(config, formEditAvatar);
+/* formValidatorEditAvatar.enableValidation(); */
 
 
 /******************Obtenemos las card desde la API y las incorporamos a la seccción de las CARDS*******************/
@@ -68,7 +75,7 @@ buttonEditProfile.addEventListener('click', () => {
   popupEditAvatar.classList.add('popup__edit-profile--show')
 })
 
-buttonEditAvatar.addEventListener('submit', () => {  
+buttonEditAvatar.addEventListener('submit', () => {
   const link = inputUrlAvatar.values;
   console.log(link)
   buttonEditAvatar.textContent = "Guardando..."
@@ -109,3 +116,4 @@ const formPlace = new PopupWithForm('.popup-place', () => {
 btnPopupPlace.addEventListener('click', () => {
   formPlace.openPopUp()
 })
+
