@@ -1,4 +1,4 @@
-.popup__form-edit-profile{
+.popup__form-edit-avatar{
   display         : flex;
 flex-direction  : column;
 justify-content : space-between;
@@ -7,14 +7,14 @@ row-gap         : 10px;
 width           : 430px;
 height          : 250px;
 position        : absolute;
-bottom          : 0;
+bottom          : 1;
 border-radius   : 10px;
 padding         : 0 36px;
 box-sizing      : border-box;
 }
 
 @media screen and (max-width:812px) {
-  .popup__form-edit-profile {
+  .popup__form-edit-avatar {
     top   : 35px;
     left  : 60;
     width : 300px;

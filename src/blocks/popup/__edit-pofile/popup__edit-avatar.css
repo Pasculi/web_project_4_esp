@@ -1,4 +1,4 @@
-.popup__edit-profile {
+.popup__edit-avatar {
   display         : flex;
   width           : 100vw;
   position        : absolute;
@@ -15,7 +15,7 @@
   z-index         : -10;
 }
 
-.popup__edit-profile--show {
+.popup__edit-avatar--show {
   opacity: 1;
   z-index: 10;
 }

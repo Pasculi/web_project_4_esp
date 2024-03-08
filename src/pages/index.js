@@ -21,10 +21,8 @@ formValidatorNewCard.enableValidation();
 const popupImage = new PopupWithImage('.popup-img-close-image')
 
 /***********************************************************************/
-const formEditAvatar = new PopupWithForm('.popup__edit-profile')
-console.log("🚀 ~ formEditAvatar:", formEditAvatar)
-const formValidatorEditAvatar = new FormValidator(config, formEditAvatar);
-/* formValidatorEditAvatar.enableValidation(); */
+
+
 
 
 /******************Obtenemos las card desde la API y las incorporamos a la seccción de las CARDS*******************/
@@ -74,16 +72,6 @@ avatarSection.addEventListener('mouseout', removeEditAvatar)
 buttonEditProfile.addEventListener('click', () => {
   popupEditAvatar.classList.add('popup__edit-profile--show')
 })
-
-buttonEditAvatar.addEventListener('submit', () => {
-  const link = inputUrlAvatar.values;
-  console.log(link)
-  buttonEditAvatar.textContent = "Guardando..."
-  api.updateAvatar(link).then((userAvatar) => {
-    console.log(userAvatar)
-  })
-})
-
 
 const userInfo = new UserInfo(profileName, profileAbout);
 

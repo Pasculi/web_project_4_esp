@@ -152,21 +152,21 @@
     </div>
     <!-- FIN POPUP BORRAR CARD -->
     <!-- INICIO EDITAR AVATAR -->
-    <div class="popup__edit-profile" id="popup-edit-avatar">
-      <div class="popup__container-edit-profile">
+    <div class="popup__edit-avatar" id="popup-edit-avatar">
+      <div class="popup__container-edit-avatar">
         <button class="btn popup__button-close popup__button-close-place">
           <img class="popup__image-close" src="<%=require('./images/vector__close.png')%>" alt="Cerrar popup"
-            id="img-close-place" />
+            id="img-close-avatar" />
         </button>
-        <form action="" class="popup__form-edit-profile" novalidate>
+        <form action="" class="popup__form-edit-avatar" novalidate>
           <h2 class="popup__title">Cambiar foto de perfil</h2>
           <!-- Grupo Input Url Lugar -->
           <div class="popup__grupo-input">
-            <input class="popup__input" type="url" name="url-profile" id="popup__input-url-profile" placeholder="Enlace a la imagen"
+            <input class="popup__input" type="url" name="url-avatar" id="popup__input-url-avatar" placeholder="Avatar"
               pattern="/^https?:\/\/[\w\-]+(\.[\w\-]+)+[/#?]?.*$" required />
-            <span class="popup__input-error popup__input-url-profile-error"></span>
+            <span class="popup__input-error popup__input-url-avatar-error"></span>
           </div>
-          <button class="popup__button popup__button-edit-profile" type="submit">
+          <button class="popup__button popup__button-edit-avatar" type="submit">
             Guardar
           </button>
         </form>
