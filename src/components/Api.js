@@ -6,13 +6,14 @@ class Api {
   }
   getInitialCards() {
     return fetch(`${this._baseUrl}/cards`,
-      this._headers
+      { headers: this._headers }
     )
       .then(response => response.json())
   }
+
   getUserInfo() {
     return fetch(`${this._baseUrl}/users/me`,
-      this._headers
+      { headers: this._headers }
     )
       .then(response => response.json())
   }
@@ -85,7 +86,7 @@ class Api {
 }
 
 export const api = new Api('https://around.nomoreparties.co/v1/web_es_11', {
-  headers: {
-    authorization: "962f1eb6-c335-46ac-b3a5-7d22c2a5fd9a", "Content-Type": "application/json"
-  }
+
+  authorization: "962f1eb6-c335-46ac-b3a5-7d22c2a5fd9a", "Content-Type": "application/json"
+
 });

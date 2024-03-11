@@ -19,7 +19,7 @@ export default class Section {
     this._container.innerHTML = '';
   }
   addItem(element) {
-    this._container.prepend(element);
+    this._container.append(element);
 
   }
 }
