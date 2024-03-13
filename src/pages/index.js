@@ -1,5 +1,5 @@
 import './index.css';
-import { config, sectionCard, btnPopupEdit, btnPopupPlace, avatar, profileName, profileAbout, inputProfileName, inputProfileAbout, inputNamePlace, inputUrlPlace, popupFormProfile, popupFormPlace, buttonEditProfile, avatarSection, overlayAvatar, popupEditAvatar, buttonSaveAvatar, popupFormAvatar, closeFormAvatar, inputUrlAvatar, submitPopupPlace, initialCards } from '../utils/utils.js';
+import { config, sectionCard, btnPopupEdit, btnPopupPlace, avatar, profileName, profileAbout, inputProfileName, inputProfileAbout, inputNamePlace, inputUrlPlace, popupFormProfile, popupFormPlace, buttonEditProfile, avatarSection, overlayAvatar, popupEditAvatar, popupFormAvatar, closeFormAvatar, inputUrlAvatar, submitPopupPlace, initialCards } from '../utils/utils.js';
 import Card from '../components/Card.js';
 import Section from '../components/Section.js';
 import UserInfo from '../components/UserInfo.js';
@@ -111,9 +111,9 @@ popupFormAvatar.addEventListener('submit', (evt) => {
       avatar.src = avatarUrl;
       getUsers()
     })
-  const formEditAvatar = new FormValidator(config, popupFormAvatar)
+  /* const formEditAvatar = new FormValidator(config, popupFormAvatar)
   popupEditAvatar.classList.remove('popup__edit-avatar--show');
-  formEditAvatar.enableValidation();
+  formEditAvatar.enableValidation(); */
 
 })
 
@@ -134,7 +134,7 @@ const formProfile = new PopupWithForm('.popup-profile', () => {
     console.error(errors);
   })
 })
-const formValidatorAvatar = new FormValidator(config, popupFormPlace);
+const formValidatorAvatar = new FormValidator(config, popupFormAvatar);
 formValidatorAvatar.enableValidation();
 
 const formEditProfile = new PopupWithForm('.popup__edit-profile');
