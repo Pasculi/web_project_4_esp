@@ -1,4 +1,4 @@
-/* export const initialCards = [
+export const initialCards = [
   {
     name: "Santiago",
     link: "https://storage.googleapis.com/chile-travel-newsite-static-content/2021/08/santiago-portada.jpg",
@@ -23,7 +23,7 @@
     name: "Ciudad de Arica",
     link: "https://q-xx.bstatic.com/xdata/images/city/600x480/671802.jpg?k=f2af7c265359c6bfef67dd8137aae05a987d3df4208c8423068a807acc405ad3&o=",
   },
-]; */
+];
 
 export const config = ({
   formSelector: ".popup__form",
@@ -33,6 +33,8 @@ export const config = ({
   inputErrorClass: "popup__input-type-error",
   errorClass: "popup__error-visible"
 });
+
+
 
 
 export const sectionCard = ".container-card";
@@ -61,6 +63,7 @@ export const buttonSaveAvatar = document.querySelector('.popup__button-save-avat
 export const inputUrlAvatar = document.querySelector('#popup__input-url-avatar');
 export const popupFormAvatar = document.querySelector('.popup__form-edit-avatar');
 export const closeFormAvatar = document.querySelector('.popup__button-close-avatar');
+
 
 
 

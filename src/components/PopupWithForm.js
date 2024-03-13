@@ -23,6 +23,7 @@ export default class PopupWithForm extends PopUp {
   setEventListeners() {
     super.setEventListeners();
     this._formSelector.addEventListener('submit', this.sendCard)
+
   }
   closePopUp() {
     super.closePopUp();

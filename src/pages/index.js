@@ -1,5 +1,5 @@
 import './index.css';
-import { config, sectionCard, btnPopupEdit, btnPopupPlace, avatar, profileName, profileAbout, inputProfileName, inputProfileAbout, inputNamePlace, inputUrlPlace, popupFormProfile, popupFormPlace, buttonEditProfile, avatarSection, overlayAvatar, popupEditAvatar, buttonSaveAvatar, popupFormAvatar, closeFormAvatar, inputUrlAvatar } from '../utils/utils.js';
+import { config, sectionCard, btnPopupEdit, btnPopupPlace, avatar, profileName, profileAbout, inputProfileName, inputProfileAbout, inputNamePlace, inputUrlPlace, popupFormProfile, popupFormPlace, buttonEditProfile, avatarSection, overlayAvatar, popupEditAvatar, buttonSaveAvatar, popupFormAvatar, closeFormAvatar, inputUrlAvatar, submitPopupPlace, initialCards } from '../utils/utils.js';
 import Card from '../components/Card.js';
 import Section from '../components/Section.js';
 import UserInfo from '../components/UserInfo.js';
@@ -7,10 +7,17 @@ import FormValidator from '../components/FormValidator.js';
 import PopupWithImage from '../components/PopupWithImage.js';
 import PopupWithForm from '../components/PopupWithForm.js';
 import { api } from '../components/Api.js';
-/* import PopupWithFormAvatar from '../components/PopupWithFormAvatar.js'; */
 
 
 
+function remoteDeleteCard(idCard) {
+  api.deleteCard(idCard).then(() => {
+    api.getInitialCards().then(cards => {
+      sectionContainerCard.setItems(cards);
+      sectionContainerCard.rendererItems();
+    })
+  })
+}
 
 const formValidatorProfile = new FormValidator(config, popupFormProfile);
 formValidatorProfile.enableValidation();
@@ -26,65 +33,52 @@ const popupImage = new PopupWithImage('.popup-img-close-image')
 
 
 /******************Obtenemos las card desde la API y las incorporamos a la seccción de las CARDS*******************/
-export function getCardInitials() {
 
-  api.getInitialCards()
-    .then(cards => {
-      console.log(cards)
-      const sectionContainerCard = new Section(
-        {
-          items: cards,
-          renderer: (data) => {
-            const cardNew = new Card(
-              data,
-              '.card',
-              function () {
-                popupImage.openPopUp({ name: data.name, link: data.link })
-              });
-            const cardList = cardNew.generateCard();
-            sectionContainerCard.addItem(cardList);
-          },
+const sectionContainerCard = new Section(
+  {
+    items: initialCards,
+    renderer: (data) => {
+      const cardNew = new Card(
+        data,
+        '.card',
+        function () {
+          popupImage.openPopUp({ name: data.name, link: data.link })
         },
-        sectionCard
+        () => { },
+        () => { },
+        remoteDeleteCard,
+        data
+
       );
-      sectionContainerCard.rendererItems();
-    })
-
-}
-
-getCardInitials()
-
-
-/* api.getInitialCards()
-  .then(cards => {
-    const sectionContainerCard = new Section(
-      {
-        items: cards,
-        renderer: (data) => {
-          const cardNew = new Card(
-            data,
-            '.card',
-            function () {
-              popupImage.openPopUp({ name: data.name, link: data.link })
-            });
-          const cardList = cardNew.generateCard();
-          sectionContainerCard.addItem(cardList);
-        },
-      },
-      sectionCard
-    );
+      const cardList = cardNew.generateCard();
+      sectionContainerCard.addItem(cardList);
+    },
+  },
+  sectionCard
+);
+api.getInitialCards()
+  .then((cards) => {
+    sectionContainerCard.setItems(cards);
+  }).finally(() => {
     sectionContainerCard.rendererItems();
-  })
- */
+})
+
+
+
+
 /*********************Obtenemos al Usuario************************/
-api.getUserInfo()
-  .then((dataUser) => {
-    console.log(dataUser)
-    profileName.textContent = dataUser.name;
-    profileAbout.textContent = dataUser.about;
-    avatar.src = dataUser.avatar;
-    avatar.alt = dataUser.avatar;
-  })
+
+function getUsers() {
+  api.getUserInfo()
+    .then((dataUser) => {
+      console.log(dataUser)
+      profileName.textContent = dataUser.name;
+      profileAbout.textContent = dataUser.about;
+      avatar.src = dataUser.avatar;
+      avatar.alt = dataUser.name;
+    })
+}
+getUsers()
 /*Mostrar sombra edit Avatar*/
 function addOverlayAvatar() {
   buttonEditProfile.classList.add('profile__avatar-edit--show');
@@ -108,15 +102,22 @@ closeFormAvatar.addEventListener('click', () => {
   popupEditAvatar.classList.remove('popup__edit-avatar--show');
 })
 
+
+
 popupFormAvatar.addEventListener('submit', (evt) => {
   evt.preventDefault();
-
   api.updateAvatar(inputUrlAvatar.value)
     .then((avatarUrl) => {
-      console.log(avatarUrl);
+      avatar.src = avatarUrl;
+      getUsers()
     })
+  const formEditAvatar = new FormValidator(config, popupFormAvatar)
+  popupEditAvatar.classList.remove('popup__edit-avatar--show');
+  formEditAvatar.enableValidation();
 
 })
+
+
 const userInfo = new UserInfo(profileName, profileAbout);
 
 
@@ -133,43 +134,46 @@ const formProfile = new PopupWithForm('.popup-profile', () => {
     console.error(errors);
   })
 })
+const formValidatorAvatar = new FormValidator(config, popupFormPlace);
+formValidatorAvatar.enableValidation();
 
 const formEditProfile = new PopupWithForm('.popup__edit-profile');
 
+
 /***************************Procesamos formulario de Place************************************ */
 
-/* const formPlace = new PopupWithForm('.popup-place', () => {
-  const nameCard = inputNamePlace.value;
-  const linkCard = inputUrlPlace.value;
-  const createOneCard = new Card(
-    { nameCard , linkCard },
-    '.card',
-    function () {
-      popupImage.openPopUp({ nameCard, linkCard })
-    }
-  );
-  const oneCard = createOneCard.generateCard()
-  sectionContainerCard.addItem(oneCard);
-}); */
+btnPopupPlace.addEventListener('click', () => {
+  console.log("Abrir el formulario Cards")
+  formPlace.openPopUp()
+})
+
 
 const formPlace = new PopupWithForm('.popup-place', () => {
   const nameCard = inputNamePlace.value;
   const linkCard = inputUrlPlace.value;
   api.addCard(linkCard, nameCard)
     .then(newCard => {
+      console.log(newCard)
       const { nameCard, linkCard } = newCard;
       const createOneCard = new Card(
         { nameCard, linkCard },
         '.card',
         function () {
           popupImage.openPopUp({ nameCard, linkCard })
-        }
+        },
+        () => { },
+        () => { },
+        () => { },
+        remoteDeleteCard
       );
-      createOneCard.generateCard()
+      const cardElement = createOneCard.generateCard()
+      sectionContainerCard.addItem(cardElement, true)
     })
-  })
+})
 
-  btnPopupPlace.addEventListener('click', () => {
-    formPlace.openPopUp()
-    getCardInitials()
+submitPopupPlace.addEventListener('click', () => {
+
+
+  console.log("Guardaeeeeee")
+  formPlace.closePopUp();
 })

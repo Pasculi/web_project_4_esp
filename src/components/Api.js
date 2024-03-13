@@ -29,13 +29,13 @@ class Api {
     }).then(response => response.json())
 
   }
-  updateAvatar(urlAvatar) {
+  updateAvatar(avatar) {
     return fetch(`${this._baseUrl}/users/me/avatar`, {
       headers:
         this._headers,
       method: 'PATCH',
       body: JSON.stringify({
-        urlAvatar
+        avatar
       })
     }).then(response => response.json());
   }
@@ -51,12 +51,12 @@ class Api {
       .then((res) => res.json())
 
   }
-  deletCard(id) {
-    return fetch(`${this._baseUrl}/cards/${id}`, {
+  deleteCard(idCard) {
+    return fetch(`${this._baseUrl}/cards/${idCard}`, {
       headers: this._headers,
       method: 'DELETE',
       body: JSON.stringify({
-        id
+        idCard
       })
     })
       .then((res) => res.json())
