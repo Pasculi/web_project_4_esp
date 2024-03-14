@@ -1,5 +1,5 @@
 import './index.css';
-import { config, sectionCard, btnPopupEdit, btnPopupPlace, avatar, profileName, profileAbout, inputProfileName, inputProfileAbout, inputNamePlace, inputUrlPlace, popupFormProfile, popupFormPlace, buttonEditProfile, avatarSection, overlayAvatar, popupEditAvatar, popupFormAvatar, closeFormAvatar, inputUrlAvatar, submitPopupPlace, initialCards } from '../utils/utils.js';
+import { config, sectionCard, btnPopupEdit, btnPopupPlace, avatar, profileName, profileAbout, inputProfileName, inputProfileAbout, inputNamePlace, inputUrlPlace, popupFormProfile, popupFormPlace, buttonEditProfile, avatarSection, overlayAvatar, popupEditAvatar, popupFormAvatar, closeFormAvatar, inputUrlAvatar, submitPopupPlace, submitPopupProfile, initialCards, buttonSaveAvatar, popupWhitFormAvatar } from '../utils/utils.js';
 import Card from '../components/Card.js';
 import Section from '../components/Section.js';
 import UserInfo from '../components/UserInfo.js';
@@ -11,6 +11,7 @@ import { api } from '../components/Api.js';
 
 
 function remoteDeleteCard(idCard) {
+
   api.deleteCard(idCard).then(() => {
     api.getInitialCards().then(cards => {
       sectionContainerCard.setItems(cards);
@@ -18,7 +19,6 @@ function remoteDeleteCard(idCard) {
     })
   })
 }
-
 const formValidatorProfile = new FormValidator(config, popupFormProfile);
 formValidatorProfile.enableValidation();
 
@@ -28,16 +28,13 @@ formValidatorNewCard.enableValidation();
 const popupImage = new PopupWithImage('.popup-img-close-image')
 
 /***********************************************************************/
-
-
-
-
 /******************Obtenemos las card desde la API y las incorporamos a la seccción de las CARDS*******************/
 
 const sectionContainerCard = new Section(
   {
     items: initialCards,
     renderer: (data) => {
+      console.log(data)
       const cardNew = new Card(
         data,
         '.card',
@@ -62,9 +59,6 @@ api.getInitialCards()
   }).finally(() => {
     sectionContainerCard.rendererItems();
 })
-
-
-
 
 /*********************Obtenemos al Usuario************************/
 
@@ -106,15 +100,15 @@ closeFormAvatar.addEventListener('click', () => {
 
 popupFormAvatar.addEventListener('submit', (evt) => {
   evt.preventDefault();
+  buttonSaveAvatar.textContent = "Guardando..."
   api.updateAvatar(inputUrlAvatar.value)
     .then((avatarUrl) => {
       avatar.src = avatarUrl;
+      avatar.alt = 'Avatar'
+      popupEditAvatar.classList.remove('popup__edit-avatar--show');
+        buttonSaveAvatar.textContent= "Guardar"
       getUsers()
     })
-  /* const formEditAvatar = new FormValidator(config, popupFormAvatar)
-  popupEditAvatar.classList.remove('popup__edit-avatar--show');
-  formEditAvatar.enableValidation(); */
-
 })
 
 
@@ -128,6 +122,7 @@ btnPopupEdit.addEventListener('click', () => {
 })
 const formProfile = new PopupWithForm('.popup-profile', () => {
   /*Se actualiza el perfil del usuario*/
+  submitPopupProfile.textContent="Guardando...";
   api.updateUser(inputProfileName.value, inputProfileAbout.value).then((user) => {
     userInfo.setUserInfo({ name: inputProfileName.value, about: inputProfileAbout.value })
   }).catch(errors => {
@@ -137,13 +132,12 @@ const formProfile = new PopupWithForm('.popup-profile', () => {
 const formValidatorAvatar = new FormValidator(config, popupFormAvatar);
 formValidatorAvatar.enableValidation();
 
-const formEditProfile = new PopupWithForm('.popup__edit-profile');
+
 
 
 /***************************Procesamos formulario de Place************************************ */
 
 btnPopupPlace.addEventListener('click', () => {
-  console.log("Abrir el formulario Cards")
   formPlace.openPopUp()
 })
 
@@ -151,6 +145,7 @@ btnPopupPlace.addEventListener('click', () => {
 const formPlace = new PopupWithForm('.popup-place', () => {
   const nameCard = inputNamePlace.value;
   const linkCard = inputUrlPlace.value;
+  submitPopupPlace.textContent = "Guardando..."
   api.addCard(linkCard, nameCard)
     .then(newCard => {
       console.log(newCard)
@@ -168,6 +163,11 @@ const formPlace = new PopupWithForm('.popup-place', () => {
       );
       const cardElement = createOneCard.generateCard()
       sectionContainerCard.addItem(cardElement, true)
+      submitPopupPlace.textContent = "Guardar"
+      api.getInitialCards().then(cards => {
+        sectionContainerCard.setItems(cards);
+        sectionContainerCard.rendererItems();
+      })
     })
 })
 

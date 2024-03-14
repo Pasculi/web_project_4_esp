@@ -1,3 +1,5 @@
+import PopupWithForm from "../components/PopupWithForm";
+
 export const initialCards = [
   {
     name: "Santiago",
@@ -65,6 +67,6 @@ export const popupFormAvatar = document.querySelector('.popup__form-edit-avatar'
 export const closeFormAvatar = document.querySelector('.popup__button-close-avatar');
 
 
-
+/* export const popupWhitFormAvatar = new PopupWithForm(popupEditAvatar) */
 
 
