@@ -44,6 +44,7 @@ export default class Card {
         this._handleLike(this._id, buttonLike);
       }
     })
+    /* this._handleDeleteCards() */
     /* buttonLike.addEventListener('click', () => {
       console.log('Hola')
       if (this.hasOwnerLike(this._id)) {
@@ -55,7 +56,9 @@ export default class Card {
     /* this._node.querySelector(".card__place-button--like").addEventListener("click", (evt) => this._handleButtonLike(evt)); */
     this._node.querySelector('.card__place-button--delete').addEventListener('click', (evt) => {
       this._handleButtonDelete(evt)
-      
+      /* formConfirm.setConfirmAction(confirmDelete);
+      formConfirm.open(); */
+
     });
     this._node.querySelector('.card__place-image-place').addEventListener('click', this._handleCardClick);
   }

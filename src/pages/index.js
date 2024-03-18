@@ -1,5 +1,5 @@
 import './index.css';
-import { config, sectionCard, btnPopupEdit, btnPopupPlace, avatar, profileName, profileAbout, inputProfileName, inputProfileAbout, inputNamePlace, inputUrlPlace, popupFormProfile, popupFormPlace, buttonEditProfile, avatarSection, overlayAvatar, popupEditAvatar, popupFormAvatar, closeFormAvatar, inputUrlAvatar, submitPopupPlace, submitPopupProfile, initialCards, buttonSaveAvatar, buttonLike, extractUser } from '../utils/utils.js';
+import { config, sectionCard, btnPopupEdit, btnPopupPlace, avatar, profileName, profileAbout, inputProfileName, inputProfileAbout, inputNamePlace, inputUrlPlace, popupFormProfile, popupFormPlace, buttonEditProfile, avatarSection, overlayAvatar, popupEditAvatar, popupFormAvatar, closeFormAvatar, inputUrlAvatar, submitPopupPlace, submitPopupProfile, initialCards, buttonSaveAvatar, buttonLike, extractUser, buttonConfirm } from '../utils/utils.js';
 import Card from '../components/Card.js';
 import Section from '../components/Section.js';
 import UserInfo from '../components/UserInfo.js';
@@ -7,11 +7,12 @@ import FormValidator from '../components/FormValidator.js';
 import PopupWithImage from '../components/PopupWithImage.js';
 import PopupWithForm from '../components/PopupWithForm.js';
 import { api } from '../components/Api.js';
+/* import PopupWithConfirmation from '../components/PopupWithConfirmation.js'; */
 
 
 
 function remoteDeleteCard(idCard) {
-  extractUser()
+
   api.deleteCard(idCard).then(() => {
     api.getInitialCards().then(cards => {
       sectionContainerCard.setItems(cards);
@@ -66,7 +67,7 @@ const sectionContainerCard = new Section(
 api.getInitialCards()
 .then((cards) => {
   sectionContainerCard.setItems(cards);
-  extractUser()
+
 
 }).finally(() => {
     sectionContainerCard.rendererItems();
@@ -143,6 +144,7 @@ const formProfile = new PopupWithForm('.popup-profile', () => {
 const formValidatorAvatar = new FormValidator(config, popupFormAvatar);
 formValidatorAvatar.enableValidation();
 
+/* const formConfirm = new PopupWithConfirmation('popup__delete-card'); */
 
 
 
@@ -175,11 +177,10 @@ const formPlace = new PopupWithForm('.popup-place', () => {
       const cardElement = createOneCard.generateCard()
       sectionContainerCard.addItem(cardElement, true)
       submitPopupPlace.textContent = "Guardar"
-      extractUser()
+
       api.getInitialCards().then(cards => {
         sectionContainerCard.setItems(cards);
         sectionContainerCard.rendererItems();
-        extractUser()
       })
         .finally(() => {
           sectionContainerCard.rendererItems();

@@ -8,8 +8,8 @@ export default class PopupWithConfirmation extends PopUp{
   setConfirmAction(confirmHandler) {
     this._confirmHandler = confirmHandler;
     this._confirmButton.removeEventListener("click", this._handleConfirm);
-    this._handleConfirm = (event) => {
-      event.preventDefault();
+    this._handleConfirm = (evt) => {
+      evt.preventDefault();
       this._confirmHandler();
       this.close();
     };
