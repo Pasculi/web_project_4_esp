@@ -1,4 +1,5 @@
 import PopupWithForm from "../components/PopupWithForm";
+import { api } from '../components/Api.js'
 
 export const initialCards = [
   {
@@ -67,6 +68,24 @@ export const popupFormAvatar = document.querySelector('.popup__form-edit-avatar'
 export const closeFormAvatar = document.querySelector('.popup__button-close-avatar');
 
 
-/* export const popupWhitFormAvatar = new PopupWithForm(popupEditAvatar) */
-
+export function extractUser() {
+  api.getUserInfo()
+    .then(user => {
+      const userActually = (user.name)
+      console.log(userActually)
+      api.getInitialCards().then(cards => {
+        const arrUsers = [];
+        cards.forEach(card => {
+          arrUsers.push(card.owner.name);
+        })
+        arrUsers.forEach(itemUser => {
+          const dataUser = (userActually ===itemUser);
+          console.log(dataUser)
+          if (dataUser) {
+            document.querySelector('.card__place-button--delete').remove()
+          }
+        })
+      })
+    })
+}
 

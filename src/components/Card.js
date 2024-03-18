@@ -1,4 +1,5 @@
-import { getCardInitials } from '../pages/index.js';
+import { api } from './Api.js'
+import { extractUser } from '../utils/utils.js';
 export default class Card {
 
   constructor(data, selector, handleCardClick, handleLike, handleRemoveLike, handleDeleteCards) {
@@ -12,12 +13,16 @@ export default class Card {
     this._id = data._id;
     this._likes = data.likes;
     this._owner = data.owner;
-    this._createdAt = data.createdAt;
   }
   _getTemplate() {
     const cardTemplate = document.querySelector(this._selector).content;
     const cardElement = cardTemplate.querySelector('.card__place').cloneNode(true);
     return cardElement;
+  }
+  hasOwnerLike() {
+    return this._likes.some(item => {
+      return item._id === this._owner._id;
+    })
   }
   generateCard() {
     this._node = this._getTemplate();
@@ -27,15 +32,31 @@ export default class Card {
     this._node.querySelector('.card__place-image-place').alt = this._name;
     return this._node;
   }
-  _handleButtonLike(evt) {
-    evt.target.classList.toggle('card__place-button--like-active')
-  }
   _handleButtonDelete() {
     this._handleDeleteCards(this._id)
   }
   _setEventListeners() {
-    this._node.querySelector(".card__place-button--like").addEventListener("click", (evt) => this._handleButtonLike(evt));
-    this._node.querySelector('.card__place-button--delete').addEventListener('click', (evt) => this._handleButtonDelete(evt));
+    const buttonLike = this._node.querySelector(".card__place-button--like");
+    buttonLike.addEventListener("click", () => {
+      if (this.hasOwnerLike(this._id)) {
+        this._handleDeleteCards(this._id, buttonLike)
+      } else {
+        this._handleLike(this._id, buttonLike);
+      }
+    })
+    /* buttonLike.addEventListener('click', () => {
+      console.log('Hola')
+      if (this.hasOwnerLike(this._id)) {
+        this._handleDeleteCards(this._id, buttonLike)
+      } else {
+        this._handleLike(this._id, buttonLike);
+       }
+    }) */
+    /* this._node.querySelector(".card__place-button--like").addEventListener("click", (evt) => this._handleButtonLike(evt)); */
+    this._node.querySelector('.card__place-button--delete').addEventListener('click', (evt) => {
+      this._handleButtonDelete(evt)
+      
+    });
     this._node.querySelector('.card__place-image-place').addEventListener('click', this._handleCardClick);
   }
 }

@@ -1,5 +1,5 @@
 import './index.css';
-import { config, sectionCard, btnPopupEdit, btnPopupPlace, avatar, profileName, profileAbout, inputProfileName, inputProfileAbout, inputNamePlace, inputUrlPlace, popupFormProfile, popupFormPlace, buttonEditProfile, avatarSection, overlayAvatar, popupEditAvatar, popupFormAvatar, closeFormAvatar, inputUrlAvatar, submitPopupPlace, submitPopupProfile, initialCards, buttonSaveAvatar, popupWhitFormAvatar } from '../utils/utils.js';
+import { config, sectionCard, btnPopupEdit, btnPopupPlace, avatar, profileName, profileAbout, inputProfileName, inputProfileAbout, inputNamePlace, inputUrlPlace, popupFormProfile, popupFormPlace, buttonEditProfile, avatarSection, overlayAvatar, popupEditAvatar, popupFormAvatar, closeFormAvatar, inputUrlAvatar, submitPopupPlace, submitPopupProfile, initialCards, buttonSaveAvatar, buttonLike, extractUser } from '../utils/utils.js';
 import Card from '../components/Card.js';
 import Section from '../components/Section.js';
 import UserInfo from '../components/UserInfo.js';
@@ -11,12 +11,23 @@ import { api } from '../components/Api.js';
 
 
 function remoteDeleteCard(idCard) {
-
+  extractUser()
   api.deleteCard(idCard).then(() => {
     api.getInitialCards().then(cards => {
       sectionContainerCard.setItems(cards);
       sectionContainerCard.rendererItems();
     })
+  })
+}
+
+function remoteRemoveLike(idCard) {
+  api.deleteLikeCard(idCard).then(() => {
+    buttonLike.classList.remove("card__place-button--like-active")
+  })
+}
+function remoteLike(idCard, buttonLike) {
+  api.likeCard(idCard).then(() => {
+    buttonLike.classList.add("card__place-button--like-active")
   })
 }
 const formValidatorProfile = new FormValidator(config, popupFormProfile);
@@ -34,15 +45,14 @@ const sectionContainerCard = new Section(
   {
     items: initialCards,
     renderer: (data) => {
-      console.log(data)
       const cardNew = new Card(
         data,
         '.card',
         function () {
           popupImage.openPopUp({ name: data.name, link: data.link })
         },
-        () => { },
-        () => { },
+        remoteRemoveLike,
+        remoteLike,
         remoteDeleteCard,
         data
 
@@ -54,18 +64,19 @@ const sectionContainerCard = new Section(
   sectionCard
 );
 api.getInitialCards()
-  .then((cards) => {
-    sectionContainerCard.setItems(cards);
-  }).finally(() => {
+.then((cards) => {
+  sectionContainerCard.setItems(cards);
+  extractUser()
+
+}).finally(() => {
     sectionContainerCard.rendererItems();
 })
 
 /*********************Obtenemos al Usuario************************/
 
-function getUsers() {
+export function getUsers() {
   api.getUserInfo()
     .then((dataUser) => {
-      console.log(dataUser)
       profileName.textContent = dataUser.name;
       profileAbout.textContent = dataUser.about;
       avatar.src = dataUser.avatar;
@@ -156,24 +167,26 @@ const formPlace = new PopupWithForm('.popup-place', () => {
         function () {
           popupImage.openPopUp({ nameCard, linkCard })
         },
-        () => { },
-        () => { },
-        () => { },
-        remoteDeleteCard
+        remoteRemoveLike,
+        remoteLike,
+        remoteDeleteCard,
+
       );
       const cardElement = createOneCard.generateCard()
       sectionContainerCard.addItem(cardElement, true)
       submitPopupPlace.textContent = "Guardar"
+      extractUser()
       api.getInitialCards().then(cards => {
         sectionContainerCard.setItems(cards);
         sectionContainerCard.rendererItems();
+        extractUser()
       })
+        .finally(() => {
+          sectionContainerCard.rendererItems();
+        })
     })
 })
 
 submitPopupPlace.addEventListener('click', () => {
-
-
-  console.log("Guardaeeeeee")
   formPlace.closePopUp();
 })
