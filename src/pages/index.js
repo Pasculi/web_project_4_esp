@@ -9,7 +9,7 @@ import PopupWithForm from '../components/PopupWithForm.js';
 import { api } from '../components/Api.js';
 /* import PopupWithConfirmation from '../components/PopupWithConfirmation.js'; */
 
-let dataUsers;
+
 
 function remoteDeleteCard(idCard) {
 
@@ -163,6 +163,7 @@ btnPopupPlace.addEventListener('click', () => {
   formPlace.openPopUp()
 })
 
+console.log(profileName.textContent)
 
 const formPlace = new PopupWithForm('.popup-place', () => {
   const nameCard = inputNamePlace.value;

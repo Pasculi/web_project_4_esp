@@ -16,7 +16,7 @@ export default class Card {
     this._handleDeleteCards = handleDeleteCards;
     this._id = data._id;
     this._likes = data.likes;
-    this._owner = data.owner;
+    this._owner = data.owner.id;
   }
   _getTemplate() {
     const cardTemplate = document.querySelector(this._selector).content;
@@ -32,11 +32,13 @@ export default class Card {
   generateCard() {
     this._node = this._getTemplate();
     this._setEventListeners();
-    let userNameCard = this._owner._id;
-    if (userNameCard !== 'd6b3d343518923ca9fa59e03') {
-      console.log(userNameCard)
-      this._node.querySelector('.card__place-button--delete').remove()
-    }
+    api.getUserInfo()
+    .then(dataUser =>{
+      const currentUser = dataUser._id;
+      if (currentUser !== this._owner) {
+        this._node.querySelector('.card__place-button--delete').remove()
+      }
+    })
     /*************************************************** */
     this._node.querySelector('.card__place-name').textContent = this._name;
     this._node.querySelector('.card__place-image-place').src = this._link;
@@ -61,4 +63,7 @@ export default class Card {
     });
     this._node.querySelector('.card__place-image-place').addEventListener('click', this._handleCardClick);
   }
+
+  
 }
+
