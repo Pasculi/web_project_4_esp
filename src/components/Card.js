@@ -1,5 +1,9 @@
 import { api } from './Api.js'
-import { extractUser } from '../utils/utils.js';
+import { userCurrent } from '../pages/index.js';
+
+
+
+
 export default class Card {
 
   constructor(data, selector, handleCardClick, handleLike, handleRemoveLike, handleDeleteCards) {
@@ -24,9 +28,16 @@ export default class Card {
       return item._id === this._owner._id;
     })
   }
+  /*************************************************** */
   generateCard() {
     this._node = this._getTemplate();
     this._setEventListeners();
+    let userNameCard = this._owner._id;
+    if (userNameCard !== 'd6b3d343518923ca9fa59e03') {
+      console.log(userNameCard)
+      this._node.querySelector('.card__place-button--delete').remove()
+    }
+    /*************************************************** */
     this._node.querySelector('.card__place-name').textContent = this._name;
     this._node.querySelector('.card__place-image-place').src = this._link;
     this._node.querySelector('.card__place-image-place').alt = this._name;
@@ -44,20 +55,8 @@ export default class Card {
         this._handleLike(this._id, buttonLike);
       }
     })
-    /* this._handleDeleteCards() */
-    /* buttonLike.addEventListener('click', () => {
-      console.log('Hola')
-      if (this.hasOwnerLike(this._id)) {
-        this._handleDeleteCards(this._id, buttonLike)
-      } else {
-        this._handleLike(this._id, buttonLike);
-       }
-    }) */
-    /* this._node.querySelector(".card__place-button--like").addEventListener("click", (evt) => this._handleButtonLike(evt)); */
     this._node.querySelector('.card__place-button--delete').addEventListener('click', (evt) => {
       this._handleButtonDelete(evt)
-      /* formConfirm.setConfirmAction(confirmDelete);
-      formConfirm.open(); */
 
     });
     this._node.querySelector('.card__place-image-place').addEventListener('click', this._handleCardClick);
