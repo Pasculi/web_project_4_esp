@@ -68,7 +68,7 @@ export const popupFormAvatar = document.querySelector('.popup__form-edit-avatar'
 export const closeFormAvatar = document.querySelector('.popup__button-close-avatar');
 export const buttonConfirm = document.querySelector('.popup__button-delete');
 
-export function extractUser() {
+/* export function extractUser() {
   api.getUserInfo()
     .then(user => {
       const userActually = (user.name)
@@ -89,5 +89,13 @@ export function extractUser() {
         })
       })
     })
-}
+} */
 
+
+
+export function currentUserInfo () {
+  api.getUserInfo()
+    .then((dataUser) => {
+    return dataUser._id
+  })
+}

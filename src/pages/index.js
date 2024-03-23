@@ -1,5 +1,5 @@
 import './index.css';
-import { config, sectionCard, btnPopupEdit, btnPopupPlace, avatar, profileName, profileAbout, inputProfileName, inputProfileAbout, inputNamePlace, inputUrlPlace, popupFormProfile, popupFormPlace, buttonEditProfile, avatarSection, overlayAvatar, popupEditAvatar, popupFormAvatar, closeFormAvatar, inputUrlAvatar, submitPopupPlace, submitPopupProfile, initialCards, buttonSaveAvatar, buttonLike, } from '../utils/utils.js';
+import { config, sectionCard, btnPopupEdit, btnPopupPlace, avatar, profileName, profileAbout, inputProfileName, inputProfileAbout, inputNamePlace, inputUrlPlace, popupFormProfile, popupFormPlace, buttonEditProfile, avatarSection, overlayAvatar, popupEditAvatar, popupFormAvatar, closeFormAvatar, inputUrlAvatar, submitPopupPlace, submitPopupProfile, initialCards, buttonSaveAvatar, buttonLike, currentUserInfo } from '../utils/utils.js';
 import Card from '../components/Card.js';
 import Section from '../components/Section.js';
 import UserInfo from '../components/UserInfo.js';
@@ -21,15 +21,20 @@ function remoteDeleteCard(idCard) {
   })
 }
 
-function remoteRemoveLike(idCard) {
+function remoteRemoveLike(idCard, buttonLike) {
   api.deleteLikeCard(idCard).then(() => {
-    buttonLike.classList.remove("card__place-button--like-active")
+    buttonLike.classList.remove("card__place-button--like-active");
+    console.log(`Quitaste el Like ${idCard}`);
   })
+  .catch(error => console.warn(error ))
 }
 function remoteLike(idCard, buttonLike) {
   api.likeCard(idCard).then(() => {
-    buttonLike.classList.add("card__place-button--like-active")
+    buttonLike.classList.add("card__place-button--like-active");
+    buttonLike.querySelector('.card__place-like-counter').textContent = idCard._likes;
+    console.log(`Diste Like ${idCard}`)
   })
+    .catch(error => console.warn(error))
 }
 const formValidatorProfile = new FormValidator(config, popupFormProfile);
 formValidatorProfile.enableValidation();
@@ -52,8 +57,8 @@ const sectionContainerCard = new Section(
         function () {
           popupImage.openPopUp({ name: data.name, link: data.link })
         },
-        remoteRemoveLike,
         remoteLike,
+        remoteRemoveLike,
         remoteDeleteCard,
         data
 
@@ -67,28 +72,24 @@ const sectionContainerCard = new Section(
 api.getInitialCards()
 .then((cards) => {
   sectionContainerCard.setItems(cards);
-
+  console.log(cards)
 
 }).finally(() => {
     sectionContainerCard.rendererItems();
 })
 
 /*********************Obtenemos al Usuario************************/
-export  const userCurrent = (dataUser)=> {
-  console.log(dataUser.name);
-
-}
 
 
 export function getUsers() {
   api.getUserInfo()
     .then((dataUser) => {
-      userCurrent(dataUser);
       profileName.textContent = dataUser.name;
       profileAbout.textContent = dataUser.about;
       avatar.src = dataUser.avatar;
       avatar.alt = dataUser.name;
-      console.log(dataUser._id);
+      const currentUserId = dataUser._id;
+      console.log(`El ID del User: => ${currentUserId}`)
     })
 }
 getUsers();
@@ -130,6 +131,9 @@ popupFormAvatar.addEventListener('submit', (evt) => {
         buttonSaveAvatar.textContent= "Guardar"
       getUsers()
     })
+   .catch((error) => {
+      console.error("Error al actualizar el Avatar:", error);
+    });
 })
 
 
@@ -146,9 +150,10 @@ const formProfile = new PopupWithForm('.popup-profile', () => {
   submitPopupProfile.textContent="Guardando...";
   api.updateUser(inputProfileName.value, inputProfileAbout.value).then((user) => {
     userInfo.setUserInfo({ name: inputProfileName.value, about: inputProfileAbout.value })
-  }).catch(errors => {
-    console.error(errors);
   })
+    .catch((error) => {
+      console.error("Error al actualizar el perfil:", error);
+    })
 })
 const formValidatorAvatar = new FormValidator(config, popupFormAvatar);
 formValidatorAvatar.enableValidation();
@@ -163,7 +168,6 @@ btnPopupPlace.addEventListener('click', () => {
   formPlace.openPopUp()
 })
 
-console.log(profileName.textContent)
 
 const formPlace = new PopupWithForm('.popup-place', () => {
   const nameCard = inputNamePlace.value;
@@ -179,10 +183,12 @@ const formPlace = new PopupWithForm('.popup-place', () => {
         function () {
           popupImage.openPopUp({ nameCard, linkCard })
         },
-        remoteRemoveLike,
         remoteLike,
+        remoteRemoveLike,
         remoteDeleteCard,
+        {
 
+        }
       );
       const cardElement = createOneCard.generateCard()
       sectionContainerCard.addItem(cardElement, true)
