@@ -80,7 +80,6 @@ api.getInitialCards()
 
 /*********************Obtenemos al Usuario************************/
 
-
 export function getUsers() {
   api.getUserInfo()
     .then((dataUser) => {
@@ -89,8 +88,10 @@ export function getUsers() {
       avatar.src = dataUser.avatar;
       avatar.alt = dataUser.name;
       const currentUserId = dataUser._id;
-      console.log(`El ID del User: => ${currentUserId}`)
-    })
+      return currentUserId;
+    }).catch((error) => {
+      console.warn(`Error al obtener la información del usuario: ${error.message}`);
+    });
 }
 getUsers();
 
