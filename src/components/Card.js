@@ -63,8 +63,7 @@ export default class Card {
 
 
     this._node.querySelector('.card__place-imagen-trash').addEventListener("click", () => {
-      const popupConfirm = new PopupWithConfirmation('.popup__delete-card');
-      console.log(`Popup Confirmation:`)
+      const popupConfirm = new PopupWithConfirmation('.popup__delete-card');     
       popupConfirm.openPopUp();
       });
     /* this._node.querySelector('.card__place-button--delete').addEventListener('click', () => {
@@ -76,8 +75,8 @@ export default class Card {
       popUpConfirm._addClickOutsideHandler(() => {
         popUpConfirm._closePopup
         });
-    });
-    this._node.querySelector('.card__place-image-place').addEventListener('click', this._handleCardClick); */
+    });*/
+    this._node.querySelector('.card__place-image-place').addEventListener('click', this._handleCardClick); 
   }
 
 

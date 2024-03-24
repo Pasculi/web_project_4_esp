@@ -1,5 +1,4 @@
 import PopUp from "./Popup.js";
-import { getCardInitials } from "../pages/index.js";
 export default class PopupWithForm extends PopUp {
   constructor(selectorPopup, submitCallback) {
     super(selectorPopup);
