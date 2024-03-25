@@ -68,31 +68,6 @@ export const popupFormAvatar = document.querySelector('.popup__form-edit-avatar'
 export const closeFormAvatar = document.querySelector('.popup__button-close-avatar');
 export const buttonConfirm = document.querySelector('.popup__button-delete');
 
-/* export function extractUser() {
-  api.getUserInfo()
-    .then(user => {
-      const userActually = (user.name)
-
-      api.getInitialCards().then(cards => {
-        const arrUsers = [];
-        cards.forEach(card => {
-          arrUsers.push(card.owner.name);
-        })
-        arrUsers.forEach(itemUser => {
-          console.log(userActually)
-          console.log(itemUser)
-          const dataUser = (userActually ===itemUser);
-          console.log(dataUser)
-          if (!dataUser) {
-            document.querySelector('.card__place-button--delete').remove()
-          }
-        })
-      })
-    })
-} */
-
-
-
 export function currentUserInfo () {
   api.getUserInfo()
     .then((dataUser) => {

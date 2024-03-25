@@ -4,14 +4,12 @@ export default class PopupWithConfirmation extends PopUp {
   constructor(selectorPopup) {
     super(selectorPopup);
     this._confirm = document.querySelector(selectorPopup);
-    console.log(`Desde PopupWithConfirmation:`)
-    console.log(this._confirm)
   }
   openPopUp(){
     this._confirm.classList.add('popup__delete-card-show')
   }
   closePopUp() {
-    super.closePopUp();
+    this._confirm.classList.remove('popup__delete-card-show')
   }
   setEventListeners() {
     super.setEventListeners();

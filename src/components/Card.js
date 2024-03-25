@@ -14,6 +14,7 @@ export default class Card {
     this._id = data._id;
     this._likes = data.likes;
     this._owner = data.owner;
+    this._counter = (Object.values(this._likes).length).toString()
   }
   _getTemplate() {
     const cardTemplate = document.querySelector(this._selector).content;
@@ -34,7 +35,7 @@ export default class Card {
     this._node.querySelector('.card__place-name').textContent = this._name;
     this._node.querySelector('.card__place-image-place').src = this._link;
     this._node.querySelector('.card__place-image-place').alt = this._name;
-    this._node.querySelector('.card__place-like-counter').textContent = this._likes.length;
+    this._node.querySelector('.card__place-like-counter').textContent = this._counter;
     return this._node;
   }
 
@@ -48,35 +49,24 @@ export default class Card {
   }
   _setEventListeners() {
     const buttonLike = this._node.querySelector(".card__place-button--like");
-    const counterLike = this._node.querySelector('.card__place-like-counter').textContent = this._likes.length;
+    const counterLike = this._node.querySelector('.card__place-like-counter')
     buttonLike.addEventListener("click", () => {
       if (this.hasOwnerLike()) {
         this._handleRemoveLike(this._id, buttonLike)
         console.log(counterLike)
-        counterLike;
+        counterLike.textContent = this._counter;
       } else {
         this._handleLike(this._id, buttonLike)
         console.log(counterLike)
-        counterLike;
+        counterLike.textContent = this._counter;
       }
     })
-
-
+    const popupConfirm = new PopupWithConfirmation('.popup__delete-card');
     this._node.querySelector('.card__place-imagen-trash').addEventListener("click", () => {
-      const popupConfirm = new PopupWithConfirmation('.popup__delete-card');     
       popupConfirm.openPopUp();
-      });
-    /* this._node.querySelector('.card__place-button--delete').addEventListener('click', () => {
-      this._handleButtonDelete(this._id);
-      const popUpConfirm = new PopupWithConfirmation('popup__delete-card');
-      popUpConfirm._handleEscClose = () => {
-        popUpConfirm._closePopup();
-        };
-      popUpConfirm._addClickOutsideHandler(() => {
-        popUpConfirm._closePopup
-        });
-    });*/
-    this._node.querySelector('.card__place-image-place').addEventListener('click', this._handleCardClick); 
+    });
+   
+    this._node.querySelector('.card__place-image-place').addEventListener('click', this._handleCardClick);
   }
 
 
