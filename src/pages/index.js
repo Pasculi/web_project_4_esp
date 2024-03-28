@@ -12,7 +12,6 @@ import { api } from '../components/Api.js';
 
 
 function remoteDeleteCard(idCard) {
-
   api.deleteCard(idCard).then(() => {
     api.getInitialCards().then(cards => {
       sectionContainerCard.setItems(cards);
@@ -24,7 +23,6 @@ function remoteDeleteCard(idCard) {
 function remoteRemoveLike(idCard, buttonLike, callback) {
   return api.deleteLikeCard(idCard).then(() => {
     buttonLike.classList.remove("card__place-button--like-active");
-
     callback()
   })
     .catch(error => console.warn(error))
@@ -45,11 +43,6 @@ formValidatorNewCard.enableValidation();
 
 const popupImage = new PopupWithImage('.popup-img-close-image')
 
-/***********************************************************************/
-/******************Obtenemos las card desde la API y las incorporamos a la seccción de las CARDS*******************/
-
-
-/*********************Obtenemos al Usuario************************/
 
 export function getUsers() {
   api.getUserInfo()

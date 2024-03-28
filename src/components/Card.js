@@ -50,6 +50,7 @@ export default class Card {
       return item._id === this._currentUserId;
     })
   }
+
   _setEventListeners() {
     const buttonLike = this._node.querySelector(".card__place-button--like");
     console.log(this.hasOwnerLike())
@@ -70,10 +71,9 @@ export default class Card {
     this._node.querySelector('.card__place-imagen-trash').addEventListener("click", () => {
       popupConfirm.openPopUp();
     });
-
     this._node.querySelector('.card__place-image-place').addEventListener('click', this._handleCardClick);
+
+   /*  this._node.querySelector('.popup__button--delete-confirm').addEventListener("click", this._handleButtonDelete); */
   }
-
-
 }
 
