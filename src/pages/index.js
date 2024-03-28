@@ -1,5 +1,5 @@
 import './index.css';
-import { config, sectionCard, btnPopupEdit, btnPopupPlace, avatar, profileName, profileAbout, inputProfileName, inputProfileAbout, inputNamePlace, inputUrlPlace, popupFormProfile, popupFormPlace, buttonEditProfile, avatarSection, overlayAvatar, popupEditAvatar, popupFormAvatar, closeFormAvatar, inputUrlAvatar, submitPopupPlace, submitPopupProfile, initialCards, buttonSaveAvatar, buttonLike, currentUserInfo } from '../utils/utils.js';
+import { config, sectionCard, btnPopupEdit, btnPopupPlace, avatar, profileName, profileAbout, inputProfileName, inputProfileAbout, inputNamePlace, inputUrlPlace, popupFormProfile, popupFormPlace, buttonEditProfile, avatarSection, overlayAvatar, popupEditAvatar, popupFormAvatar, closeFormAvatar, inputUrlAvatar, submitPopupPlace, submitPopupProfile, initialCards, buttonSaveAvatar, buttonLike } from '../utils/utils.js';
 import Card from '../components/Card.js';
 import Section from '../components/Section.js';
 import UserInfo from '../components/UserInfo.js';
@@ -21,18 +21,19 @@ function remoteDeleteCard(idCard) {
   })
 }
 
-function remoteRemoveLike(idCard, buttonLike) {
-  api.deleteLikeCard(idCard).then(() => {
+function remoteRemoveLike(idCard, buttonLike, callback) {
+  return api.deleteLikeCard(idCard).then(() => {
     buttonLike.classList.remove("card__place-button--like-active");
-    console.log(`Quitaste el Like ${idCard}`);
+
+    callback()
   })
-  .catch(error => console.warn(error ))
+    .catch(error => console.warn(error))
 }
 function remoteLike(idCard, buttonLike) {
   api.likeCard(idCard).then(() => {
     buttonLike.classList.add("card__place-button--like-active");
     buttonLike.querySelector('.card__place-like-counter').textContent = idCard._likes;
-    console.log(`Diste Like ${idCard}`)
+
   })
     .catch(error => console.warn(error))
 }
@@ -47,47 +48,19 @@ const popupImage = new PopupWithImage('.popup-img-close-image')
 /***********************************************************************/
 /******************Obtenemos las card desde la API y las incorporamos a la seccción de las CARDS*******************/
 
-const sectionContainerCard = new Section(
-  {
-    items: initialCards,
-    renderer: (data) => {
-      const cardNew = new Card(
-        data,
-        '.card',
-        function () {
-          popupImage.openPopUp({ name: data.name, link: data.link })
-        },
-        remoteLike,
-        remoteRemoveLike,
-        remoteDeleteCard,
-        data
-
-      );
-      const cardList = cardNew.generateCard();
-      sectionContainerCard.addItem(cardList);
-    },
-  },
-  sectionCard
-);
-api.getInitialCards()
-.then((cards) => {
-  sectionContainerCard.setItems(cards);
-  console.log(cards)
-
-}).finally(() => {
-    sectionContainerCard.rendererItems();
-})
 
 /*********************Obtenemos al Usuario************************/
 
 export function getUsers() {
   api.getUserInfo()
     .then((dataUser) => {
+
       profileName.textContent = dataUser.name;
       profileAbout.textContent = dataUser.about;
       avatar.src = dataUser.avatar;
       avatar.alt = dataUser.name;
       const currentUserId = dataUser._id;
+      createCard(currentUserId);
       return currentUserId;
     }).catch((error) => {
       console.warn(`Error al obtener la información del usuario: ${error.message}`);
@@ -95,6 +68,42 @@ export function getUsers() {
 }
 getUsers();
 
+let sectionContainerCard;
+
+function createCard(currentUserId) {
+  sectionContainerCard = new Section(
+    {
+      items: initialCards,
+      renderer: (data) => {
+        const cardNew = new Card(
+          data,
+          '.card',
+          function () {
+            popupImage.openPopUp({ name: data.name, link: data.link })
+          },
+          remoteLike,
+          remoteRemoveLike,
+          remoteDeleteCard,
+          currentUserId,
+
+        );
+        const cardList = cardNew.generateCard();
+        sectionContainerCard.addItem(cardList);
+      },
+    },
+    sectionCard
+  );
+
+  api.getInitialCards()
+    .then((cards) => {
+      console.log(cards);
+      sectionContainerCard.setItems(cards);
+
+
+    }).finally(() => {
+      sectionContainerCard.rendererItems();
+    })
+}
 
 /*Mostrar sombra edit Avatar*/
 function addOverlayAvatar() {
@@ -126,13 +135,12 @@ popupFormAvatar.addEventListener('submit', (evt) => {
   buttonSaveAvatar.textContent = "Guardando..."
   api.updateAvatar(inputUrlAvatar.value)
     .then((avatarUrl) => {
-      avatar.src = avatarUrl;
+      avatar.src = avatarUrl.avatar;
       avatar.alt = 'Avatar'
       popupEditAvatar.classList.remove('popup__edit-avatar--show');
-        buttonSaveAvatar.textContent= "Guardar"
-      getUsers()
+      buttonSaveAvatar.textContent = "Guardar"
     })
-   .catch((error) => {
+    .catch((error) => {
       console.error("Error al actualizar el Avatar:", error);
     });
 })
@@ -148,7 +156,7 @@ btnPopupEdit.addEventListener('click', () => {
 })
 const formProfile = new PopupWithForm('.popup-profile', () => {
   /*Se actualiza el perfil del usuario*/
-  submitPopupProfile.textContent="Guardando...";
+  submitPopupProfile.textContent = "Guardando...";
   api.updateUser(inputProfileName.value, inputProfileAbout.value).then((user) => {
     userInfo.setUserInfo({ name: inputProfileName.value, about: inputProfileAbout.value })
   })
@@ -176,10 +184,10 @@ const formPlace = new PopupWithForm('.popup-place', () => {
   submitPopupPlace.textContent = "Guardando..."
   api.addCard(linkCard, nameCard)
     .then(newCard => {
-      console.log(newCard)
-      const { nameCard, linkCard } = newCard;
+
+      /* const { nameCard, linkCard } = newCard; */
       const createOneCard = new Card(
-        { nameCard, linkCard },
+        newCard,
         '.card',
         function () {
           popupImage.openPopUp({ nameCard, linkCard })
