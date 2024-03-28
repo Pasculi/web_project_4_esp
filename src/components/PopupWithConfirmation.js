@@ -3,23 +3,24 @@ import PopUp from "./Popup";
 export default class PopupWithConfirmation extends PopUp {
   constructor(selectorPopup) {
     super(selectorPopup);
-    this._confirm = document.querySelector('.popup__button--delete-confirm');
+    this._confirm = document.querySelector(selectorPopup);
   }
-  setConfirm(confirmHandler) {
-    this._confirmHandler = confirmHandler;
-    this._confirm.removeEventListener('click', this._handleConfirmation);
-    this._handleConfirmation = (evt) => {
-      evt.preventDefault();
-      this._confirmHandler();
+  openPopUp(){
+    this._confirm.classList.add('popup__delete-card-show')
+  }
+  closePopUp() {
+    this._confirm.classList.remove('popup__delete-card-show')
+  }
+  handleEscClose(evt) {
+    console.log(evt.key)
+    if (evt.key === 'Escape') {
       this.closePopUp();
+      console.log('closePopUp called from ESC key press');
     }
-    this._confirm.addEventListener('click', this._handleConfirmation);
-
   }
-
   setEventListeners() {
     super.setEventListeners();
-
+    this._formSelector.addEventListener('submit', this.sendCard)
 
   }
 }

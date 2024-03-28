@@ -12,6 +12,7 @@ import { api } from '../components/Api.js';
 
 
 function remoteDeleteCard(idCard) {
+  console.log(idCard)
   api.deleteCard(idCard).then(() => {
     api.getInitialCards().then(cards => {
       sectionContainerCard.setItems(cards);
@@ -47,7 +48,7 @@ const popupImage = new PopupWithImage('.popup-img-close-image')
 export function getUsers() {
   api.getUserInfo()
     .then((dataUser) => {
-
+      console.log(dataUser)
       profileName.textContent = dataUser.name;
       profileAbout.textContent = dataUser.about;
       avatar.src = dataUser.avatar;
@@ -88,8 +89,8 @@ function createCard(currentUserId) {
   );
 
   api.getInitialCards()
+
     .then((cards) => {
-      console.log(cards);
       sectionContainerCard.setItems(cards);
 
 
@@ -197,6 +198,7 @@ const formPlace = new PopupWithForm('.popup-place', () => {
       submitPopupPlace.textContent = "Guardar"
 
       api.getInitialCards().then(cards => {
+        console.log(cards)
         sectionContainerCard.setItems(cards);
         sectionContainerCard.rendererItems();
       })
@@ -209,3 +211,4 @@ const formPlace = new PopupWithForm('.popup-place', () => {
 submitPopupPlace.addEventListener('click', () => {
   formPlace.closePopUp();
 })
+

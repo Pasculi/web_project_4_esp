@@ -17,6 +17,8 @@ export default class Card {
     this._counter = this._likes.length;
     this._currentUserId = currentUserId;
 
+    console.log(this._idCrad)
+
 
   }
   _getTemplate() {
@@ -53,7 +55,6 @@ export default class Card {
 
   _setEventListeners() {
     const buttonLike = this._node.querySelector(".card__place-button--like");
-    console.log(this.hasOwnerLike())
     const counterLike = this._node.querySelector('.card__place-like-counter')
     buttonLike.addEventListener("click", () => {
       if (this.hasOwnerLike()) {
@@ -68,12 +69,24 @@ export default class Card {
       }
     })
     const popupConfirm = new PopupWithConfirmation('.popup__delete-card');
-    this._node.querySelector('.card__place-imagen-trash').addEventListener("click", () => {
+    this._node.querySelector('.card__place-button--delete').addEventListener("click", () => {
       popupConfirm.openPopUp();
+    });
+    document.querySelector('.popup__button-close-confirm').addEventListener("click", () => {
+      popupConfirm.closePopUp();
     });
     this._node.querySelector('.card__place-image-place').addEventListener('click', this._handleCardClick);
 
-   /*  this._node.querySelector('.popup__button--delete-confirm').addEventListener("click", this._handleButtonDelete); */
+    const buttonDelete = document.querySelector('.popup__button--delete-confirm');
+
+    buttonDelete.addEventListener('click', (evt) => {
+      evt.preventDefault();
+      this._handleButtonDelete()
+      popupConfirm.closePopUp();
+        })
+
+
+
   }
 }
 
