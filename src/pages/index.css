@@ -36,6 +36,7 @@
 
 /*CARDS*/
 @import url(../blocks/card/__place/card__place.css);
+@import url(../blocks/card/__place/card_card_place-container-image.css);
 @import url(../blocks/card/__place/card__place-button--delete.css);
 @import url(../blocks/card/__place/card__place-image-place.css);
 @import url(../blocks/card/__place/card__place-footer.css);
