@@ -52,7 +52,6 @@ export default class Card {
       return item._id === this._currentUserId;
     })
   }
-
   _setEventListeners() {
     const buttonLike = this._node.querySelector(".card__place-button--like");
     const counterLike = this._node.querySelector('.card__place-like-counter')
@@ -79,7 +78,7 @@ export default class Card {
 
     const buttonDelete = document.querySelector('.popup__button--delete-confirm');
 
-    buttonDelete.addEventListener('click', (evt) => {
+    buttonDelete.addEventListener('click', () => {
       evt.preventDefault();
       this._handleButtonDelete()
       popupConfirm.closePopUp();
