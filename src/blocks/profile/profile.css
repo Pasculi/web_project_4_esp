@@ -1,5 +1,5 @@
 .profile {
-  width : 890px;
+  width : 100%;
   display        : flex;
   color          : var(--color-text-on-primary);
   justify-content: space-between;
