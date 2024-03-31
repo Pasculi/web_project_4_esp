@@ -14,6 +14,7 @@ export default class Card {
     this._currentUserId = currentUserId;
     this._popupConfirm = popupConfirm;
     this.deleteCard = this.deleteCard.bind(this)
+    console.log(this._likes)
   }
   _getTemplate() {
     const cardTemplate = document.querySelector(this._selector).content;
@@ -40,8 +41,6 @@ export default class Card {
 
   hasOwnerLike() {
     return this._likes.some(item => {
-      console.log(this._currentUserId === item._id)
-      console.log(this._currentUserId, item._id)
       return item._id === this._currentUserId;
     })
   }
@@ -51,19 +50,23 @@ export default class Card {
   _setEventListeners() {
     const buttonLike = this._node.querySelector(".card__place-button--like");
     const counterLike = this._node.querySelector('.card__place-like-counter');
+    console.log(counterLike)
 
     buttonLike.addEventListener("click", () => {
       if (this.hasOwnerLike()) {
         this._handleRemoveLike(this._idCard, buttonLike, (res) => {
+          console.log(res.likes.length)
           buttonLike.classList.remove('card__place-button--like-active');
           counterLike.textContent = this._counter - 1;
           this._likes = res.likes
         })
       } else {
         this._handleLike(this._idCard, buttonLike, (res) => {
+          console.log(res.likes.length)
           buttonLike.classList.add('card__place-button--like-active');
           counterLike.textContent = this._counter + 1;
           this._likes = res.likes
+          console.log("🚀 ~ Card ~ this._handleLike ~ this._likes:", this._likes)
         })
         buttonLike.classList.add('card__place-button--like-active');
         counterLike.textContent = this._counter + 1;

@@ -17,6 +17,7 @@ import { api } from '../components/Api.js';
 function remoteRemoveLike(idCard, buttonLike, callback) {
   return api.deleteLikeCard(idCard).then((res) => {
     buttonLike.classList.remove("card__place-button--like-active");
+    console.log(res.likes.length)
     callback(res)
   })
     .catch(error => console.warn(error))
@@ -24,8 +25,7 @@ function remoteRemoveLike(idCard, buttonLike, callback) {
 function remoteLike(idCard, buttonLike) {
   api.likeCard(idCard).then(() => {
     buttonLike.classList.add("card__place-button--like-active");
-    buttonLike.querySelector('.card__place-like-counter').textContent = idCard._likes;
-
+/*     buttonLike.querySelector('.card__place-like-counter').textContent = res.likes.length; */
   })
     .catch(error => console.warn(error))
 }
