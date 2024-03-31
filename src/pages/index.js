@@ -15,9 +15,9 @@ import { api } from '../components/Api.js';
 
 
 function remoteRemoveLike(idCard, buttonLike, callback) {
-  return api.deleteLikeCard(idCard).then(() => {
+  return api.deleteLikeCard(idCard).then((res) => {
     buttonLike.classList.remove("card__place-button--like-active");
-    callback()
+    callback(res)
   })
     .catch(error => console.warn(error))
 }
@@ -41,7 +41,6 @@ const popupImage = new PopupWithImage('.popup-img-close-image')
 export function getUsers() {
   api.getUserInfo()
     .then((dataUser) => {
-      console.log(dataUser)
       profileName.textContent = dataUser.name;
       profileAbout.textContent = dataUser.about;
       avatar.src = dataUser.avatar;
@@ -139,6 +138,7 @@ const userInfo = new UserInfo(profileName, profileAbout);
 /***************************Procesamos formulario de Profile************************************ */
 btnPopupEdit.addEventListener('click', () => {
   formProfile.openPopUp();
+  submitPopupProfile.textContent = "Guardar";
   formProfile._getInputValues();
 })
 const formProfile = new PopupWithForm('.popup-profile', () => {
@@ -154,10 +154,6 @@ const formProfile = new PopupWithForm('.popup-profile', () => {
 const formValidatorAvatar = new FormValidator(config, popupFormAvatar);
 formValidatorAvatar.enableValidation();
 
-/* const formConfirm = new PopupWithConfirmation('popup__delete-card'); */
-
-
-
 /***************************Procesamos formulario de Place************************************ */
 
 btnPopupPlace.addEventListener('click', () => {
@@ -171,8 +167,6 @@ const formPlace = new PopupWithForm('.popup-place', () => {
   submitPopupPlace.textContent = "Guardando..."
   api.addCard(linkCard, nameCard)
     .then(newCard => {
-
-      /* const { nameCard, linkCard } = newCard; */
       const createOneCard = new Card(
         newCard,
         '.card',
@@ -185,10 +179,11 @@ const formPlace = new PopupWithForm('.popup-place', () => {
       );
       const cardElement = createOneCard.generateCard()
       sectionContainerCard.addItem(cardElement, true)
-      submitPopupPlace.textContent = "Guardar"
+      submitPopupPlace.textContent = "Guardar";
+      inputNamePlace.value = "";
+      inputUrlPlace.value = "";
 
       api.getInitialCards().then(cards => {
-        console.log(cards)
         sectionContainerCard.setItems(cards);
         sectionContainerCard.rendererItems();
       })

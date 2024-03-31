@@ -37,15 +37,11 @@ export default class Card {
     this._node.querySelector('.card__place-like-counter').textContent = this._counter;
     return this._node;
   }
-  _ideaRemoveCard () {
-    console.log(this._idCard)
-    api.deleteCard(this._idCard).then(() => {
-      
-    })
-  }
 
   hasOwnerLike() {
     return this._likes.some(item => {
+      console.log(this._currentUserId === item._id)
+      console.log(this._currentUserId, item._id)
       return item._id === this._currentUserId;
     })
   }
@@ -54,25 +50,29 @@ export default class Card {
   }
   _setEventListeners() {
     const buttonLike = this._node.querySelector(".card__place-button--like");
-    const counterLike = this._node.querySelector('.card__place-like-counter')
+    const counterLike = this._node.querySelector('.card__place-like-counter');
+
     buttonLike.addEventListener("click", () => {
       if (this.hasOwnerLike()) {
-        this._handleRemoveLike(this._idCard, buttonLike, () => {
+        this._handleRemoveLike(this._idCard, buttonLike, (res) => {
           buttonLike.classList.remove('card__place-button--like-active');
           counterLike.textContent = this._counter - 1;
+          this._likes = res.likes
         })
       } else {
-        this._handleLike(this._idCard, buttonLike)
+        this._handleLike(this._idCard, buttonLike, (res) => {
+          buttonLike.classList.add('card__place-button--like-active');
+          counterLike.textContent = this._counter + 1;
+          this._likes = res.likes
+        })
         buttonLike.classList.add('card__place-button--like-active');
         counterLike.textContent = this._counter + 1;
       }
     })
 
     this._node.querySelector('.card__place-button--delete').addEventListener("click", () => {
-      this._popupConfirm.openPopUp(this._idCard, this.deleteCard);
-      console.log(this._idCard)
-    });
-    
+      this._popupConfirm.openPopUp(this._idCard, this.deleteCard); 
+    });    
     this._node.querySelector('.card__place-image-place').addEventListener('click', this._handleCardClick);
   }
 }
