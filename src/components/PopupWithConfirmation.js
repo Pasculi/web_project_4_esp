@@ -1,28 +1,30 @@
+
 import PopUp from "./Popup";
 
 export default class PopupWithConfirmation extends PopUp {
-  constructor(selectorPopup) {
+  constructor(selectorPopup, callback) {
     super(selectorPopup);
-    this._confirm = document.querySelector(selectorPopup);
+    this.callback = callback;
   }
-  openPopUp(){
-    this._confirm.classList.add('popup__delete-card-show')
+
+  /* _confirmPopup(idCard) {
+    api.deleteCard(idCard).then(() => {
+
+    })
+    console.log('Hola')
+    this.closePopUp();
+
+  } */
+  _handelConfirm(evt) {
+    evt.preventDefault();
+   /*  this._confirmPopup(); */
   }
-  closePopUp() {
-    this._confirm.classList.remove('popup__delete-card-show')
-  }
-  handleEscClose(evt) {
-    console.log(evt.key)
-    if (evt.key === 'Escape') {
-      this.closePopUp();
-      console.log('closePopUp called from ESC key press');
-    }
-  }
+
   setEventListeners() {
     super.setEventListeners();
-    this._formSelector.addEventListener('submit', this.sendCard)
-
+    this.popup.querySelector('form').addEventListener('submit', this._handelConfirm)
+    this._buttonDelete = document.querySelector('.popup__button--delete-confirm');
+    /* this._buttonDelete.addEventListener('click', this._handelConfirm.bind(this)) */
+    //this._buttonDelete.addEventListener('click', callback)
   }
 }
-
-

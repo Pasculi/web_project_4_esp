@@ -16,11 +16,12 @@ export default class PopUp {
   handleEscClose(evt) {
     if (evt.key === 'Escape') {
       this.closePopUp();
-      
+
     }
   }
   setEventListeners() {
     const buttonClose = Array.from(document.querySelectorAll('.popup__image-close'))
+    console.log(buttonClose)
     buttonClose.forEach((item) => {
       item.addEventListener("click", (evt) => {
         this.closePopUp();

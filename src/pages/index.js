@@ -7,17 +7,23 @@ import FormValidator from '../components/FormValidator.js';
 import PopupWithImage from '../components/PopupWithImage.js';
 import PopupWithForm from '../components/PopupWithForm.js';
 import { api } from '../components/Api.js';
-/* import PopupWithConfirmation from '../components/PopupWithConfirmation.js'; */
+import PopupWithConfirmation from '../components/PopupWithConfirmation.js';
 
-
+/* const buttonDelete = document.querySelector('.popup__button--delete-confirm');
+const popupConfirm = new PopupWithConfirmation('.popup__delete-card');
+buttonDelete.addEventListener('click', () => {
+  evt.preventDefault();
+  popupConfirm.closePopUp();
+}) */
+const popupConfirm = new PopupWithConfirmation('.popup__delete-card');
 
 function remoteDeleteCard(idCard) {
   console.log(idCard)
   api.deleteCard(idCard).then(() => {
-    api.getInitialCards().then(cards => {
+    /* api.getInitialCards().then(cards => {
       sectionContainerCard.setItems(cards);
       sectionContainerCard.rendererItems();
-    })
+    }) */
   })
 }
 
@@ -79,6 +85,7 @@ function createCard(currentUserId) {
           remoteRemoveLike,
           remoteDeleteCard,
           currentUserId,
+          popupConfirm
 
         );
         const cardList = cardNew.generateCard();
@@ -189,9 +196,8 @@ const formPlace = new PopupWithForm('.popup-place', () => {
         remoteLike,
         remoteRemoveLike,
         remoteDeleteCard,
-        {
-
-        }
+        currentUserId,
+        popupConfirm,
       );
       const cardElement = createOneCard.generateCard()
       sectionContainerCard.addItem(cardElement, true)

@@ -1,9 +1,6 @@
-import { buttonLike } from '../utils/utils.js';
-import PopupWithConfirmation from './PopupWithConfirmation.js';
-
 export default class Card {
 
-  constructor(data, selector, handleCardClick, handleLike, handleRemoveLike, handleDeleteCards, currentUserId) {
+  constructor(data, selector, handleCardClick, handleLike, handleRemoveLike, handleDeleteCards, currentUserId, popupConfirm) {
     this._name = data.name;
     this._link = data.link;
     this._selector = selector;
@@ -11,15 +8,12 @@ export default class Card {
     this._handleLike = handleLike;
     this._handleRemoveLike = handleRemoveLike;
     this._handleDeleteCards = handleDeleteCards;
-    this._idCrad = data._id;
+    this._idCard = data._id;
     this._likes = data.likes;
     this._owner = data.owner;
     this._counter = this._likes.length;
     this._currentUserId = currentUserId;
-
-    console.log(this._idCrad)
-
-
+    this._popupConfirm = popupConfirm;
   }
   _getTemplate() {
     const cardTemplate = document.querySelector(this._selector).content;
@@ -43,10 +37,18 @@ export default class Card {
     this._node.querySelector('.card__place-like-counter').textContent = this._counter;
     return this._node;
   }
-
-  _handleButtonDelete() {
-    this._handleDeleteCards(this._idCrad)
+  _ideaRemoteCard() {
+    console.log(this._idCard)
+    api.deleteCard(this._idCard).then(() => {
+      /* api.getInitialCards().then(cards => {
+        sectionContainerCard.setItems(cards);
+        sectionContainerCard.rendererItems();
+      }) */
+    })
   }
+ /*  _handleButtonDelete() {
+    this._handleDeleteCards(this._idCard)
+  } */
   hasOwnerLike() {
     return this._likes.some(item => {
       return item._id === this._currentUserId;
@@ -57,35 +59,32 @@ export default class Card {
     const counterLike = this._node.querySelector('.card__place-like-counter')
     buttonLike.addEventListener("click", () => {
       if (this.hasOwnerLike()) {
-        this._handleRemoveLike(this._idCrad, buttonLike, () => {
+        this._handleRemoveLike(this._idCard, buttonLike, () => {
           buttonLike.classList.remove('card__place-button--like-active');
           counterLike.textContent = this._counter - 1;
         })
       } else {
-        this._handleLike(this._idCrad, buttonLike)
+        this._handleLike(this._idCard, buttonLike)
         buttonLike.classList.add('card__place-button--like-active');
         counterLike.textContent = this._counter + 1;
       }
     })
-    const popupConfirm = new PopupWithConfirmation('.popup__delete-card');
+    /* const popupConfirm = new PopupWithConfirmation('.popup__delete-card'); */
     this._node.querySelector('.card__place-button--delete').addEventListener("click", () => {
-      popupConfirm.openPopUp();
+      this._popupConfirm.openPopUp();
     });
-    document.querySelector('.popup__button-close-confirm').addEventListener("click", () => {
-      popupConfirm.closePopUp();
-    });
+    /* document.querySelector('.popup__button-close-confirm').addEventListener("click", () => {
+      //popupConfirm.closePopUp();
+    }); */
     this._node.querySelector('.card__place-image-place').addEventListener('click', this._handleCardClick);
 
-    const buttonDelete = document.querySelector('.popup__button--delete-confirm');
+    /* const buttonDelete = document.querySelector('.popup__button--delete-confirm');
 
     buttonDelete.addEventListener('click', () => {
       evt.preventDefault();
       this._handleButtonDelete()
       popupConfirm.closePopUp();
-        })
-
-
-
+        }) */
   }
 }
 
