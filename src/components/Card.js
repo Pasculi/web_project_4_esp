@@ -1,19 +1,19 @@
 export default class Card {
 
-  constructor(data, selector, handleCardClick, handleLike, handleRemoveLike, handleDeleteCards, currentUserId, popupConfirm) {
+  constructor(data, selector, handleCardClick, handleLike, handleRemoveLike,currentUserId, popupConfirm) {
     this._name = data.name;
     this._link = data.link;
     this._selector = selector;
     this._handleCardClick = handleCardClick;
     this._handleLike = handleLike;
     this._handleRemoveLike = handleRemoveLike;
-    this._handleDeleteCards = handleDeleteCards;
     this._idCard = data._id;
     this._likes = data.likes;
     this._owner = data.owner;
     this._counter = this._likes.length;
     this._currentUserId = currentUserId;
     this._popupConfirm = popupConfirm;
+    this.deleteCard = this.deleteCard.bind(this)
   }
   _getTemplate() {
     const cardTemplate = document.querySelector(this._selector).content;
@@ -37,22 +37,20 @@ export default class Card {
     this._node.querySelector('.card__place-like-counter').textContent = this._counter;
     return this._node;
   }
-  _ideaRemoteCard() {
+  _ideaRemoveCard () {
     console.log(this._idCard)
     api.deleteCard(this._idCard).then(() => {
-      /* api.getInitialCards().then(cards => {
-        sectionContainerCard.setItems(cards);
-        sectionContainerCard.rendererItems();
-      }) */
+      
     })
   }
- /*  _handleButtonDelete() {
-    this._handleDeleteCards(this._idCard)
-  } */
+
   hasOwnerLike() {
     return this._likes.some(item => {
       return item._id === this._currentUserId;
     })
+  }
+  deleteCard(){
+    this._node.remove();
   }
   _setEventListeners() {
     const buttonLike = this._node.querySelector(".card__place-button--like");
@@ -69,22 +67,14 @@ export default class Card {
         counterLike.textContent = this._counter + 1;
       }
     })
-    /* const popupConfirm = new PopupWithConfirmation('.popup__delete-card'); */
+
     this._node.querySelector('.card__place-button--delete').addEventListener("click", () => {
-      this._popupConfirm.openPopUp();
+      this._popupConfirm.openPopUp(this._idCard, this.deleteCard);
+      console.log(this._idCard)
     });
-    /* document.querySelector('.popup__button-close-confirm').addEventListener("click", () => {
-      //popupConfirm.closePopUp();
-    }); */
+    
     this._node.querySelector('.card__place-image-place').addEventListener('click', this._handleCardClick);
-
-    /* const buttonDelete = document.querySelector('.popup__button--delete-confirm');
-
-    buttonDelete.addEventListener('click', () => {
-      evt.preventDefault();
-      this._handleButtonDelete()
-      popupConfirm.closePopUp();
-        }) */
   }
 }
 
+ 

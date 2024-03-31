@@ -1,5 +1,4 @@
-import PopupWithForm from "../components/PopupWithForm";
-import { api } from '../components/Api.js'
+import  PopupWithConfirmation  from '../components/PopupWithConfirmation.js'
 
 export const initialCards = [
   {
@@ -67,3 +66,6 @@ export const inputUrlAvatar = document.querySelector('#popup__input-url-avatar')
 export const popupFormAvatar = document.querySelector('.popup__form-edit-avatar');
 export const closeFormAvatar = document.querySelector('.popup__button-close-avatar');
 export const buttonConfirm = document.querySelector('.popup__button-delete');
+
+
+export const popupConfirm = new PopupWithConfirmation('.popup__delete-card');

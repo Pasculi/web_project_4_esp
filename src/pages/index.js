@@ -1,5 +1,5 @@
 import './index.css';
-import { config, sectionCard, btnPopupEdit, btnPopupPlace, avatar, profileName, profileAbout, inputProfileName, inputProfileAbout, inputNamePlace, inputUrlPlace, popupFormProfile, popupFormPlace, buttonEditProfile, avatarSection, overlayAvatar, popupEditAvatar, popupFormAvatar, closeFormAvatar, inputUrlAvatar, submitPopupPlace, submitPopupProfile, initialCards, buttonSaveAvatar, buttonLike } from '../utils/utils.js';
+import { config, sectionCard, btnPopupEdit, btnPopupPlace, avatar, profileName, profileAbout, inputProfileName, inputProfileAbout, inputNamePlace, inputUrlPlace, popupFormProfile, popupFormPlace, buttonEditProfile, avatarSection, overlayAvatar, popupEditAvatar, popupFormAvatar, closeFormAvatar, inputUrlAvatar, submitPopupPlace, submitPopupProfile, initialCards, buttonSaveAvatar, popupConfirm} from '../utils/utils.js';
 import Card from '../components/Card.js';
 import Section from '../components/Section.js';
 import UserInfo from '../components/UserInfo.js';
@@ -7,25 +7,12 @@ import FormValidator from '../components/FormValidator.js';
 import PopupWithImage from '../components/PopupWithImage.js';
 import PopupWithForm from '../components/PopupWithForm.js';
 import { api } from '../components/Api.js';
-import PopupWithConfirmation from '../components/PopupWithConfirmation.js';
 
-/* const buttonDelete = document.querySelector('.popup__button--delete-confirm');
-const popupConfirm = new PopupWithConfirmation('.popup__delete-card');
-buttonDelete.addEventListener('click', () => {
-  evt.preventDefault();
-  popupConfirm.closePopUp();
-}) */
-const popupConfirm = new PopupWithConfirmation('.popup__delete-card');
 
-function remoteDeleteCard(idCard) {
-  console.log(idCard)
-  api.deleteCard(idCard).then(() => {
-    /* api.getInitialCards().then(cards => {
-      sectionContainerCard.setItems(cards);
-      sectionContainerCard.rendererItems();
-    }) */
-  })
-}
+ function remoteDeleteCard(){
+
+ }
+
 
 function remoteRemoveLike(idCard, buttonLike, callback) {
   return api.deleteLikeCard(idCard).then(() => {
@@ -83,7 +70,6 @@ function createCard(currentUserId) {
           },
           remoteLike,
           remoteRemoveLike,
-          remoteDeleteCard,
           currentUserId,
           popupConfirm
 
@@ -195,8 +181,6 @@ const formPlace = new PopupWithForm('.popup-place', () => {
         },
         remoteLike,
         remoteRemoveLike,
-        remoteDeleteCard,
-        currentUserId,
         popupConfirm,
       );
       const cardElement = createOneCard.generateCard()
