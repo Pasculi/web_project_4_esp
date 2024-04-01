@@ -17,8 +17,7 @@
 }
 
 .profile__avatar-edit--show {
-
-  transform:scale(1)
+  transform:scale(1);
 }
 
 @media screen and (max-width: 812px) {
