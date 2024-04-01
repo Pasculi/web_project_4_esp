@@ -1,4 +1,4 @@
-.popup__container-edit-avatar {
+.popup__avatar-container {
   background-color: transparent;
   position        : fixed;
   margin          : auto;
@@ -11,7 +11,7 @@
 
 
 @media screen and (max-width:812px) {
-  .popup__container-edit-avatar {
+  .popup__avatar-container {
     top   : 350px;
     left  : 60;
     width : 375px;

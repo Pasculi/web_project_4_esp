@@ -60,11 +60,11 @@ export const avatar = document.querySelector('.profile__avatar-image');
 export const avatarSection = document.querySelector('.profile__avatar');
 export const buttonEditProfile = document.querySelector('.profile__avatar-edit');
 export const overlayAvatar = document.querySelector('.profile__overlay-avatar');
-export const popupEditAvatar = document.querySelector('#popup-edit-avatar');
+export const popupEditAvatar = document.querySelector('#popup-avatar-edit');
 export const buttonSaveAvatar = document.querySelector('.popup__button-save-avatar')
 export const inputUrlAvatar = document.querySelector('#popup__input-url-avatar');
-export const popupFormAvatar = document.querySelector('.popup__form-edit-avatar');
-export const closeFormAvatar = document.querySelector('.popup__button-close-avatar');
+export const popupFormAvatar = document.querySelector('.popup__avatar-form-edit');
+export const closeFormAvatar = document.querySelector('.popup__avatar-button-close');
 export const buttonConfirm = document.querySelector('.popup__button-delete');
 
 

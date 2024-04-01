@@ -98,10 +98,10 @@ avatarSection.addEventListener('mouseout', removeOverlayAvatar)
 
 
 buttonEditProfile.addEventListener('click', () => {
-  popupEditAvatar.classList.add('popup__edit-avatar--show');
+  popupEditAvatar.classList.add('popup__avatar-edit--show');
 })
 closeFormAvatar.addEventListener('click', () => {
-  popupEditAvatar.classList.remove('popup__edit-avatar--show');
+  popupEditAvatar.classList.remove('popup__avatar-edit--show');
 })
 
 
@@ -113,8 +113,9 @@ popupFormAvatar.addEventListener('submit', (evt) => {
     .then((avatarUrl) => {
       avatar.src = avatarUrl.avatar;
       avatar.alt = 'Avatar'
-      popupEditAvatar.classList.remove('popup__edit-avatar--show');
-      buttonSaveAvatar.textContent = "Guardar"
+      popupEditAvatar.classList.remove('popup__avatar-edit--show');
+      buttonSaveAvatar.textContent = "Guardar";
+      inputUrlAvatar.value = '';
     })
     .catch((error) => {
       console.error("Error al actualizar el Avatar:", error);
