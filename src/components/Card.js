@@ -56,20 +56,14 @@ export default class Card {
       if (this.hasOwnerLike()) {
         this._handleRemoveLike(this._idCard, buttonLike, (res) => {
           buttonLike.classList.remove('card__place-button--like-active');
-          console.log(counterLike.textContent)
-          console.log(this._likes)
           this._likes = res.likes;
-          console.log(this._likes)
           counterLike.textContent = this._counter - 1; // Disminuir el contador
 
         });
       } else {
         this._handleLike(this._idCard, buttonLike, (res) => {
           buttonLike.classList.add('card__place-button--like-active');
-          console.log(counterLike.textContent)
-          console.log(this._likes)
           this._likes = res.likes;
-          console.log(this._likes)
           counterLike.textContent = this._counter; // Aumentar el contador
 
         });
