@@ -76,8 +76,9 @@
 @import url(../blocks/popup/__input/popup__input-error.css);
 @import url(../blocks/popup/__error_visible/popup__error-visble.css);
 
-/*POPUP EDIT PROFILE*/
+/*POPUP AVATAR EDIT PROFILE*/
 @import url(../blocks/popup/__avatar/popup-avatar-edit.css);
 @import url(../blocks/popup/__avatar/popup-avatar-edit-container.css);
 @import url(../blocks/popup/__avatar/popup-avatar-edit-form.css);
+@import url(../blocks/popup/__avatar/popup-avatar-edit-button-close.css);
 @import url(../blocks/profile/__overlay-avatar/profile__overlay-avatar.css);
