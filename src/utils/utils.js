@@ -68,4 +68,4 @@ export const closeFormAvatar = document.querySelector('.popup__button-close-avat
 export const buttonConfirm = document.querySelector('.popup__button-delete');
 
 
-export const popupConfirm = new PopupWithConfirmation('.popup__confirm');
+export const popupConfirm = new PopupWithConfirmation('.popup-confirm');

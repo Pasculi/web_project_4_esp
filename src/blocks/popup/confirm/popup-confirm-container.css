@@ -1,4 +1,4 @@
-.popup__confirm-container {
+.popup-confirm-container {
 
   background-color: transparent;
   position        : fixed;
@@ -12,7 +12,7 @@
 
 
 @media screen and (max-width:812px) {
-  .popup__container {
+  .popup-container {
     top   : 75px;
     left  : 60;
     width : 300px;

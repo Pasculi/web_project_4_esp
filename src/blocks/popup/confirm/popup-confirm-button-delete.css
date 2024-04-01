@@ -1,4 +1,4 @@
-.popup__confirm-button-delete{
+.popup-confirm-button-delete{
     width           : 358px;
   height          : 50.15px;
   color           : #ffffff;
@@ -10,11 +10,11 @@
   margin-bottom:30px;
   cursor:pointer;
 }
-.popup__confirm-button-delete:hover {
+.popup-confirm-button-delete:hover {
     background-color: rgba(0, 0, 0, 0.8);
   }
 
-  .popup__button-disabled{
+  .popup-button-disabled{
     color           : #000;
   background-color: #FFF;
   pointer-events  : none;
@@ -24,7 +24,7 @@
   }
 
   @media screen and (max-width:812px) {
-    .popup__confirm-button-delete {
+    .popup-confirm-button-delete {
       width: 90%;
     }
   }
