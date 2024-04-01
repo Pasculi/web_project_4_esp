@@ -9,23 +9,17 @@ import PopupWithForm from '../components/PopupWithForm.js';
 import { api } from '../components/Api.js';
 
 
- function remoteDeleteCard(){
-
- }
-
-
 function remoteRemoveLike(idCard, buttonLike, callback) {
   return api.deleteLikeCard(idCard).then((res) => {
     buttonLike.classList.remove("card__place-button--like-active");
-    console.log(res.likes.length)
     callback(res)
   })
     .catch(error => console.warn(error))
 }
-function remoteLike(idCard, buttonLike) {
-  api.likeCard(idCard).then(() => {
+function remoteLike(idCard, buttonLike, callback) {
+  api.likeCard(idCard).then((res) => {
     buttonLike.classList.add("card__place-button--like-active");
-/*     buttonLike.querySelector('.card__place-like-counter').textContent = res.likes.length; */
+    callback(res)
   })
     .catch(error => console.warn(error))
 }
@@ -74,18 +68,14 @@ function createCard(currentUserId) {
 
         );
         const cardList = cardNew.generateCard();
-        sectionContainerCard.addItem(cardList);
+        sectionContainerCard.defaultAddItem(cardList);
       },
     },
     sectionCard
   );
-
   api.getInitialCards()
-
     .then((cards) => {
       sectionContainerCard.setItems(cards);
-
-
     }).finally(() => {
       sectionContainerCard.rendererItems();
     })
@@ -182,14 +172,6 @@ const formPlace = new PopupWithForm('.popup-place', () => {
       submitPopupPlace.textContent = "Guardar";
       inputNamePlace.value = "";
       inputUrlPlace.value = "";
-
-      api.getInitialCards().then(cards => {
-        sectionContainerCard.setItems(cards);
-        sectionContainerCard.rendererItems();
-      })
-        .finally(() => {
-          sectionContainerCard.rendererItems();
-        })
     })
 })
 

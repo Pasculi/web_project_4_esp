@@ -18,8 +18,11 @@ export default class Section {
   clear() {
     this._container.innerHTML = '';
   }
+  defaultAddItem(element) {
+      this._container.append(element);
+  }
   addItem(element) {
-    this._container.append(element);
+    this._container.prepend(element);
 
   }
 }

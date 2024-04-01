@@ -9,7 +9,7 @@
   background      : url('../../../images/vector__like.svg') center no-repeat;
   cursor          : pointer;
   opacity         : 0.5;
-  transition      : 0.3s;
+  /* transition      : 0.3s; */
 }
 
 .card__place-button--like:hover {
