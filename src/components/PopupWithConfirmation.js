@@ -7,7 +7,7 @@ export default class PopupWithConfirmation extends PopUp {
     this._handelConfirm = this._handelConfirm.bind(this);
     this._handleClickConfirm = this._handleClickConfirm.bind(this)
     this._callback = callback;
-    this._buttonDelete = document.querySelector('.popup__confirm-button-delete');
+    this._buttonDelete = document.querySelector('.popup-confirm-button-delete');
   }
   _handelConfirm(evt) {
     evt.preventDefault();

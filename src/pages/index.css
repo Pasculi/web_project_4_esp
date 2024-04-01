@@ -58,10 +58,10 @@
 @import url(../blocks/popup/__input/popup__input.css);
 
 /*POPUP CONFIRM DELETE CARDS*/
-@import url(../blocks/popup/__confirm/popup__confirm.css);
-@import url(../blocks/popup/__confirm/popup__confirm-container.css);
-@import url(../blocks/popup/__confirm/popup__confirm-form.css);
-@import url(../blocks/popup/__confirm/popup__confirm-button-delete.css);
+@import url(../blocks/popup/confirm/popup-confirm.css);
+@import url(../blocks/popup/confirm/popup-confirm-container.css);
+@import url(../blocks/popup/confirm/popup-confirm-form.css);
+@import url(../blocks/popup/confirm/popup-confirm-button-delete.css);
 
 /*POPUP IMAGEN*/
 @import url(../blocks/popup/popup.css);
