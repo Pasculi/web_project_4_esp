@@ -59,7 +59,7 @@ function createCard(currentUserId) {
           data,
           '.card',
           function () {
-            popupImage.openPopUp({ name: data.name, link: data.link })
+            popupImage.openPopUp(data.name,  data.link )
           },
           remoteLike,
           remoteRemoveLike,
@@ -147,14 +147,14 @@ const formPlace = new PopupWithForm('.popup-place', () => {
   const nameCard = inputNamePlace.value;
   const linkCard = inputUrlPlace.value;
   submitPopupPlace.textContent = "Guardando..."
-  api.addCard(linkCard, nameCard)
+  api.addCard(nameCard, linkCard )
     .then(newCard => {
       let currentUserId = newCard.owner._id;
       const createOneCard = new Card(
         newCard,
         '.card',
         function () {
-          popupImage.openPopUp({ nameCard, linkCard })
+          popupImage.openPopUp(nameCard, linkCard )
         },
         remoteLike,
         remoteRemoveLike,

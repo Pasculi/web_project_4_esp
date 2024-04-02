@@ -39,14 +39,13 @@ class Api {
       })
     }).then(response => response.json());
   }
-  addCard(link, name, iduser) {
+  addCard(name, link) {
     return fetch(`${this._baseUrl}/cards`, {
       headers: this._headers,
       method: 'POST',
       body: JSON.stringify({
-        iduser,
-        link,
-        name
+        name,
+        link
       })
     })
       .then((res) => res.json())
