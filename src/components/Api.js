@@ -4,18 +4,27 @@ class Api {
     this._headers = headers;
 
   }
+  handleResponse(res) {
+      if (res.ok) {
+        return res.json();
+      }
+      return Promise.reject(`Error: ${res.status}`);
+  }
+
   getInitialCards() {
     return fetch(`${this._baseUrl}/cards`,
       { headers: this._headers }
     )
-      .then(response => response.json())
+      .then(this.handleResponse)
+      .catch(error => console.error('Error al obtener las cards:', error));
   }
 
   getUserInfo() {
     return fetch(`${this._baseUrl}/users/me`,
       { headers: this._headers }
     )
-      .then(response => response.json())
+      .then(this.handleResponse)
+      .catch(error => console.error('Error al obtener la información del usuario:', error));
   }
   updateUser(name, about) {
     return fetch(`${this._baseUrl}/users/me`, {
@@ -26,7 +35,9 @@ class Api {
         name,
         about
       })
-    }).then(response => response.json())
+    })
+      .then(this.handleResponse)
+      .catch(error => console.error('Error al actualizar al usuario', error));
 
   }
   updateAvatar(avatar) {
@@ -37,7 +48,9 @@ class Api {
       body: JSON.stringify({
         avatar
       })
-    }).then(response => response.json());
+    })
+      .then(this.handleResponse)
+      .catch(error => console.error('Error al actualizar al avatar:', error));
   }
   addCard(name, link) {
     return fetch(`${this._baseUrl}/cards`, {
@@ -48,7 +61,8 @@ class Api {
         link
       })
     })
-      .then((res) => res.json())
+      .then(this.handleResponse)
+      .catch(error => console.error('Error al añadir una tarjeta:', error));
 
   }
   deleteCard(idCard) {
@@ -59,7 +73,8 @@ class Api {
         idCard
       })
     })
-      .then((res) => res.json())
+      .then(this.handleResponse)
+      .catch(error => console.error('Error al eliminar una tarjeta:', error));
 
   }
   likeCard(id, isLiked) {
@@ -71,7 +86,8 @@ class Api {
         id
       })
     })
-      .then((res) => res.json())
+      .then(this.handleResponse)
+      .catch(error => console.error('Error al dar like a la tarjeta:', error));
   }
   deleteLikeCard(id) {
     return fetch(`${this._baseUrl}/cards/likes/${id}`, {
@@ -81,7 +97,8 @@ class Api {
         id
       })
     })
-      .then((res) => res.json())
+      .then(this.handleResponse)
+      .catch(error => console.error('Error al quitar like a la tarjeta', error));
   }
 }
 
