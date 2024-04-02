@@ -81,7 +81,7 @@ function createCard(currentUserId) {
     })
 }
 
-/*Mostrar sombra edit Avatar*/
+
 function addOverlayAvatar() {
   buttonEditProfile.classList.add('profile__avatar-edit--show');
   overlayAvatar.classList.add('profile__overlay-avatar--show')
@@ -94,8 +94,6 @@ function removeOverlayAvatar() {
 avatarSection.addEventListener('mouseover', addOverlayAvatar)
 avatarSection.addEventListener('mouseout', removeOverlayAvatar)
 
-/***************Mostrar Formulario Edit Avatar******************/
-
 
 buttonEditProfile.addEventListener('click', () => {
   popupEditAvatar.classList.add('popup-avatar-edit--show');
@@ -103,7 +101,6 @@ buttonEditProfile.addEventListener('click', () => {
 closeFormAvatar.addEventListener('click', () => {
   popupEditAvatar.classList.remove('popup-avatar-edit--show');
 })
-
 
 
 popupFormAvatar.addEventListener('submit', (evt) => {
@@ -122,18 +119,15 @@ popupFormAvatar.addEventListener('submit', (evt) => {
     });
 })
 
-
 const userInfo = new UserInfo(profileName, profileAbout);
 
-
-/***************************Procesamos formulario de Profile************************************ */
 btnPopupEdit.addEventListener('click', () => {
   formProfile.openPopUp();
   submitPopupProfile.textContent = "Guardar";
   formProfile._getInputValues();
 })
 const formProfile = new PopupWithForm('.popup-profile', () => {
-  /*Se actualiza el perfil del usuario*/
+
   submitPopupProfile.textContent = "Guardando...";
   api.updateUser(inputProfileName.value, inputProfileAbout.value).then((user) => {
     userInfo.setUserInfo({ name: inputProfileName.value, about: inputProfileAbout.value })
@@ -145,12 +139,9 @@ const formProfile = new PopupWithForm('.popup-profile', () => {
 const formValidatorAvatar = new FormValidator(config, popupFormAvatar);
 formValidatorAvatar.enableValidation();
 
-/***************************Procesamos formulario de Place************************************ */
-
 btnPopupPlace.addEventListener('click', () => {
   formPlace.openPopUp()
 })
-
 
 const formPlace = new PopupWithForm('.popup-place', () => {
   const nameCard = inputNamePlace.value;
