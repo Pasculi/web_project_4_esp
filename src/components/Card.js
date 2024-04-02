@@ -43,6 +43,7 @@ export default class Card {
     this._node.remove();
   }
   hasOwnerLike() {
+    console.log(this._currentUserId)
     return this._likes.some(item => {
       return item._id === this._currentUserId;
     });
@@ -54,17 +55,21 @@ export default class Card {
 
     buttonLike.addEventListener("click", () => {
       if (this.hasOwnerLike()) {
+        console.log(this.hasOwnerLike());
         this._handleRemoveLike(this._idCard, buttonLike, (res) => {
           buttonLike.classList.remove('card__place-button--like-active');
           this._likes = res.likes;
-          counterLike.textContent = this._counter -1; // Disminuir el contador
+          counterLike.textContent = this._counter; // Disminuir el contador
+          console.log(this._likes);
 
         });
       } else {
-        this._handleLike(this._idCard, buttonLike, (res) => {
+        console.log(this.hasOwnerLike());
+        this._handleLike(this._idCard, this.hasOwnerLike(), buttonLike, (res) => {
           buttonLike.classList.add('card__place-button--like-active');
           this._likes = res.likes;
-          counterLike.textContent = this._counter; // Aumentar el contador
+          counterLike.textContent = this._counter + 1; // Aumentar el contador
+          console.log(this._likes);
 
         });
       }

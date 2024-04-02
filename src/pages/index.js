@@ -16,8 +16,8 @@ function remoteRemoveLike(idCard, buttonLike, callback) {
   })
     .catch(error => console.warn(error))
 }
-function remoteLike(idCard, buttonLike, callback) {
-  api.likeCard(idCard).then((res) => {
+function remoteLike(idCard, isLiked, buttonLike, callback) {
+  api.likeCard(idCard, isLiked).then((res) => {
     buttonLike.classList.add("card__place-button--like-active");
     callback(res)
   })
@@ -158,6 +158,7 @@ const formPlace = new PopupWithForm('.popup-place', () => {
   submitPopupPlace.textContent = "Guardando..."
   api.addCard(linkCard, nameCard)
     .then(newCard => {
+      let currentUserId = newCard.owner._id;
       const createOneCard = new Card(
         newCard,
         '.card',
@@ -166,6 +167,7 @@ const formPlace = new PopupWithForm('.popup-place', () => {
         },
         remoteLike,
         remoteRemoveLike,
+        currentUserId,
         popupConfirm,
       );
       const cardElement = createOneCard.generateCard()
