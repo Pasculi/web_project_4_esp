@@ -57,7 +57,7 @@ export default class Card {
         this._handleRemoveLike(this._idCard, buttonLike, (res) => {
           buttonLike.classList.remove('card__place-button--like-active');
           this._likes = res.likes;
-          counterLike.textContent = this._counter /* - 1 */;
+          counterLike.textContent = this._counter;
         });
       } else {
         this._handleLike(this._idCard, this.hasOwnerLike(), buttonLike, (res) => {

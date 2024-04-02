@@ -13,10 +13,10 @@ export default class PopUp {
     this.popup.classList.remove('popup--show');
     document.removeEventListener('keydown', this.handleEscClose);
   }
+  
   handleEscClose(evt) {
     if (evt.key === 'Escape') {
       this.closePopUp();
-
     }
   }
   setEventListeners() {

@@ -26,7 +26,6 @@ export default class PopupWithConfirmation extends PopUp {
     this._idCard = idCard;
     this._callback = callback;
   }
-
   setEventListeners() {
     super.setEventListeners();
     this.popup.querySelector('form').addEventListener('submit', this._handelConfirm)
