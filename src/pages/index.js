@@ -1,5 +1,5 @@
 import './index.css';
-import { config, sectionCard, btnPopupEdit, btnPopupPlace, avatar, profileName, profileAbout, inputProfileName, inputProfileAbout, inputNamePlace, inputUrlPlace, popupFormProfile, popupFormPlace, buttonEditProfile, avatarSection, overlayAvatar, popupEditAvatar, popupFormAvatar, closeFormAvatar, inputUrlAvatar, submitPopupPlace, submitPopupProfile, initialCards, buttonSaveAvatar, popupConfirm} from '../utils/utils.js';
+import { config, sectionCard, btnPopupEdit, btnPopupPlace, avatar, profileName, profileAbout, inputProfileName, inputProfileAbout, inputNamePlace, inputUrlPlace, popupFormProfile, popupFormPlace, buttonEditProfile, avatarSection, overlayAvatar, popupEditAvatar, popupFormAvatar, closeFormAvatar, inputUrlAvatar, submitPopupPlace, submitPopupProfile, initialCards, buttonSaveAvatar, popupConfirm } from '../utils/utils.js';
 import Card from '../components/Card.js';
 import Section from '../components/Section.js';
 import UserInfo from '../components/UserInfo.js';
@@ -173,3 +173,4 @@ submitPopupPlace.addEventListener('click', () => {
   formPlace.closePopUp();
 })
 
+console.log(createCard())
