@@ -48,10 +48,9 @@ export function getUsers() {
 }
 getUsers();
 
-let sectionContainerCard;
 
 function createCard(currentUserId) {
-  sectionContainerCard = new Section(
+  const sectionContainerCard = new Section(
     {
       items: initialCards,
       renderer: (data) => {
@@ -59,7 +58,7 @@ function createCard(currentUserId) {
           data,
           '.card',
           function () {
-            popupImage.openPopUp(data.name,  data.link )
+            popupImage.openPopUp(data.name, data.link)
           },
           remoteLike,
           remoteRemoveLike,
@@ -79,6 +78,7 @@ function createCard(currentUserId) {
     }).finally(() => {
       sectionContainerCard.rendererItems();
     })
+  containerCard(sectionContainerCard)
 }
 
 
@@ -139,38 +139,41 @@ const formProfile = new PopupWithForm('.popup-profile', () => {
 const formValidatorAvatar = new FormValidator(config, popupFormAvatar);
 formValidatorAvatar.enableValidation();
 
-btnPopupPlace.addEventListener('click', () => {
-  formPlace.openPopUp()
-})
+function containerCard(sectionContainerCard) {
 
-const formPlace = new PopupWithForm('.popup-place', () => {
-  const nameCard = inputNamePlace.value;
-  const linkCard = inputUrlPlace.value;
-  submitPopupPlace.textContent = "Guardando..."
-  api.addCard(nameCard, linkCard )
-    .then(newCard => {
-      let currentUserId = newCard.owner._id;
-      const createOneCard = new Card(
-        newCard,
-        '.card',
-        function () {
-          popupImage.openPopUp(nameCard, linkCard )
-        },
-        remoteLike,
-        remoteRemoveLike,
-        currentUserId,
-        popupConfirm,
-      );
-      const cardElement = createOneCard.generateCard()
-      sectionContainerCard.addItem(cardElement, true)
-      submitPopupPlace.textContent = "Guardar";
-      inputNamePlace.value = "";
-      inputUrlPlace.value = "";
-    })
-})
+  const formPlace = new PopupWithForm('.popup-place', () => {
+    const nameCard = inputNamePlace.value;
+    const linkCard = inputUrlPlace.value;
+    submitPopupPlace.textContent = "Guardando..."
+    api.addCard(nameCard, linkCard)
+      .then(newCard => {
+        let currentUserId = newCard.owner._id;
+        const createOneCard = new Card(
+          newCard,
+          '.card',
+          function () {
+            popupImage.openPopUp(nameCard, linkCard)
+          },
+          remoteLike,
+          remoteRemoveLike,
+          currentUserId,
+          popupConfirm,
+        );
+        const cardElement = createOneCard.generateCard()
+        sectionContainerCard.addItem(cardElement, true)
+        submitPopupPlace.textContent = "Guardar";
+        inputNamePlace.value = "";
+        inputUrlPlace.value = "";
+      })
+  })
 
-submitPopupPlace.addEventListener('click', () => {
-  formPlace.closePopUp();
-})
+  btnPopupPlace.addEventListener('click', () => {
+    formPlace.openPopUp()
+  })
 
-console.log(createCard())
+  submitPopupPlace.addEventListener('click', () => {
+    formPlace.closePopUp();
+  })
+}
+
+

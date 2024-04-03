@@ -5,7 +5,6 @@
   justify-content : center;
   padding-top     : 185px;
   top             : 0;
-  bottom          : 0;
   left            : 0;
   right           : 0;
   margin          : auto;
@@ -17,5 +16,6 @@
 
 .popup-avatar-edit--show {
   opacity: 1;
+  pointer-events: initial;
   z-index: 10;
 }
